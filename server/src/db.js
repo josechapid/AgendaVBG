@@ -8,8 +8,8 @@ const { DB, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } =
 //° CONEXION A LA BASE DE DATOS
 
 
-  sequelize = new Sequelize(
-    `${DB}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+ const sequelize = new Sequelize(
+    `${DB}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, 
     {
       logging: false, // set to console.log to see the raw SQL queries
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -45,7 +45,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring cambio
 
-const { } = sequelize.models;
+const { Banners } = sequelize.models;
 // Definir el modelo CartProduct con el campo "cantidad"
 // Aca vendrian las relaciones
 
