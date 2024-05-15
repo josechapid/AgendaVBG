@@ -16,6 +16,9 @@ const Bienvenida = () => {
         <TouchableOpacity>
             <Text>Siguiente</Text>
         </TouchableOpacity>
+         <TouchableOpacity>
+            <Text>Siguiente</Text>
+        </TouchableOpacity>
       </View>
     );
 };
