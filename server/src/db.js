@@ -17,6 +17,8 @@ const { DB, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } =
   );
 
 
+
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -45,7 +47,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring cambio
 
-const { Banners } = sequelize.models;
+const { Banners,CareRoutes,Administrator } = sequelize.models;
 // Definir el modelo CartProduct con el campo "cantidad"
 // Aca vendrian las relaciones
 
