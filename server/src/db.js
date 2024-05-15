@@ -46,6 +46,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring cambio
 
+const {MyDate, InfoViolence} = sequelize.models;
 const { Banners,CareRoutes,Administrator } = sequelize.models;
 // Definir el modelo CartProduct con el campo "cantidad"
 // Aca vendrian las relaciones
