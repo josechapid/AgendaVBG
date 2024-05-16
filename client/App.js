@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import PerfileScreen from './component/PerfileScreen/PerfileScreen'
 import HomeScreen from './component/HomeScreen/HomeScreen';
-import Bienvenida from './Bienvenida';
+import Bienvenida from './screens/bienvenida/Bienvenida';
 
 const Stack = createStackNavigator();
 
