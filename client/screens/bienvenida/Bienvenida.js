@@ -9,17 +9,22 @@ const Bienvenida = () => {
     return (
       <View style={styles.container}>
         <View style={styles.topSection}>
-            <Text style={styles.title}>Bienvenida</Text>
+            <Text style={styles.title}>Bienvenida!</Text>
+             
         </View>
         <View style={styles.imageSec}>
             <Image source={require("../../assets/img/amorPropio.jpg")}
              style={styles.image}
-            resizeMode="contain"
+            resizeMode="cover"
             />
         </View>
-        <View style={styles.textSection}>
-            <Text>Somos</Text>
+        <View style={styles.middleSection}>
+            <Text style={styles.text}>Somos: titulo</Text>
         </View>
+        <View style={styles.textSection}>
+            <Text style={styles.text}>Estamos felices de acompañarte</Text>
+        </View>
+       
         <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("Home")}
