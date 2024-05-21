@@ -19,7 +19,7 @@ const Bienvenida = () => {
             />
         </View>
         <View style={styles.middleSection}>
-            <Text style={styles.text}>Somos: titulo</Text>
+            <Text style={styles.text}>Somos Renacer Juntas</Text>
         </View>
         <View style={styles.textSection}>
             <Text style={styles.text}>Estamos felices de acompañarte</Text>
@@ -27,7 +27,7 @@ const Bienvenida = () => {
        
         <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate("Ingresar")}
         >
             <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
