@@ -2,7 +2,7 @@ import * as React from 'react';
 import {  Text, View, Button, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from "./styles";
-// import { ScrollView } from 'react-native-gesture-handler';
+
 
 const Bienvenida = () => {
     const navigation = useNavigation();
