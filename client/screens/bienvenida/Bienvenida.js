@@ -1,13 +1,15 @@
 import * as React from 'react';
-import {  Text, View, Button, Image, TouchableOpacity } from 'react-native';
+import {  Text, View, Button, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from "./styles";
+// import { ScrollView } from 'react-native-gesture-handler';
 
 const Bienvenida = () => {
     const navigation = useNavigation();
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View style={{ height: 50 }} />
         <View style={styles.topSection}>
             <Text style={styles.title}>Bienvenida!</Text>
              
@@ -19,10 +21,20 @@ const Bienvenida = () => {
             />
         </View>
         <View style={styles.middleSection}>
-            <Text style={styles.text}>Somos Renacer Juntas</Text>
+            <View style={styles.logoSection}>
+            <Image source={require("../../assets/img/Logo 1.png")}
+                style={styles.logo}
+            />
+            </View>
+            <Text style={styles.rj}>Renacer Juntas</Text>
         </View>
         <View style={styles.textSection}>
             <Text style={styles.text}>Estamos felices de acompañarte</Text>
+            <Text style={styles.text}>La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.
+            La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.
+            La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.
+            La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.
+            </Text>
         </View>
        
         <TouchableOpacity
@@ -32,7 +44,7 @@ const Bienvenida = () => {
             <Text style={styles.buttonText}>Siguiente</Text>
         </TouchableOpacity>
         
-      </View>
+      </ScrollView>
     );
 };
 

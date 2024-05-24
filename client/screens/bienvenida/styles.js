@@ -17,20 +17,24 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#f7ede2",
-        width: '100%'
+        width: '100%',
+        aspectRatio: 1
         
     },
     image: {
     width: '100%',
-    height: '100%',
+    height: undefined,
+    aspectRatio: 1
   },
     middleSection: {
         flex: 0.8,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#f4a261", 
-        paddingVertical: 0,
-        width: '100%'
+        width: '100%',
+        flexDirection:"row",
+        paddingHorizontal:20,
+
     },
     textSection: {
         flex: 1,
@@ -38,6 +42,7 @@ export default StyleSheet.create({
         alignItems: "flex-start",
         paddingLeft: 20,
         marginBottom:15,
+        marginTop:20
     },
     button: {
         backgroundColor: "#f4a261",
@@ -56,9 +61,26 @@ export default StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
   },
-  text: {
-    fontSize: 18,
+    text: {
+        fontSize: 18,
     
-  }
+},
+    rj:{
+        fontSize: 30, 
+        color:"#f7ede2",
+        fontFamily:"BirthstoneBounce-Regular"
+    },
+    logo:{
+        width:50,
+        height:50,
+        marginRight:30,
+        
+},
+// logoSection:{
+//     backgroundColor:"white",
+    
+    
+// }
+
 
 })

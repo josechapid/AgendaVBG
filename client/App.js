@@ -9,10 +9,32 @@ import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
 import Ingresar from './screens/ingresar/Ingresar';
 import 'react-native-reanimated';
+import * as Font from 'expo-font';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = React.useState(false);
+
+    const loadFonts = async () => {
+    await Font.loadAsync({
+      
+      'BirthstoneBounce-Medium': require('./assets/fonts/BirthstoneBounce-Medium.ttf'),
+      'BirthstoneBounce-Regular': require('./assets/fonts/BirthstoneBounce-Regular.ttf')
+    });
+    setFontsLoaded(true);
+  };
+
+  
+  React.useEffect(() => {
+    loadFonts();
+  }, []);
+
+  
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     
     <NavigationContainer>
