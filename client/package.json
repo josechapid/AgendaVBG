@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
+    "git": "node ../commit-push.js",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",

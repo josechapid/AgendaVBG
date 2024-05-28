@@ -1,5 +1,7 @@
 {
-
+  "scripts": {
+    "git": "node ./commit-push.js"
+  },
   "dependencies": {
     "expo-cli": "^6.3.10"
   }
