@@ -7,7 +7,7 @@ function tipOneFirts ({navigation}){
     return (
       <View contentContainerStyle={styles.scrollViewContent}>
         <View>
-          <Image source={require("../../assets/tip1/tip1.png")} />
+          <Image source={require("../../assets/img/tip1/tip1.png")} />
         </View>
         <View>
           <Text>
