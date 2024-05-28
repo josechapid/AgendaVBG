@@ -16,6 +16,18 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate('Profile', {name: 'Black Panther'})
           }
         />
+        <Button
+          title = "Info. violencia"
+          onPress={()=>
+            navigation.navigate('Infoviolence', {name: 'InfoViolence'})
+          }
+        />
+        <Button
+          title = "Tip 1"
+          onPress={()=>
+            navigation.navigate('Tip1', {name: 'Tip1'})
+          }
+        />
         <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
       </View>
     );

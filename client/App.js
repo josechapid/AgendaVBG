@@ -7,19 +7,28 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import PerfileScreen from './component/PerfileScreen/PerfileScreen'
 import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
+import InfoViolence from './component/InfoViolence/InfoViolence';
+import tipOneFirsts from './component/Tip1/tipOneFirsts';
+import tipOneSecond from './component/Tip1/tipOneSecond';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    
     <NavigationContainer>
-      <View>
+      {/* <View>
         <Bienvenida/>
-      </View>
+      </View> */}
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} initialParams={{fromChild: 'Initial'}} />
-        <Stack.Screen name="Profile" component={PerfileScreen}/>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          initialParams={{ fromChild: "Initial" }}
+        />
+        <Stack.Screen name="Profile" component={PerfileScreen} />
+        <Stack.Screen name="Infoviolence" component={InfoViolence} />
+        <Stack.Screen name="Tip1" component={tipOneFirsts} />
+        <Stack.Screen name="TipOneSecond" component={tipOneSecond} />
       </Stack.Navigator>
     </NavigationContainer>
   );
