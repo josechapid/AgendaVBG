@@ -11,7 +11,7 @@ function InfoViolence() {
         <View style={styles.containertitleUno}>
           <View style={styles.imagetitle}>
             <Image
-              source={require("../../assets/vistajose/mujer_preguntas.png")}
+              source={require("../../assets/img/infoViolence/mujer_preguntas.png")}
               style={styles.imagetitleUno}
             />
           </View>
@@ -40,7 +40,7 @@ function InfoViolence() {
         <View style={styles.typesContainer}>
           <View style={styles.typesImage}>
             <Image
-              source={require("../../assets/vistajose/vilencia fisica.png")}
+              source={require("../../assets/img/infoViolence/vilencia fisica.png")}
               style={styles.imageTypesUno}
             />
           </View>
@@ -64,7 +64,7 @@ function InfoViolence() {
           </View>
           <View style={styles.typesImage}>
             <Image
-              source={require("../../assets/vistajose/violencia psicológica.png")}
+              source={require("../../assets/img/infoViolence/violencia psicológica.png")}
               style={styles.imageTypesUno}
             />
           </View>
@@ -74,7 +74,7 @@ function InfoViolence() {
         <View style={styles.typesContainer}>
           <View style={styles.typesImage}>
             <Image
-              source={require("../../assets/vistajose/violencia sexual.png")}
+              source={require("../../assets/img/infoViolence/violencia sexual.png")}
               style={styles.imageTypesUno}
             />
           </View>
@@ -100,7 +100,7 @@ function InfoViolence() {
           </View>
           <View style={styles.typesImage}>
             <Image
-              source={require("../../assets/vistajose/violencia economica.png")}
+              source={require("../../assets/img/infoViolence/violencia economica.png")}
               style={styles.imageTypesUno}
             />
           </View>
@@ -123,7 +123,7 @@ function InfoViolence() {
         {/* -----------------------------------------------------container violentómetro */}
         <View style={styles.violentometro}>
           <Image
-            source={require("../../assets/vistajose/q.webp")}
+            source={require("../../assets/img/infoViolence/q.webp")}
             style={styles.imageViolentometro}
           />
         </View>
