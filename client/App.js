@@ -7,6 +7,9 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import PerfileScreen from './component/PerfileScreen/PerfileScreen'
 import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
+import InfoViolence from './component/InfoViolence/InfoViolence';
+import tipOneFirsts from './component/Tip1/tipOneFirsts';
+import tipOneSecond from './component/Tip1/tipOneSecond';
 import Ingresar from './screens/ingresar/Ingresar';
 import 'react-native-reanimated';
 import * as Font from 'expo-font';
@@ -36,11 +39,14 @@ export default function App() {
     return null;
   }
   return (
-    
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Bienvenida'>
         <Stack.Screen name="Bienvenida" component={Bienvenida} options={{ headerShown: false}} />  
         <Stack.Screen name="Ingresar" component={Ingresar}/>
+        <Stack.Screen name="Infoviolence" component={InfoViolence} />
+        <Stack.Screen name="Tip1" component={tipOneFirsts} />
+        <Stack.Screen name="TipOneSecond" component={tipOneSecond} />           
+
       </Stack.Navigator>
     </NavigationContainer>
   );
