@@ -13,11 +13,11 @@ const Ingresar = () => {
 
     const entries = [ //array para el carrousel
     { description: "La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.", 
-    title: 'Slide 1', image: require('../../assets/img/Slice_1.jpg') },
+    title: 'Slide 1', image: require('../../assets/img/carousel/Slice_1.jpg') },
     {description: "La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.", 
-    title: 'Slide 2', image: require('../../assets/img/Slice_2.jpg')  },
+    title: 'Slide 2', image: require('../../assets/img/carousel/Slice_2.jpg')  },
     {description: "La violencia es el “uso intencional de la fuerza física o el poder real o como amenaza contra uno mismo, una persona, grupo o comunidad que tiene como resultado la probabilidad de daño psicológico, lesiones, la muerte, privación o mal desarrollo.", 
-    title: 'Slide 3', image: require('../../assets/img/Slice_3.jpg')  },
+    title: 'Slide 3', image: require('../../assets/img/carousel/Slice_3.jpg')  },
   ];
 
 

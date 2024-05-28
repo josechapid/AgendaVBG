@@ -7,7 +7,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import PerfileScreen from './component/PerfileScreen/PerfileScreen'
 import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
-import InfoViolence from './component/InfoViolence/InfoViolence';
+import InfoViolence from './screens/InfoViolence/InfoViolence';
 import tipOneFirsts from './component/Tip1/tipOneFirsts';
 import tipOneSecond from './component/Tip1/tipOneSecond';
 import Ingresar from './screens/ingresar/Ingresar';
