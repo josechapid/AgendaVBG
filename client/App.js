@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './component/HomeScreen/HomeScreen';
@@ -44,7 +44,6 @@ export default function App() {
         <Stack.Screen name="Tip1" component={TipOneFirsts} />
         <Stack.Screen name="TipOneSecond" component={TipOneSecond} />   
         <Stack.Screen name="HomeScreen" component={HomeScreen} />       
-
       </Stack.Navigator>
     </NavigationContainer>
   );
