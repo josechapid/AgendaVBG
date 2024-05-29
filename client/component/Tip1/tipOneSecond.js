@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 
-function tipOneSecond ()
+function TipOneSecond ()
 {
     return(
         <View>
@@ -11,4 +11,4 @@ function tipOneSecond ()
     )
 }
 
-export default tipOneSecond;
+export default TipOneSecond;
