@@ -46,7 +46,6 @@ export default function App() {
         <Stack.Screen name="Infoviolence" component={InfoViolence} />
         <Stack.Screen name="Tip1" component={tipOneFirsts} />
         <Stack.Screen name="TipOneSecond" component={tipOneSecond} />           
-
       </Stack.Navigator>
     </NavigationContainer>
   );
