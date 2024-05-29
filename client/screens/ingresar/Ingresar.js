@@ -45,7 +45,7 @@ const Ingresar = () => {
         <View style={styles.buttonSec}>
           <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("Bienvenida")}>
+            onPress={() => navigation.navigate("HomeScreen")}>
             <Text style={styles.buttonText}>Ingresar</Text>
           </TouchableOpacity>
         </View>
