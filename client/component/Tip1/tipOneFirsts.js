@@ -3,7 +3,7 @@ import { View, Text, Image, Button } from 'react-native';
 import styles from "./styles"
 
 
-function tipOneFirts ({navigation}){
+function TipOneFirts ({navigation}){
     return (
       <View contentContainerStyle={styles.scrollViewContent}>
         <View>
@@ -27,4 +27,4 @@ function tipOneFirts ({navigation}){
     );
 }
 
-export default tipOneFirts;
+export default TipOneFirts;
