@@ -6,8 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
 import InfoViolence from './screens/InfoViolence/InfoViolence';
-import TipOneFirsts from './component/Tip1/TipOneFirsts';
-import TipOneSecond from './component/Tip1/TipOneSecond';
+import TipOneFirsts from './component/Tip1/tipOneFirsts';
+import TipOneSecond from './component/Tip1/tipOneSecond';
 import Ingresar from './screens/ingresar/Ingresar';
 import * as Font from 'expo-font';
 
