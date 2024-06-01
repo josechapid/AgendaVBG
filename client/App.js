@@ -5,12 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './component/HomeScreen/HomeScreen';
 import Bienvenida from './screens/bienvenida/Bienvenida';
-import InfoViolence from './screens/InfoViolence/InfoViolence';
-import TipOneFirsts from './component/Tip1/tipOneFirsts';
-import TipOneSecond from './component/Tip1/tipOneSecond';
+import InfoViolence from './screens/InfoViolence/InfoViolence'
 import Ingresar from './screens/ingresar/Ingresar';
 import * as Font from 'expo-font';
-
+import TipsScreen from './component/Tip1/TipsScreen';
+import TipOneSecond from "./component/Tip1/tipOneSecond";
 
 const Stack = createStackNavigator();
 
@@ -40,10 +39,10 @@ export default function App() {
       <Stack.Navigator initialRouteName='Bienvenida'>
         <Stack.Screen name="Bienvenida" component={Bienvenida} options={{ headerShown: false}} />  
         <Stack.Screen name="Ingresar" component={Ingresar}/>
-        <Stack.Screen name="Infoviolence" component={InfoViolence} />
-        <Stack.Screen name="Tip1" component={TipOneFirsts} />
+        <Stack.Screen name="Infoviolence" component={InfoViolence} />       
         <Stack.Screen name="TipOneSecond" component={TipOneSecond} />   
         <Stack.Screen name="HomeScreen" component={HomeScreen} />       
+        <Stack.Screen name="TipsScreen" component={TipsScreen} />       
       </Stack.Navigator>
     </NavigationContainer>
   );
