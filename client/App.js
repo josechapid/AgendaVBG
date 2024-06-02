@@ -11,6 +11,8 @@ import InfoViolence from './screens/InfoViolence/InfoViolence';
 import TipOneFirsts from './component/Tip1/TipOneFirsts';
 import TipOneSecond from './component/Tip1/TipOneSecond';
 import Ingresar from './screens/ingresar/Ingresar';
+import TipFinalFour from './screens/tipFour/TipFinalFour';
+// import FinalTip from './component/finaltip/FinalTip'
 import 'react-native-reanimated';
 import * as Font from 'expo-font';
 
@@ -47,6 +49,7 @@ export default function App() {
         <Stack.Screen name="Tip1" component={TipOneFirsts} />
         <Stack.Screen name="TipOneSecond" component={TipOneSecond} />   
         <Stack.Screen name="HomeScreen" component={HomeScreen} />       
+        <Stack.Screen name="TipFinalFour" component={TipFinalFour}/>
 
       </Stack.Navigator>
     </NavigationContainer>
