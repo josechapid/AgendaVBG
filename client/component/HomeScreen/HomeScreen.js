@@ -1,35 +1,57 @@
-import * as React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React from 'react';
+import { Text, View, Button, Image, TouchableOpacity } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import workshops from '../../assets/json/workshops.json'
+import styles from "./styles"
 
 const HomeScreen = ({navigation, route}) => {
+  const icon= require('../../assets/img/homeScree/libro.png')
     return (
-      <View>
+      <ScrollView style={styles.scrollViewContainer}>
+        {/* ------------------------------------section logo y title */}
+        <View style={styles.headerContainer}>
+          <View style={styles.logoHeader}>
+            <Image
+              source={require("../../assets/img/Logo 1.png")}
+              style={styles.logo}
+            />
+          </View>
+          <Text style={styles.titleInitial}>Renacer Juntas</Text>
+        </View>
+        {/* -------------------------------------------vista para talleres */}
+        {workshops.map((workshop, index) => (
+          <View
+            key={workshop.id}
+            style={[
+              styles.workshopContainerUno,
+              index % 2 === 0 ? styles.alignLeft : styles.alignRight,
+            ]}
+          >
+            <Text style={styles.workshopTitle}>{workshop.title}</Text>
+            <Text style={styles.workshopDescription}>{workshop.description}</Text>
+            <View style={styles.buttonIcon}>
+              <TouchableOpacity
+                style={styles.workshopButton}
+                onPress={() => navigation.navigate('TipsScreen', { tipId: workshop.id })}
+              >
+                <Text style={styles.buttonText}>Continuar</Text>
+              </TouchableOpacity>
+              <Image
+                source={icon}
+                style={styles.icon}
+              />
+            </View>
+          </View>
+        ))}
+
         <Button
-          title = "Black Widow"
-          onPress={()=>
-            navigation.navigate('Profile', {name: 'Black Windows'})
+          title="Info. violencia"
+          onPress={() =>
+            navigation.navigate("Infoviolence", { name: "InfoViolence" })
           }
         />
-        <Button
-          title = "Black Panther"
-          onPress={()=>
-            navigation.navigate('Profile', {name: 'Black Panther'})
-          }
-        />
-        <Button
-          title = "Info. violencia"
-          onPress={()=>
-            navigation.navigate('Infoviolence', {name: 'InfoViolence'})
-          }
-        />
-        <Button
-          title = "Tip 1"
-          onPress={()=>
-            navigation.navigate('Tip1', {name: 'Tip1'})
-          }
-        />
-        <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
-      </View>
+        {/* <Text>{route.params?.fromChild || "Param not provided yet"}</Text> */}
+      </ScrollView>
     );
 };
 
