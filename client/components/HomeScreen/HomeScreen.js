@@ -50,18 +50,13 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate("Infoviolence", { name: "InfoViolence" })
           }
         />
+        
         <Button
-          title = "Tip 1"
-          onPress={()=>
-            navigation.navigate('Tip1', {name: 'Tip1'})
-          }
-        />
-        {/* <Button
           title = "Final de cada tip"
           onPress={()=>
             navigation.navigate("FinalTip", {name: "FinalTip"})
           }
-        /> */}
+        />
         <Button
           title = "Final de cada tip"
           onPress={()=>
