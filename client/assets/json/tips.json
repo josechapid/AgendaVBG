@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "image": "tip1.png",
+    "text": "Hacer un listado de habilidades y fortalezas.\nEmpieza el reto haciendo tu propio listado de habilidades y fortalezas.\nComienza por reconocerte a ti misma, esto te ayuda a percibir lo positivo de ti, por pequeño que sea.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 2,
+    "image": "tip2.png",
+    "text": "Puesto que, vas asumiendo que tus logros son diarios ya sean pequeños o grandes y también en este reto debes darte una pequeña recompensa por conseguirlos. Debes darte un pequeño detalle por cada vez que logres algo. La idea es que aprendas a asociar logro con resultados de felicidad y celebración.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 3,
+    "image": "tip3.png",
+    "text": "Mira siempre hacia delante, cuando camines o realices una actividad, cuando los ojos miran hacia delante, de frente o hacia arriba, el estado de animo mejora. INTÉNTALO y evita mirar hacia abajo.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 4,
+    "image": "tip4.png",
+    "text": "Hoy empezarás a relajarte y lo harás durante todo el reto. Relaja la mente, relaja el cuerpo y relaja la vida.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 5,
+    "image": "tip5.png",
+    "text": "Hacer ejercicio diariamente activa el sistema nervioso y hace que segregues sustancias químicas que te relajan y te harán sentir muy bien. Organiza un horario semanal para hacer el ejercicio que tu prefieras, pero al menos camina 30 minutos una vez al día.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 6,
+    "image": "tip6.png",
+    "text": "La tarea de hoy debes hacerla antes de dormir, una vez acostada. Cierra los ojos y duérmete imaginando escenas agradables. Al día siguiente escribe cómo te sentiste.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 7,
+    "image": "tip7.png",
+    "text": "Para evitar posponer lo que en un principio querías hacer, la idea es que diseñes tus propias metas en positivo y que desarrolles un estilo de afrontamiento activo.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 8,
+    "image": "tip8.png",
+    "text": "Se puede aprender hasta el final de nuestros días. La maravilla de aprender es que nadie te lo puede arrebatar.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 9,
+    "image": "tip9.png",
+    "text": "Las redes de apoyo nos permiten sentirnos acompañadas en los momentos donde necesitamos ayuda, identifica las tuyas. (familia, amigos, comunidad, vecinos, etc…)",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 10,
+    "image": "tip10.png",
+    "text": "Ser consientes de lo que sentimos nos permite tener un control sobre lo que nos afecta y nos permite actuar de manera asertiva.",
+    "navigateTo": "tipOneSecond"
+  },
+  {
+    "id": 11,
+    "image": "tip11.png",
+    "text": "Hemos llegado al final de este proceso y es hora de que todo lo que has aprendido lo pongas en práctica, lo hagas parte de ti y lo compartas con quien lo necesite. EMPODERATE.",
+    "navigateTo": "tipOneSecond"
+  }
+]

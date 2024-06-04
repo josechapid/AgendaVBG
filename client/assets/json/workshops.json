@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Tip 1",
+    "description": "La felicidad empieza por ti",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 2,
+    "title": "Tip 2",
+    "description": "Sonríe más a menudo",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 3,
+    "title": "Tip 3",
+    "description": "Mira hacia adelante",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 4,
+    "title": "Tip 4",
+    "description": "Relájate",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 5,
+    "title": "Tip 5",
+    "description": "Cambia de postura: Contruyo mi felicidad",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 6,
+    "title": "Tip 6",
+    "description": "Piensa en positivo",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 7,
+    "title": "Tip 7",
+    "description": "Ten metas",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 8,
+    "title": "Tip 8",
+    "description": "Aprende algo nuevo",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 9,
+    "title": "Tip 9",
+    "description": "Red de apoyo",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 10,
+    "title": "Tip 10",
+    "description": "Inteligencia emocional",
+    "navigateTo": "TipsScreen"
+  },
+  {
+    "id": 11,
+    "title": "Tip 11",
+    "description": "Empodérate",
+    "navigateTo": "TipsScreen"
+  }  
+]
