@@ -12,7 +12,7 @@ const FinalTip = ({title,image,textTip,textPhrase,onFinish}) => {
             <View style={styles.textBox}>
             <Text style={styles.textTips}>{textTip}</Text>
             </View>
-            <Text style={styles.phrase}>{textPhrase}</Text>
+            {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
             <TouchableOpacity onPress={onFinish} style={styles.button}>
                 <Text style={styles.buttonText}>Finalizar</Text>
             </TouchableOpacity>
