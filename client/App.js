@@ -44,7 +44,8 @@ export default function App() {
         <Stack.Screen name="Infoviolence" component={InfoViolence} />       
         <Stack.Screen name="TipOneSecond" component={TipOneSecond} />   
         <Stack.Screen name="HomeScreen" component={HomeScreen} />       
-        <Stack.Screen name="TipsScreen" component={TipsScreen} />               <Stack.Screen name="TipFinalFour" component={TipFinalFour}/>
+        <Stack.Screen name="TipsScreen" component={TipsScreen} />               
+        <Stack.Screen name="TipFinalFour" component={TipFinalFour}/>
 
       </Stack.Navigator>
     </NavigationContainer>
