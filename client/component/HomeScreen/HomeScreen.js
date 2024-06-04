@@ -69,7 +69,7 @@ const HomeScreen = ({navigation, route}) => {
           }
         />
         <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
-      </View>
+      </ScrollView>
     );
 };
 
