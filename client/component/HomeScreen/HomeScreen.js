@@ -50,7 +50,25 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate("Infoviolence", { name: "InfoViolence" })
           }
         />
-        {/* <Text>{route.params?.fromChild || "Param not provided yet"}</Text> */}
+        <Button
+          title = "Tip 1"
+          onPress={()=>
+            navigation.navigate('Tip1', {name: 'Tip1'})
+          }
+        />
+        {/* <Button
+          title = "Final de cada tip"
+          onPress={()=>
+            navigation.navigate("FinalTip", {name: "FinalTip"})
+          }
+        /> */}
+        <Button
+          title = "Final de cada tip"
+          onPress={()=>
+            navigation.navigate("TipFinalFour", {name: "TipFinalFour"})
+          }
+        />
+        <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
       </ScrollView>
     );
 };
