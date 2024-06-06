@@ -9,7 +9,8 @@ function TipsScreen({route,  navigation }) {
   const {tipId} =route.params;
   const tip= tips.find(t=> t.id === tipId);
   const imagePath = images[tip.image];
-   
+
+
   return (
     <View style={styles.container}>
       <View style={styles.tipImageContainer}>
