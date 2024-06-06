@@ -3,19 +3,19 @@
     "id": 1,
     "image": "tip1.png",
     "text": "Hacer un listado de habilidades y fortalezas.\nEmpieza el reto haciendo tu propio listado de habilidades y fortalezas.\nComienza por reconocerte a ti misma, esto te ayuda a percibir lo positivo de ti, por pequeño que sea.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipPrueba"
   },
   {
     "id": 2,
     "image": "tip2.png",
     "text": "Puesto que, vas asumiendo que tus logros son diarios ya sean pequeños o grandes y también en este reto debes darte una pequeña recompensa por conseguirlos. Debes darte un pequeño detalle por cada vez que logres algo. La idea es que aprendas a asociar logro con resultados de felicidad y celebración.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipTwo"
   },
   {
     "id": 3,
     "image": "tip3.png",
     "text": "Mira siempre hacia delante, cuando camines o realices una actividad, cuando los ojos miran hacia delante, de frente o hacia arriba, el estado de animo mejora. INTÉNTALO y evita mirar hacia abajo.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipThree"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "id": 8,
     "image": "tip8.png",
     "text": "Se puede aprender hasta el final de nuestros días. La maravilla de aprender es que nadie te lo puede arrebatar.",
-    "navigateTo": "tipOneSecond"
+    "navigateTo": "TipOneSecond"
   },
   {
     "id": 9,
