@@ -4,11 +4,12 @@ import styles from "./styles";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+
 function TipFour () {
     const navigation = useNavigation();
     const [description, setDescription] = useState("");
 
-    return(
+   return(
         <View style={styles.container}>
             <View style={styles.topSection}>
                 <Text style={styles.title}>Encuentra la calma</Text>
@@ -41,7 +42,7 @@ function TipFour () {
             </View>
             <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("TipFinalFour")}>
+            onPress={() => navigation.navigate("FinalTip",{tipId: 4})}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
             

@@ -1,0 +1,79 @@
+[
+    {
+    "id": 1,
+    "title": "La felicidad empieza por ti",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 2,
+    "title": "Sonríe más a menudo",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 3,
+    "title": "Mira hacia adelante",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 4,
+    "title": "Encuentra la calma",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 5,
+    "title": "Construye la felicidad",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 6,
+    "title": "Piensa positivo",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 7,
+    "title": "Ten metas",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 8,
+    "title": "Aprende algo nuevo",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 9,
+    "title": "Red de apoyo",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 10,
+    "title": "Inteligencia emocional",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    },
+    {
+    "id": 11,
+    "title": "Empodérate",
+    "image": "conformidad.jpg",
+    "textTip": "¡Gracias por completar este reto! Tu dedicación y esfuerzo son inspiradores. Estamos emocionados de verte seguir adelante con los demás retos. Cada paso que das te acerca más a tus objetivos. ¡Sigue con el mismo entusiasmo y determinación! ¡Felicitaciones y mucho éxito en los próximos desafíos!",
+     "navigateTo": "HomeScreen"
+    }
+]
