@@ -9,6 +9,10 @@ function TipsScreen({route,  navigation }) {
   const {tipId} =route.params;
   const tip= tips.find(t=> t.id === tipId);
   const imagePath = images[tip.image];
+
+  const navigateToNextTip = () => {
+    navigation.navigate(tip.navigateTo); // Navegar dinámicamente a la vista correspondiente
+  };
    
   return (
     <View style={styles.container}>
@@ -20,7 +24,7 @@ function TipsScreen({route,  navigation }) {
       </View>
       <View style={styles.tipButtonContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("TipOneSecond")}
+          onPress={navigateToNextTip}
           style={styles.tipButton}
         >
           <Text style={styles.buttonText}>Continuar</Text>
