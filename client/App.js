@@ -8,10 +8,15 @@ import Bienvenida from "./screens/bienvenida/Bienvenida";
 import InfoViolence from "./screens/InfoViolence/InfoViolence";
 import Ingresar from "./screens/ingresar/Ingresar";
 import TipFinalFour from "./screens/tipFour/TipFinalFour";
+import TipPrueba from "./components/TipPrueba/TipPrueba.js";
+import TipOne from "./screens/tipOne/tipOne";
 // import FinalTip from './component/finaltip/FinalTip'
 import * as Font from "expo-font";
 import TipsScreen from "./components/Tip1/TipsScreen";
 import TipOneSecond from "./components/Tip1/tipOneSecond";
+import TipTwo from "./screens/tipTwo/tipTwo"; 
+import TipThree from "./screens/tipThree/tipThree.js";
+
 
 const Stack = createStackNavigator();
 
@@ -47,6 +52,10 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="TipsScreen" component={TipsScreen} />
         <Stack.Screen name="TipFinalFour" component={TipFinalFour} />
+        <Stack.Screen name="TipPrueba" component={TipPrueba} />
+        <Stack.Screen name="TipOne" component={TipOne} />
+        <Stack.Screen name="TipTwo" component={TipTwo} />
+        <Stack.Screen name="TipThree" component={TipThree} />
       </Stack.Navigator>
     </NavigationContainer>
   );
