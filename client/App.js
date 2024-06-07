@@ -7,14 +7,16 @@ import HomeScreen from "./components/HomeScreen/HomeScreen";
 import Bienvenida from "./screens/bienvenida/Bienvenida";
 import InfoViolence from "./screens/InfoViolence/InfoViolence";
 import Ingresar from "./screens/ingresar/Ingresar";
-import TipFinalFour from "./screens/tipFour/TipFinalFour";
+// import TipFinalFour from "./screens/tipFour/TipFinalFour";
 import TipPrueba from "./components/TipPrueba/TipPrueba.js";
 import TipOne from "./screens/tipOne/tipOne";
-// import FinalTip from './component/finaltip/FinalTip'
+import FinalTip from "./components/finaltip/FinalTip.js";
 import TipFour from "./screens/tipFour/TipFour";
+import TipFive from "./screens/tipFive/TipFive.js";
+import TipSix from "./screens/tipSix/TipSix.js";
 import * as Font from "expo-font";
 import TipsScreen from "./components/Tip1/TipsScreen";
-import TipOneSecond from "./components/Tip1/tipOneSecond";
+import TipOneSecond from "./components/Tip1/TipOneSecond";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
 import TipThree from "./screens/tipThree/tipThree.js";
 
@@ -52,12 +54,14 @@ export default function App() {
         <Stack.Screen name="TipOneSecond" component={TipOneSecond} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="TipsScreen" component={TipsScreen} />
-        <Stack.Screen name="TipFinalFour" component={TipFinalFour} />
+        <Stack.Screen name="FinalTip" component={FinalTip}/>
         <Stack.Screen name="TipPrueba" component={TipPrueba} />
         <Stack.Screen name="TipOne" component={TipOne} />
         <Stack.Screen name="TipTwo" component={TipTwo} />
         <Stack.Screen name="TipThree" component={TipThree} />
         <Stack.Screen name="TipFour" component={TipFour}/>
+        <Stack.Screen name="TipFive" component={TipFive}/>
+        <Stack.Screen name="TipSix" component={TipSix}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

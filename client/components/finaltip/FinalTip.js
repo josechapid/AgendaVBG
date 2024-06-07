@@ -1,21 +1,32 @@
 import * as React from 'react';
 import { View, Text, Image,TouchableOpacity } from 'react-native';
 import styles from './styles';
+import tipFinal from "../../assets/json/tipFinal.json";
+import images from '../../assets/json/imageMapFinal';
 
-const FinalTip = ({title,image,textTip,textPhrase,onFinish}) => {
+
+const FinalTip = ({route,  navigation }) => {
+    const {tipId} =route.params;
+  const tip= tipFinal.find(t=> t.id === tipId);
+  const imagePath = images[tip.image];
+    
      return (
         <View style={styles.container}>
             <View style={styles.topSection}>
-                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.title}>{tip.title}</Text>
             </View>
-            <Image source={image} style={styles.img} />
+            <Image source={imagePath} style={styles.img} />
             <View style={styles.textBox}>
-            <Text style={styles.textTips}>{textTip}</Text>
+            <Text style={styles.textTips}>{tip.textTip}</Text>
             </View>
             {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
-            <TouchableOpacity onPress={onFinish} style={styles.button}>
-                <Text style={styles.buttonText}>Finalizar</Text>
-            </TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => navigation.navigate(tip.navigateTo)}
+            style={styles.button}
+            >
+          <Text style={styles.buttonText}>Finalizar</Text>
+        </TouchableOpacity>
+
         </View>
             
         
