@@ -13,6 +13,7 @@ import TipOne from "./screens/tipOne/tipOne";
 import FinalTip from "./components/finaltip/FinalTip.js";
 import TipFour from "./screens/tipFour/TipFour";
 import TipFive from "./screens/tipFive/TipFive.js";
+import TipSix from "./screens/tipSix/TipSix.js";
 import * as Font from "expo-font";
 import TipsScreen from "./components/Tip1/TipsScreen";
 import TipOneSecond from "./components/Tip1/TipOneSecond";
@@ -60,6 +61,7 @@ export default function App() {
         <Stack.Screen name="TipThree" component={TipThree} />
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
+        <Stack.Screen name="TipSix" component={TipSix}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
