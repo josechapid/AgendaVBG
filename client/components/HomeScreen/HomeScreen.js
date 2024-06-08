@@ -50,6 +50,13 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate("Infoviolence", { name: "InfoViolence" })
           }
         />
+
+        <Button
+          title="Citas"
+          onPress={() =>
+            navigation.navigate("CitasScreen", { name: "CitasScreen" })
+          }
+        />
         
         <Button
           title = "Final de cada tip"

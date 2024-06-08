@@ -19,6 +19,7 @@ import TipsScreen from "./components/Tip1/TipsScreen";
 import TipOneSecond from "./components/Tip1/TipOneSecond.js";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
 import TipThree from "./screens/tipThree/tipThree.js";
+import CitasScreen from "./screens/citas/CitasScreen.js";
 
 
 const Stack = createStackNavigator();
@@ -62,6 +63,7 @@ export default function App() {
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
         <Stack.Screen name="TipSix" component={TipSix}/>
+        <Stack.Screen name="CitasScreen" component={CitasScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
