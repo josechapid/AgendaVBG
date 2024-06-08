@@ -16,7 +16,7 @@ import TipFive from "./screens/tipFive/TipFive.js";
 import TipSix from "./screens/tipSix/TipSix.js";
 import * as Font from "expo-font";
 import TipsScreen from "./components/Tip1/TipsScreen";
-import TipOneSecond from "./components/Tip1/TipOneSecond";
+import TipOneSecond from "./components/Tip1/TipOneSecond.js";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
 import TipThree from "./screens/tipThree/tipThree.js";
 
