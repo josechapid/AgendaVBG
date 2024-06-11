@@ -63,6 +63,18 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate("TipFinalFour", {name: "TipFinalFour"})
           }
         />
+         <Button
+          title = "Mis Citas"
+          onPress={()=>
+            navigation.navigate("Dates", {name: "Dates"})
+          }
+        />
+        <Button
+          title = "Mis Notas"
+          onPress={()=>
+            navigation.navigate("MyNotes", {name: "MyNotes"})
+          }
+        />
         <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
       </ScrollView>
     );
