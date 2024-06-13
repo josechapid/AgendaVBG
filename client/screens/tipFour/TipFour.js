@@ -14,13 +14,13 @@ function TipFour () {
             <View style={styles.topSection}>
                 <Text style={styles.title}>Encuentra la calma</Text>
             </View>
-            <View>
+            <View style={styles.section}>
                 <Image 
                 source={require("../../assets/img/tip4/yourself.jpg")}
                 style={styles.img}
                 />
                 <View style={styles.textSection}>
-                    <Text>Reto 4:Meditacion</Text>
+                    <Text style={styles.textCenter}>Reto 4:Meditacion</Text>
                 </View>
                 <View>
                     <Text style={styles.text}>Mira el siguiente video y sigue cada instruccion que te dan. Cuentanos como te sentistes</Text>
@@ -28,9 +28,10 @@ function TipFour () {
                 
             </View>
             <View style={styles.icon}>
-                <AntDesign name="caretright" size={35} color="#f4a261" />
+                <AntDesign name="caretright" size={30} color="#f4a261" />
             </View>
-            <View style={styles.description}>
+            <View style={styles.section}>
+                <View style={styles.description}>
                 
                 <TextInput
                     
@@ -39,6 +40,7 @@ function TipFour () {
                     onChangeText={text => setDescription(text)} 
                     value={description} 
                 />
+                </View>
             </View>
             <TouchableOpacity 
             style={styles.button}

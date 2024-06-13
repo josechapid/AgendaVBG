@@ -21,6 +21,8 @@ import TipTwo from "./screens/tipTwo/tipTwo";
 import TipThree from "./screens/tipThree/tipThree.js";
 import Dates from "./screens/dates/Dates.js";
 import MyNotes from "./screens/myNotes/MyNotes.js";
+import MyProfile from "./screens/myProfile/MyProfile.js";
+import AvatarCreator from "./components/avatarCreator/AvatarCreator.js"; 
 
 
 const Stack = createStackNavigator();
@@ -66,6 +68,8 @@ export default function App() {
         <Stack.Screen name="TipSix" component={TipSix}/>
         <Stack.Screen name="Dates" component={Dates}/>
         <Stack.Screen name="MyNotes" component={MyNotes}/>
+        <Stack.Screen name="MyProfile" component={MyProfile}/>
+        <Stack.Screen name="AvatarCreator" component={AvatarCreator}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

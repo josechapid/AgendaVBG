@@ -75,6 +75,12 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate("MyNotes", {name: "MyNotes"})
           }
         />
+        <Button
+          title = "Mi Perfil"
+          onPress={()=>
+            navigation.navigate("MyProfile", {name: "MyProfile"})
+          }
+        />
         <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
       </ScrollView>
     );
