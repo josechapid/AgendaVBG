@@ -16,9 +16,11 @@ import TipFive from "./screens/tipFive/TipFive.js";
 import TipSix from "./screens/tipSix/TipSix.js";
 import * as Font from "expo-font";
 import TipsScreen from "./components/Tip1/TipsScreen";
-import TipOneSecond from "./components/Tip1/TipOneSecond";
+import TipOneSecond from "./components/Tip1/tipOneSecond";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
-import TipThree from "./screens/tipThree/tipThree.js";
+import TipThree from "./screens/tipThree/TipThree.js";
+import Login from "./screens/login/Login.js";
+import SingIn from "./screens/signIn/SignIn.js"
 
 
 const Stack = createStackNavigator();
@@ -62,6 +64,8 @@ export default function App() {
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
         <Stack.Screen name="TipSix" component={TipSix}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="SingIn" component={SingIn}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
