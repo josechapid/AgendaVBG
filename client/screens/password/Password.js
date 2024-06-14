@@ -2,8 +2,10 @@ import React from "react";
 import {  Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from "./styles";
+import { useNavigation } from '@react-navigation/native';
 
-const Password = ({navigation}) => {
+const Password = () => {
+    const navigation = useNavigation();
     const [newPassword, setNewPassword] = React.useState('');
     const [confirPassword, setConfirPassword] = React.useState('');
     const [showPassword, setShowPassword] = React.useState(false);
@@ -11,6 +13,8 @@ const Password = ({navigation}) => {
     const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  
     return(
         <View style={styles.container}>
             <View style={styles.topSection}>

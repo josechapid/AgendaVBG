@@ -6,7 +6,7 @@ export default StyleSheet.create({
         
     },
     topSection:{
-        flex: 0.2,
+        flex: 0.5,
         backgroundColor: "#f4a261",
         width: '100%',
     },
@@ -17,7 +17,7 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     img:{
-    width:300,
+    width:200,
     height:200,
     marginBottom: 10,
     borderRadius: 15,
