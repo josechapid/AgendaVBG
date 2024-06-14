@@ -45,12 +45,12 @@ const Ingresar = () => {
         <View style={styles.buttonSec}>
           <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("HomeScreen")}>
+            onPress={() => navigation.navigate("SingIn")}>
             <Text style={styles.buttonText}>Ingresar</Text>
           </TouchableOpacity>
         </View>
           <View style={styles.buttonSec}>
-            <TouchableOpacity onPress={() => navigation.navigate("Bienvenida")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
               <Text style={styles.loginText}>No tienes cuenta? Registrate aqui</Text>
             </TouchableOpacity>
           </View>

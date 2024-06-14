@@ -2,8 +2,11 @@ import React, {useState} from 'react'
 import { View, Text, Image, TouchableOpacity, TextInput, Button } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from './styles'
+import { useNavigation } from "@react-navigation/native";
+import axios from 'axios'
 
 function TipOne (){
+    const navigation = useNavigation();
 
     const [fortalezaActual, setFortalezaActual] = useState("");
     const [debilidadActual, setDebilidadActual] = useState("");
@@ -37,14 +40,12 @@ function TipOne (){
 
   async function enviarDatos() {
     try {
-      const response = await axios.post("http://tuservidor/api/tipUno", {
+     /*  const response = await axios.post("http://servidor/api/tipUno", {
         fortalezas: fortalezas,
         debilidades: debilidades,
       });
-      console.log(response.data);
-      // Aquí podrías redirigir al usuario a otro componente
-      // por ejemplo, usando la navegación de React Navigation
-      // navigation.navigate('VistaFinal');
+      console.log(response.data) */
+      navigation.navigate("FinalTip",{tipId: 1})
     } catch (error) {
       console.error(error);
     }
