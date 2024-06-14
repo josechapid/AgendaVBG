@@ -41,7 +41,7 @@ const MyProfile = ({ navigation }) => {
         </View>
          <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("HomeScreen")}>
+            onPress={() => navigation.navigate("Main")}>
             <Text style={styles.buttonText}>Guardar cambios</Text>
           </TouchableOpacity>
         </View>
