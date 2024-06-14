@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {  Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import styles from "./styles";
+import { useNavigation } from '@react-navigation/native';
 
-const MyProfile = ({ navigation }) => {
+const MyProfile = () => {
+  const navigation = useNavigation();
       const [nombre, setNombre] = React.useState('');
       const [usuario, setUsuario] = React.useState('');
       const [correo, setCorreo] = React.useState('');

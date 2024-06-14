@@ -27,7 +27,7 @@ import TipsScreen from "./components/Tip1/TipsScreen";
 import Rutes from "./screens/rutes/rutes.js"
 // import TipFinalFour from "./screens/tipFour/TipFinalFour";
 import TipOneSecond from "./components/Tip1/TipOneSecond.js";
-import TipTen from "./screens/tipTen/TipTen.js";
+import TipTen from "./screens/tipTen/TipTen.js"
 import TipEleven from "./screens/tipEleven/TipEleven.js";
 import MyDates from "./screens/myDates/MyDates.js";
 import MyNotes from "./screens/myNotes/MyNotes.js";
@@ -57,7 +57,7 @@ function MyTabs() {
           } else if (route.name === "MyNotes") {
             iconName = "book";
           } else if (route.name === "MyProfile") {
-            iconName = "map";
+            iconName = "person";
           } 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
