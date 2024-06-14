@@ -26,6 +26,16 @@ import TipsScreen from "./components/Tip1/TipsScreen";
 import TipOneSecond from "./components/Tip1/tipOneSecond";
 import Rutes from "./screens/rutes/rutes.js"
 // import TipFinalFour from "./screens/tipFour/TipFinalFour";
+import TipOneSecond from "./components/Tip1/TipOneSecond";
+import TipTwo from "./screens/tipTwo/tipTwo"; 
+import TipThree from "./screens/tipThree/tipThree.js";
+import TipTen from "./screens/tipTen/TipTen.js";
+import TipEleven from "./screens/tipEleven/TipEleven.js";
+import MyDates from "./screens/myDates/MyDates.js";
+import MyNotes from "./screens/myNotes/MyNotes.js";
+import MyProfile from "./screens/myProfile/MyProfile.js";
+import Avatar from "./components/Avatar.js";
+import Password from "./screens/password/Password.js";
 
 
 const Stack = createStackNavigator();
@@ -44,13 +54,13 @@ function MyTabs() {
           } else if (route.name === "Rutes") {
             iconName = "map";
           }
-          /*  else if (route.name === "MyDates") {
+            else if (route.name === "MyDates") {
             iconName = "calendar";
           } else if (route.name === "MyNotes") {
             iconName = "book";
           } else if (route.name === "MyProfile") {
             iconName = "user";
-          } */
+          } 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "#FFFFFF",
@@ -68,9 +78,9 @@ function MyTabs() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Info" component={InfoViolence} />
       <Tab.Screen name="Rutes" component={Rutes} />
-     {/*  <Tab.Screen name="MyDates" component={MyDates} />
+      <Tab.Screen name="MyDates" component={MyDates} />
       <Tab.Screen name="MyNotes" component={MyNotes} />
-      <Tab.Screen name="MyProfile" component={MyProfile} /> */}
+      <Tab.Screen name="MyProfile" component={MyProfile} />
     </Tab.Navigator>
   );
 }
@@ -81,8 +91,8 @@ export default function App() {
 
   const loadFonts = async () => {
     await Font.loadAsync({
-      "BirthstoneBounce-Medium": require("./assets/fonts/BirthstoneBounce-Medium.ttf"),
-      "BirthstoneBounce-Regular": require("./assets/fonts/BirthstoneBounce-Regular.ttf"),
+      "BirthstoneBounce-Medium": require("./assets/fonts/BirthstoneBounce-Medium-abcdef123456.ttf"),
+      "BirthstoneBounce-Regular": require("./assets/fonts/BirthstoneBounce-Regular-abcdef123457.ttf"),
     });
     setFontsLoaded(true);
   };
@@ -130,9 +140,13 @@ export default function App() {
         <Stack.Screen name="TipOne" component={TipOne} />
         <Stack.Screen name="TipTwo" component={TipTwo} />
         <Stack.Screen name="TipThree" component={TipThree} />
-        <Stack.Screen name="TipFour" component={TipFour} />
-        <Stack.Screen name="TipFive" component={TipFive} />
-        <Stack.Screen name="TipSix" component={TipSix} />
+        <Stack.Screen name="TipFour" component={TipFour}/>
+        <Stack.Screen name="TipFive" component={TipFive}/>
+        <Stack.Screen name="TipSix" component={TipSix}/>
+        <Stack.Screen name="Avatar" component={Avatar}/>
+        <Stack.Screen name="Password" component={Password}/>
+        <Stack.Screen name="TipTen" component={TipTen}/>
+        <Stack.Screen name="TipEleven" component={TipEleven}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
