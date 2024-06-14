@@ -1,30 +1,49 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, Button } from 'react-native';
-import PreviewAvatar from "../../components/previewAvatar/PreviewAvatar";
+import {  Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import styles from "./styles";
 
 const MyProfile = ({ navigation }) => {
-    const [avatarConfig, setAvatarConfig] = useState({
-    skinColor: 'light',
-    hairColor: 'brown',
-    hairLength: 'short',
-    eyeColor: 'blue',
-    mouthType: 'smile',  
-    hasGlasses: false,
-  });
+      const [nombre, setNombre] = React.useState('');
+      const [usuario, setUsuario] = React.useState('');
+      const [correo, setCorreo] = React.useState('');
 
-  const handleAvatarChange = (newConfig) => {
-    setAvatarConfig(newConfig);
-  };
-
-    return(
+  return(
         <View style={styles.container}>
-            <Text>Esta es la vista de mi perfil</Text>
-            <PreviewAvatar avatarConfig={avatarConfig} />
+          <View style={styles.topSection}>
+            <Text style={styles.title}>Mi Perfil</Text>
+          </View>
             <Button
-                title="Cambiar Avatar"
-                onPress={() => navigation.navigate('AvatarCreator', { avatarConfig, onAvatarChange: handleAvatarChange })}
+              title="Cambiar Avatar"
+              onPress={() => navigation.navigate('Avatar')}
             />
+          <View style={styles.section}>
+        <TextInput
+        style={styles.input}
+        placeholder="Nombre"
+        value={nombre}
+        onChangeText={text => setNombre(text)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Usuario"
+        value={usuario}
+        onChangeText={text => setUsuario(text)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Correo"
+        value={correo}
+        onChangeText={text => setCorreo(text)}
+      />
+       <TouchableOpacity onPress={() => navigation.navigate('Password')}>
+        <Text style={styles.changePasswordText}>Cambiar Contraseña</Text>
+      </TouchableOpacity>
+        </View>
+         <TouchableOpacity 
+            style={styles.button}
+            onPress={() => navigation.navigate("HomeScreen")}>
+            <Text style={styles.buttonText}>Guardar cambios</Text>
+          </TouchableOpacity>
         </View>
     )
 }

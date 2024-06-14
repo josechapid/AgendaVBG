@@ -22,7 +22,8 @@ import TipThree from "./screens/tipThree/tipThree.js";
 import Dates from "./screens/dates/Dates.js";
 import MyNotes from "./screens/myNotes/MyNotes.js";
 import MyProfile from "./screens/myProfile/MyProfile.js";
-import AvatarCreator from "./components/avatarCreator/AvatarCreator.js"; 
+import Avatar from "./components/Avatar.js";
+import Password from "./screens/password/Password.js";
 
 
 const Stack = createStackNavigator();
@@ -32,8 +33,8 @@ export default function App() {
 
   const loadFonts = async () => {
     await Font.loadAsync({
-      "BirthstoneBounce-Medium": require("./assets/fonts/BirthstoneBounce-Medium.ttf"),
-      "BirthstoneBounce-Regular": require("./assets/fonts/BirthstoneBounce-Regular.ttf"),
+      "BirthstoneBounce-Medium": require("./assets/fonts/BirthstoneBounce-Medium-abcdef123456.ttf"),
+      "BirthstoneBounce-Regular": require("./assets/fonts/BirthstoneBounce-Regular-abcdef123457.ttf"),
     });
     setFontsLoaded(true);
   };
@@ -69,7 +70,8 @@ export default function App() {
         <Stack.Screen name="Dates" component={Dates}/>
         <Stack.Screen name="MyNotes" component={MyNotes}/>
         <Stack.Screen name="MyProfile" component={MyProfile}/>
-        <Stack.Screen name="AvatarCreator" component={AvatarCreator}/>
+        <Stack.Screen name="Avatar" component={Avatar}/>
+        <Stack.Screen name="Password" component={Password}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

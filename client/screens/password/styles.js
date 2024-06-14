@@ -16,7 +16,7 @@ export default StyleSheet.create({
         color: 'black',
         textAlign: 'center'
     },
-    section: {
+       section: {
         margin: 15,
     },
     input: {
@@ -29,17 +29,16 @@ export default StyleSheet.create({
     marginBottom: 10,
     marginTop:15
   },
-  changePasswordText: {
-    color: 'blue',
-    textDecorationLine: 'underline',
-    marginBottom: 20,
-    marginTop:15
-  },
-   button:{
+  button:{
         backgroundColor: "#F5CAC3",
         padding: 10,
         borderRadius: 5,
         alignSelf: 'center',
         marginTop:50
     },
+passwordVisibilityButton: {
+    position: "absolute",
+    right: 10,
+    top: 10
+  },
 });
