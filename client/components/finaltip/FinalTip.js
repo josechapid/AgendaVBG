@@ -11,26 +11,23 @@ const FinalTip = ({route,  navigation }) => {
   const imagePath = images[tip.image];
     
      return (
-        <View style={styles.container}>
-            <View style={styles.topSection}>
-                <Text style={styles.title}>{tip.title}</Text>
-            </View>
-            <Image source={imagePath} style={styles.img} />
-            <View style={styles.textBox}>
-            <Text style={styles.textTips}>{tip.textTip}</Text>
-            </View>
-            {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
-            <TouchableOpacity
-            onPress={() => navigation.navigate(tip.navigateTo)}
-            style={styles.button}
-            >
-          <Text style={styles.buttonText}>Finalizar</Text>
-        </TouchableOpacity>
-
-        </View>
-            
-        
-    );
+       <View style={styles.container}>
+         <View style={styles.topSection}>
+           <Text style={styles.title}>{tip.title}</Text>
+         </View>
+         <Image source={imagePath} style={styles.img} />
+         <View style={styles.textBox}>
+           <Text style={styles.textTips}>{tip.textTip}</Text>
+         </View>
+         {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
+         <TouchableOpacity
+           onPress={() => navigation.navigate("Main")}
+           style={styles.button}
+         >
+           <Text style={styles.buttonText}>Finalizar</Text>
+         </TouchableOpacity>
+       </View>
+     );
     
 };
 

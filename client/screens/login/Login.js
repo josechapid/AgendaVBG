@@ -76,7 +76,7 @@ function Login () {
           />
           <TouchableOpacity
             style={styles.button}
-            onPress={() =>navigation.navigate("HomeScreen")}
+            onPress={() =>navigation.navigate("Main")}
           >
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
