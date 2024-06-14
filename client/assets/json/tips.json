@@ -57,12 +57,12 @@
     "id": 10,
     "image": "tip10.png",
     "text": "Ser consientes de lo que sentimos nos permite tener un control sobre lo que nos afecta y nos permite actuar de manera asertiva.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipTen"
   },
   {
     "id": 11,
     "image": "tip11.png",
     "text": "Hemos llegado al final de este proceso y es hora de que todo lo que has aprendido lo pongas en práctica, lo hagas parte de ti y lo compartas con quien lo necesite. EMPODERATE.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipEleven"
   }
 ]

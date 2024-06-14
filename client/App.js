@@ -19,7 +19,9 @@ import TipsScreen from "./components/Tip1/TipsScreen";
 import TipOneSecond from "./components/Tip1/TipOneSecond";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
 import TipThree from "./screens/tipThree/tipThree.js";
-import Dates from "./screens/dates/Dates.js";
+import TipTen from "./screens/tipTen/TipTen.js";
+import TipEleven from "./screens/tipEleven/TipEleven.js";
+import MyDates from "./screens/myDates/MyDates.js";
 import MyNotes from "./screens/myNotes/MyNotes.js";
 import MyProfile from "./screens/myProfile/MyProfile.js";
 import Avatar from "./components/Avatar.js";
@@ -67,11 +69,13 @@ export default function App() {
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
         <Stack.Screen name="TipSix" component={TipSix}/>
-        <Stack.Screen name="Dates" component={Dates}/>
+        <Stack.Screen name="MyDates" component={MyDates}/>
         <Stack.Screen name="MyNotes" component={MyNotes}/>
         <Stack.Screen name="MyProfile" component={MyProfile}/>
         <Stack.Screen name="Avatar" component={Avatar}/>
         <Stack.Screen name="Password" component={Password}/>
+        <Stack.Screen name="TipTen" component={TipTen}/>
+        <Stack.Screen name="TipEleven" component={TipEleven}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
