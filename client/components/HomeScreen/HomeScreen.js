@@ -4,7 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import workshops from '../../assets/json/workshops.json'
 import styles from "./styles"
 
-const HomeScreen = ({navigation, route}) => {
+const HomeScreen = ({navigation}) => {
   const icon= require('../../assets/img/homeScree/libro.png')
     return (
       <ScrollView style={styles.scrollViewContainer}>
@@ -43,13 +43,7 @@ const HomeScreen = ({navigation, route}) => {
             </View>
           </View>
         ))}
-
-        <Button
-          title="Info. violencia"
-          onPress={() =>
-            navigation.navigate("Infoviolence", { name: "InfoViolence" })
-          }
-        />
+{/* 
         
         <Button
           title = "Final de cada tip"
@@ -62,26 +56,8 @@ const HomeScreen = ({navigation, route}) => {
           onPress={()=>
             navigation.navigate("TipFinalFour", {name: "TipFinalFour"})
           }
-        />
-         <Button
-          title = "Mis Citas"
-          onPress={()=>
-            navigation.navigate("Dates", {name: "Dates"})
-          }
-        />
-        <Button
-          title = "Mis Notas"
-          onPress={()=>
-            navigation.navigate("MyNotes", {name: "MyNotes"})
-          }
-        />
-        <Button
-          title = "Mi Perfil"
-          onPress={()=>
-            navigation.navigate("MyProfile", {name: "MyProfile"})
-          }
-        />
-        <Text>{route.params?.fromChild || "Param not provided yet"}</Text>
+        /> */}
+        
       </ScrollView>
     );
 };

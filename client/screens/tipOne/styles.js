@@ -94,11 +94,14 @@ export default StyleSheet.create({
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 5,
     width: 100,
-    height:50
+    height:50,
+    alignSelf: 'center',
+    marginBottom: 30
   },
   enviarButtonText: {
     fontSize: 16,
+    
   },
 });

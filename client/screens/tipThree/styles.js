@@ -3,7 +3,9 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   scrollViewContainer: {
     alignItems: "center",
-    margin: 15,
+    margin: 20,
+    flexGrow: 1, 
+    padding: 10
   },
   imageContainer: {
     justifyContent: "center",
@@ -31,6 +33,7 @@ export default StyleSheet.create({
   },
   textDescription: {
     marginTop: 20,
+    marginBottom: 10,
   },
   description: {
     fontSize: 20,
@@ -49,5 +52,19 @@ export default StyleSheet.create({
     fontWeight: "bold",
     textAlign: "left",
     paddingLeft: 10,
+  },
+  enviarButton: {
+    backgroundColor: "#F5CAC3",
+    padding: 15,
+    borderRadius: 5,
+    alignItems: "center",
+    marginTop: 5,
+    width: 100,
+    height: 50,
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  enviarButtonText: {
+    fontSize: 16,
   },
 });

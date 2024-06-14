@@ -41,6 +41,7 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "flex-start",
         paddingLeft: 20,
+        paddingRight: 10,
         marginBottom:15,
         marginTop:20
     },
@@ -63,6 +64,7 @@ export default StyleSheet.create({
   },
     text: {
         fontSize: 18,
+        textAlign: 'justify'
     
 },
     rj:{
