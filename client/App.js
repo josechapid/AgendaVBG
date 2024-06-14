@@ -54,13 +54,13 @@ function MyTabs() {
           } else if (route.name === "Rutes") {
             iconName = "map";
           }
-          /*  else if (route.name === "MyDates") {
+            else if (route.name === "MyDates") {
             iconName = "calendar";
           } else if (route.name === "MyNotes") {
             iconName = "book";
           } else if (route.name === "MyProfile") {
             iconName = "user";
-          } */
+          } 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "#FFFFFF",
@@ -78,9 +78,9 @@ function MyTabs() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Info" component={InfoViolence} />
       <Tab.Screen name="Rutes" component={Rutes} />
-     {/*  <Tab.Screen name="MyDates" component={MyDates} />
+      <Tab.Screen name="MyDates" component={MyDates} />
       <Tab.Screen name="MyNotes" component={MyNotes} />
-      <Tab.Screen name="MyProfile" component={MyProfile} /> */}
+      <Tab.Screen name="MyProfile" component={MyProfile} />
     </Tab.Navigator>
   );
 }
@@ -143,9 +143,6 @@ export default function App() {
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
         <Stack.Screen name="TipSix" component={TipSix}/>
-        <Stack.Screen name="MyDates" component={MyDates}/>
-        <Stack.Screen name="MyNotes" component={MyNotes}/>
-        <Stack.Screen name="MyProfile" component={MyProfile}/>
         <Stack.Screen name="Avatar" component={Avatar}/>
         <Stack.Screen name="Password" component={Password}/>
         <Stack.Screen name="TipTen" component={TipTen}/>
