@@ -17,18 +17,16 @@ import HomeScreen from "./components/HomeScreen/HomeScreen";
 import InfoViolence from "./screens/InfoViolence/InfoViolence";
 import TipOne from "./screens/tipOne/tipOne";
 import TipTwo from "./screens/tipTwo/tipTwo"; 
-import TipThree from "./screens/tipThree/TipThree.js";
+import TipThree from "./screens/tipThree/tipThree.js";
 import TipFour from "./screens/tipFour/TipFour";
 import TipFive from "./screens/tipFive/TipFive.js";
 import TipSix from "./screens/tipSix/TipSix.js";
 import FinalTip from "./components/finaltip/FinalTip.js";
 import TipsScreen from "./components/Tip1/TipsScreen";
-import TipOneSecond from "./components/Tip1/tipOneSecond";
+// import TipOneSecond from "./components/Tip1/tipOneSecond";
 import Rutes from "./screens/rutes/rutes.js"
 // import TipFinalFour from "./screens/tipFour/TipFinalFour";
-import TipOneSecond from "./components/Tip1/TipOneSecond";
-import TipTwo from "./screens/tipTwo/tipTwo"; 
-import TipThree from "./screens/tipThree/tipThree.js";
+import TipOneSecond from "./components/Tip1/TipOneSecond.js";
 import TipTen from "./screens/tipTen/TipTen.js";
 import TipEleven from "./screens/tipEleven/TipEleven.js";
 import MyDates from "./screens/myDates/MyDates.js";
@@ -59,7 +57,7 @@ function MyTabs() {
           } else if (route.name === "MyNotes") {
             iconName = "book";
           } else if (route.name === "MyProfile") {
-            iconName = "user";
+            iconName = "map";
           } 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
