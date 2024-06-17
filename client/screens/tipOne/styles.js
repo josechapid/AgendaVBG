@@ -96,12 +96,11 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: 5,
     width: 100,
-    height:50,
-    alignSelf: 'center',
-    marginBottom: 30
+    height: 50,
+    alignSelf: "center",
+    marginBottom: 30,
   },
   enviarButtonText: {
     fontSize: 16,
-    
   },
 });

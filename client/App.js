@@ -26,7 +26,7 @@ import TipsScreen from "./components/Tip1/TipsScreen";
 // import TipOneSecond from "./components/Tip1/tipOneSecond";
 import Rutes from "./screens/rutes/rutes.js"
 // import TipFinalFour from "./screens/tipFour/TipFinalFour";
-import TipOneSecond from "./components/Tip1/TipOneSecond.js";
+import TipOneSecond from "./components/Tip1/tipOneSecond.js";
 import TipTen from "./screens/tipTen/TipTen.js"
 import TipEleven from "./screens/tipEleven/TipEleven.js";
 import MyDates from "./screens/myDates/MyDates.js";
