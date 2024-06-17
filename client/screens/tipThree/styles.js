@@ -16,7 +16,7 @@ export default StyleSheet.create({
     alignContent: "center",
     marginBottom: 20,
   },
-  imageTipUno: {
+  imageTipThree: {
     resizeMode: "contain",
     height: 200,
     width: 200,

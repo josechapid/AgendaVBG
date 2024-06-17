@@ -35,7 +35,7 @@ function TipThree() {
       <View style={styles.imageContainer}>
         <Image
           source={require("../../assets/img/tip3/mujerPerdon.jpg")}
-          style={styles.imageTipUno}
+          style={styles.imageTipThree}
         />
       </View>
       {/* --------------------------------------------section reto y description  */}

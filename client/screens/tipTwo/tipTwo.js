@@ -45,7 +45,7 @@ function TipTwo() {
       <View style={styles.imageContainer}>
         <Image
           source={require("../../assets/img/tip2/mujerespejo.jpg")}
-          style={styles.imageTipUno}
+          style={styles.imageTipTwo}
         />
       </View>
       {/* --------------------------------------------section reto y description  */}

@@ -1,22 +1,16 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    width: "100%",
-  },
   scrollViewContainer: {
     alignItems: "center",
     margin: 15,
-    flexGrow: 1,
   },
   imageContainer: {
     justifyContent: "center",
     alignContent: "center",
     marginBottom: 20,
   },
-  imageTipTwo: {
+  imageTipNine: {
     resizeMode: "contain",
     height: 200,
     width: 200,
@@ -42,20 +36,6 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
-  subTitleContainer: {
-    marginTop: 20,
-    backgroundColor: "#F4A261",
-    width: "100%",
-    height: 40,
-    borderRadius: 10,
-    justifyContent: "center",
-  },
-  subTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    paddingLeft: 10,
-  },
   form: {
     width: "100%",
   },
@@ -70,22 +50,22 @@ export default StyleSheet.create({
     width: "100%",
     backgroundColor: "#D9D9D9",
   },
-  buttonGenerate: {
+  buttonAddPerson: {
     alignItems: "center",
     height: 40,
     backgroundColor: "#F4A261",
     justifyContent: "center",
-    width: 80,
+    width: 200,
     alignSelf: "center",
     borderRadius: 10,
     marginBottom: 20,
   },
   textGenerate: {},
-  recompensasContainer: {
+  peopleContainer: {
     width: "100%",
     marginBottom: 20,
   },
-  recompensaItem: {
+  personItem: {
     backgroundColor: "#fff",
     padding: 15,
     borderRadius: 5,

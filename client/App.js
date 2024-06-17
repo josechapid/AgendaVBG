@@ -21,6 +21,9 @@ import TipThree from "./screens/tipThree/tipThree.js";
 import TipFour from "./screens/tipFour/TipFour";
 import TipFive from "./screens/tipFive/TipFive.js";
 import TipSix from "./screens/tipSix/TipSix.js";
+import TipSeven from "./screens/tipSeven/tipSeven.js";
+import TipEight from "./screens/tipEight/tipEight.js";
+import TipNine from "./screens/tipNine/tipNine.js";
 import FinalTip from "./components/finaltip/FinalTip.js";
 import TipsScreen from "./components/Tip1/TipsScreen";
 // import TipOneSecond from "./components/Tip1/tipOneSecond";
@@ -141,6 +144,9 @@ export default function App() {
         <Stack.Screen name="TipFour" component={TipFour}/>
         <Stack.Screen name="TipFive" component={TipFive}/>
         <Stack.Screen name="TipSix" component={TipSix}/>
+        <Stack.Screen name="TipSeven" component={TipSeven}/>
+        <Stack.Screen name="TipEight" component={TipEight}/>
+        <Stack.Screen name="TipNine" component={TipNine}/>
         <Stack.Screen name="Avatar" component={Avatar}/>
         <Stack.Screen name="Password" component={Password}/>
         <Stack.Screen name="TipTen" component={TipTen}/>

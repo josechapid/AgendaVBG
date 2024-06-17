@@ -51,7 +51,7 @@ const Password = () => {
 
         <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("Main")}>
+            onPress={() => navigation.navigate("MyProfile")}>
             <Text style={styles.buttonText}>Guardar cambios</Text>
         </TouchableOpacity>
         </View>
