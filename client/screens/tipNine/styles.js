@@ -10,7 +10,7 @@ export default StyleSheet.create({
     alignContent: "center",
     marginBottom: 20,
   },
-  imageTipUno: {
+  imageTipNine: {
     resizeMode: "contain",
     height: 200,
     width: 200,
@@ -36,19 +36,8 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
-  subTitleContainer: {
-    marginTop: 20,
-    backgroundColor: "#F4A261",
+  form: {
     width: "100%",
-    height: 40,
-    borderRadius: 10,
-    justifyContent: "center",
-  },
-  subTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "left",
-    paddingLeft: 10,
   },
   input: {
     borderWidth: 1,
@@ -61,46 +50,43 @@ export default StyleSheet.create({
     width: "100%",
     backgroundColor: "#D9D9D9",
   },
-  fortalezasContainer: {
-    marginTop: 0,
-  },
-  fortalezaItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+  buttonAddPerson: {
     alignItems: "center",
-    backgroundColor: "#D9D9D9",
+    height: 40,
+    backgroundColor: "#F4A261",
+    justifyContent: "center",
+    width: 200,
+    alignSelf: "center",
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  textGenerate: {},
+  peopleContainer: {
     width: "100%",
-    padding: 10,
-    marginBottom: 5,
-    borderRadius: 5,
-    height: 50,
+    marginBottom: 20,
   },
-  debilidadesContainer: {
-    marginTop: 0,
-  },
-  debilidadItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#D9D9D9",
-    width: "100%",
-    padding: 10,
-    marginBottom: 5,
-    borderRadius: 5,
-    height: 50,
-  },
-  enviarButton: {
-    backgroundColor: "#F5CAC3",
+  personItem: {
+    backgroundColor: "#fff",
     padding: 15,
     borderRadius: 5,
-    alignItems: "center",
-    marginTop: 5,
-    width: 100,
-    height: 50,
-    alignSelf: "center",
-    marginBottom: 30,
+    marginBottom: 10,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    width: "100%",
   },
-  enviarButtonText: {
-    fontSize: 16,
+  recompensaTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  enviarButton: {
+    backgroundColor: "#F4A261",
+    padding: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    marginBottom: 20,
+    width: 70,
+    alignSelf: "center",
+    height: 40,
   },
 });

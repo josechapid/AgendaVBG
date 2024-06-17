@@ -8,12 +8,12 @@ export default StyleSheet.create({
   imageContainer: {
     justifyContent: "center",
     alignContent: "center",
-    marginBottom: 10,
+    marginBottom: 20,
   },
-  imageRutes: {
+  imageTipSeven: {
     resizeMode: "contain",
-    height: 180,
-    width: 250,
+    height: 200,
+    width: 200,
     borderRadius: 20,
   },
   textSection: {
@@ -31,19 +31,9 @@ export default StyleSheet.create({
   },
   textDescription: {
     marginTop: 20,
-    marginBottom: 20
   },
   description: {
     fontSize: 20,
     textAlign: "center",
-  },
-  ruteDescription: {
-    backgroundColor: "#fff",
-    padding: 15,
-    borderRadius: 5,
-    marginBottom: 10,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    width: "100%",
   },
 });

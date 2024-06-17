@@ -7,15 +7,35 @@ import { useNavigation } from "@react-navigation/native";
 function TipThree() {
   const navigation = useNavigation();
   const [description, setDescription] = useState("")
+  const [userExperience, setUserExperience] = useState("");
 
+  const handleSend = async () => {
+    try {
+      const response = await axios.post(
+        "https://your-endpoint.com/api/sendExperience",
+        {
+          tipId: 3,
+          experience: userExperience,
+        }
+      );
 
+      if (response.status === 200) {
+        Alert.alert("Éxito", "Tu experiencia ha sido enviada!");
+        navigation.navigate("FinalTip", { tipId: 3 });
+      } else {
+        Alert.alert("Error", "Hubo un error al enviar tu experiencia.");
+      }
+    } catch (error) {
+      Alert.alert("Error", "Hubo un error al enviar tu experiencia.");
+    }
+  };
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       {/* ----------------------------------------------------Imagen inicial  */}
       <View style={styles.imageContainer}>
         <Image
           source={require("../../assets/img/tip3/mujerPerdon.jpg")}
-          style={styles.imageTipUno}
+          style={styles.imageTipThree}
         />
       </View>
       {/* --------------------------------------------section reto y description  */}
@@ -48,15 +68,26 @@ function TipThree() {
           en medio de la tormenta. Si aún te cuesta agradecer, no pasa nada.
           Puedes escribir simplemente: “me doy las gracias por decidir
           perdonar”.
+          {"\n"} {"\n"}
+          Una vez termines de hacer tu carta del perdón, dejanos tu experiencia
+          en la siguiente casilla
         </Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Escribe tu experiencia aquí..."
+            value={userExperience}
+            onChangeText={setUserExperience}
+            multiline
+          />
+        </View>
       </View>
-      
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("FinalTip", { tipId: 3 })}>
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableOpacity>
-     
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("FinalTip", { tipId: 3 })}
+      >
+        <Text style={styles.buttonText}>Enviar</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
