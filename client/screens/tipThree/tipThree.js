@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 function TipThree() {
   const navigation = useNavigation();
-  const [description, setDescription] = useState("")
+  
   const [userExperience, setUserExperience] = useState("");
 
   const handleSend = async () => {
