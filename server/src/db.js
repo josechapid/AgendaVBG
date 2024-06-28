@@ -2,8 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require("fs");
 const path = require("path");
-const { DB, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } =
-  process.env;
+const { DB, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 
 //° CONEXION A LA BASE DE DATOS
 
@@ -14,10 +13,6 @@ const { DB, DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } =
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
     }
   );
-
-
-
-
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -43,14 +38,30 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+
+
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring cambio
 
-const {MyDate, InfoViolence} = sequelize.models;
-const { Banners,CareRoutes,Administrator } = sequelize.models;
+const { Administrator, MyDate, MyNotes, User, Workshops, Response } = sequelize.models;
 // Definir el modelo CartProduct con el campo "cantidad"
 // Aca vendrian las relaciones
 
+User.belongsToMany(Workshops, { through: Response, timestamps: false });
+Workshops.belongsToMany(User, { through: Response, timestamps: false });
+
+/* User.hasMany(Response);
+Response.belongsTo(User);
+
+Workshops.hasMany(Response);
+Response.belongsTo(Workshops); */
+// relacion user-myDates (uno a muchos)
+User.hasMany(MyDate)
+MyDate.belongsTo(User)
+
+//relacion de user-mynotes (uno a muchos)
+User.hasMany(MyNotes);
+MyNotes.belongsTo(User);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
