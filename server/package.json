@@ -13,14 +13,13 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.19.2",
     "morgan": "^1.10.0",
-    "sequelize": "^6.37.3",
-    "dotenv": "^8.2.0",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
-  "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0"
   }
-
 }
