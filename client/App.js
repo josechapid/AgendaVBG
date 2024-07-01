@@ -34,6 +34,7 @@ import MyNotes from "./screens/myNotes/MyNotes.js";
 import MyProfile from "./screens/myProfile/MyProfile.js";
 import Avatar from "./components/Avatar.js";
 import Password from "./screens/password/Password.js";
+import Feedback from "./components/feedback/Feedback.js";
 
 
 const Stack = createStackNavigator();
@@ -145,6 +146,7 @@ export default function App() {
         <Stack.Screen name="Password" component={Password}/>
         <Stack.Screen name="TipTen" component={TipTen}/>
         <Stack.Screen name="TipEleven" component={TipEleven}/>
+        <Stack.Screen name="Feedback" component={Feedback}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
