@@ -39,19 +39,19 @@
     "id": 7,
     "image": "tip7.png",
     "text": "Para evitar posponer lo que en un principio querías hacer, la idea es que diseñes tus propias metas en positivo y que desarrolles un estilo de afrontamiento activo.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipSeven"
   },
   {
     "id": 8,
     "image": "tip8.png",
     "text": "Se puede aprender hasta el final de nuestros días. La maravilla de aprender es que nadie te lo puede arrebatar.",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipEight"
   },
   {
     "id": 9,
     "image": "tip9.png",
     "text": "Las redes de apoyo nos permiten sentirnos acompañadas en los momentos donde necesitamos ayuda, identifica las tuyas. (familia, amigos, comunidad, vecinos, etc…)",
-    "navigateTo": "TipOneSecond"
+    "navigateTo": "TipNine"
   },
   {
     "id": 10,

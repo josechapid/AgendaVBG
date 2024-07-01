@@ -7,6 +7,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as Font from "expo-font";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Provider } from "react-redux";
+import store from "./redux_toolkit/store/store.js"
 
 //Componentes
 import Bienvenida from "./screens/bienvenida/Bienvenida";
@@ -21,12 +23,12 @@ import TipThree from "./screens/tipThree/tipThree.js";
 import TipFour from "./screens/tipFour/TipFour";
 import TipFive from "./screens/tipFive/TipFive.js";
 import TipSix from "./screens/tipSix/TipSix.js";
+import TipSeven from "./screens/tipSeven/tipSeven.js";
+import TipEight from "./screens/tipEight/tipEight.js";
+import TipNine from "./screens/tipNine/tipNine.js";
 import FinalTip from "./components/finaltip/FinalTip.js";
 import TipsScreen from "./components/Tip1/TipsScreen";
-// import TipOneSecond from "./components/Tip1/tipOneSecond";
 import Rutes from "./screens/rutes/rutes.js"
-// import TipFinalFour from "./screens/tipFour/TipFinalFour";
-import TipOneSecond from "./components/Tip1/TipOneSecond.js";
 import TipTen from "./screens/tipTen/TipTen.js"
 import TipEleven from "./screens/tipEleven/TipEleven.js";
 import MyDates from "./screens/myDates/MyDates.js";
@@ -104,50 +106,52 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Bienvenida">
-        <Stack.Screen
-          name="Bienvenida"
-          component={Bienvenida}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Ingresar"
-          component={Ingresar}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SingIn"
-          component={SingIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Main"
-          component={MyTabs}
-          options={{ headerShown: false }}
-        />
-        {/* <Stack.Screen name="Infoviolence" component={InfoViolence} /> */}
-        <Stack.Screen name="TipOneSecond" component={TipOneSecond} />
-        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-        <Stack.Screen name="TipsScreen" component={TipsScreen} />
-        <Stack.Screen name="FinalTip" component={FinalTip} />
-        <Stack.Screen name="TipOne" component={TipOne} />
-        <Stack.Screen name="TipTwo" component={TipTwo} />
-        <Stack.Screen name="TipThree" component={TipThree} />
-        <Stack.Screen name="TipFour" component={TipFour}/>
-        <Stack.Screen name="TipFive" component={TipFive}/>
-        <Stack.Screen name="TipSix" component={TipSix}/>
-        <Stack.Screen name="Avatar" component={Avatar}/>
-        <Stack.Screen name="Password" component={Password}/>
-        <Stack.Screen name="TipTen" component={TipTen}/>
-        <Stack.Screen name="TipEleven" component={TipEleven}/>
-        <Stack.Screen name="Feedback" component={Feedback}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Bienvenida">
+          <Stack.Screen
+            name="Bienvenida"
+            component={Bienvenida}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Ingresar"
+            component={Ingresar}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SingIn"
+            component={SingIn}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Main"
+            component={MyTabs}
+            options={{ headerShown: false }}
+          />
+                   
+          <Stack.Screen name="TipsScreen" component={TipsScreen} />
+          <Stack.Screen name="FinalTip" component={FinalTip} />
+          <Stack.Screen name="TipOne" component={TipOne} />
+          <Stack.Screen name="TipTwo" component={TipTwo} />
+          <Stack.Screen name="TipThree" component={TipThree} />
+          <Stack.Screen name="TipFour" component={TipFour} />
+          <Stack.Screen name="TipFive" component={TipFive} />
+          <Stack.Screen name="TipSix" component={TipSix} />
+          <Stack.Screen name="TipSeven" component={TipSeven} />
+          <Stack.Screen name="TipEight" component={TipEight} />
+          <Stack.Screen name="TipNine" component={TipNine} />
+          <Stack.Screen name="Avatar" component={Avatar} />
+          <Stack.Screen name="Password" component={Password} />
+          <Stack.Screen name="TipTen" component={TipTen} />
+          <Stack.Screen name="TipEleven" component={TipEleven} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
