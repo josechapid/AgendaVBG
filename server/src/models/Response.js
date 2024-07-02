@@ -9,11 +9,24 @@ module.exports = (sequelize) => {
         autoIncrement: true,
         primaryKey: true,
       },
+      usuario_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
+      },
+      taller_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "workshops",
+          key: "id",
+        },
+      },
       response: {
         type: DataTypes.JSON,
         allowNull: true,
       },
-      
     },
     { timestamps: false }
   );
