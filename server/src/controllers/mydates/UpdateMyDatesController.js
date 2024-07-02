@@ -1,9 +1,9 @@
 const { MyDate } = require("../../db");
 
-const updateMyDatesController = async (id, date, professional, address, password) => {
-  const [updated] = await MyDate.update({ date, professional, address, password }, { where: { id } });
+const updateMyDatesController = async (id, date, professional, address) => {
+  const [updated] = await MyDate.update({ date, professional, address}, { where: { id } });
   if (updated) {
-    const updatedDate = await myDate.findByPk(id);
+    const updatedDate = await MyDate.findByPk(id);
     return updatedDate;
   }
   return null;

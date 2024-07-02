@@ -2,9 +2,9 @@ const updateMyDatesController = require("../../controllers/mydates/UpdateMyDates
 
 const updateMyDatesHandler = async (req, res) => {
   const { id } = req.params;
-  const { date, professional, address, password } = req.body;
+  const { date, professional, address} = req.body;
   try {
-    const updatedDate = await updateMyDatesController(id, date, professional, address, password);
+    const updatedDate = await updateMyDatesController(id, date, professional, address);
     if (!updatedDate) {
       res.status(404).json({ error: "Date not found" });
     } else {
