@@ -47,8 +47,16 @@ const { Administrator, MyDate, MyNotes, User, Workshops, Response } = sequelize.
 // Definir el modelo CartProduct con el campo "cantidad"
 // Aca vendrian las relaciones
 
-User.belongsToMany(Workshops, { through: Response, timestamps: false });
-Workshops.belongsToMany(User, { through: Response, timestamps: false });
+User.belongsToMany(Workshops, {
+  through: Response,
+  foreignKey: "usuario_id",
+  timestamps: false,
+});
+Workshops.belongsToMany(User, {
+  through: Response,
+  foreignKey: "taller_id",
+  timestamps: false,
+});
 
 /* User.hasMany(Response);
 Response.belongsTo(User);
