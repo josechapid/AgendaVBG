@@ -36,6 +36,7 @@ import MyNotes from "./screens/myNotes/MyNotes.js";
 import MyProfile from "./screens/myProfile/MyProfile.js";
 import Avatar from "./components/Avatar.js";
 import Password from "./screens/password/Password.js";
+import Feedback from "./components/feedback/Feedback.js";
 
 
 const Stack = createStackNavigator();
