@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "titleOne": "La felicidad empieza por ti",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103118-removebg-preview_v0yxlk.png",
+    "descriptionOne": "Hacer un listado de habilidades y fortalezas.\nEmpieza el reto haciendo tu propio listado de habilidades y fortalezas.\nComienza por reconocerte a ti misma, esto te ayuda a percibir lo positivo de ti, por pequeño que sea.",
+    "navigateTo": "TipOne",
+    "titleTwo": "Reto 1: Conócete",
+    "imageTwo": "",
+    "descriptionTwo": "A continuación, describe una lista de fortalezas y debilidades, busca ser sincera contigo misma y reconocer cuales son:"
+  },
+  {
+    "id": 2,
+    "titleOne": "Sonríe más a menudo",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103133-removebg-preview_igrmuh.png",
+    "descriptionOne": "Puesto que, vas asumiendo que tus logros son diarios ya sean pequeños o grandes y también en este reto debes darte una pequeña recompensa por conseguirlos. Debes darte un pequeño detalle por cada vez que logres algo. La idea es que aprendas a asociar logro con resultados de felicidad y celebración.",
+    "navigateTo": "TipTwo",
+    "titleTwo": "Reto 2: Sonríe más a menudo",
+    "imageTwo": "",
+    "descriptionTwo": " Escribe una acción que realizaste (logro) y describe la recompensa que obtuviste por conseguirlo. Ideas: una palmadita en el hombro, palabras bonitas, comida favorita, deporte, descansar, salir con una persona, mirar tv, etc. "
+  },
+  {
+    "id": 3,
+    "titleOne": "Mira hacia adelante",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015989/Captura_de_pantalla_2024-05-27_103145-removebg-preview_sliawf.png",
+    "descriptionOne": "Mira siempre hacia delante, cuando camines o realices una actividad, cuando los ojos miran hacia delante, de frente o hacia arriba, el estado de animo mejora. INTÉNTALO y evita mirar hacia abajo.",
+    "navigateTo": "TipThree",
+    "titleTwo": "Reto 3: Carta del perdón",
+    "imageTwo": "",
+    "descriptionTwo": "El día de hoy vas a escribir una carta a esa persona que quieres perdonar, incluyéndote. Escríbela tranquilamente, sin detenerte y con el corazón, expresando todo lo que sientes."
+  },
+  {
+    "id": 4,
+    "titleOne": "Encuentra la calma",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015989/Captura_de_pantalla_2024-05-27_103157-removebg-preview_p1dfi5.png",
+    "descriptionOne": "Hoy empezarás a relajarte y lo harás durante todo el reto. Relaja la mente, relaja el cuerpo y relaja la vida.",
+    "navigateTo": "TipFour",
+    "titleTwo": "Reto 4: Meditación",
+    "imageTwo": "",
+    "descriptionTwo": "Mira el siguiente video y sigue cada instruccion que te dan. Cuentanos como te sentistes"
+  },
+  {
+    "id": 5,
+    "titleOne": "Construye la felicidad",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015990/Captura_de_pantalla_2024-05-27_103206-removebg-preview_vghcaz.png",
+    "descriptionOne": "Hacer ejercicio diariamente activa el sistema nervioso y hace que segregues sustancias químicas que te relajan y te harán sentir muy bien. Organiza un horario semanal para hacer el ejercicio que tu prefieras, pero al menos camina 30 minutos una vez al día.",
+    "navigateTo": "TipFive",
+    "titleTwo": "Reto 5:Ejercita mente y cuerpo",
+    "imageTwo": "",
+    "descriptionTwo": "Organiza un horario semanal para hacer el ejercicio que prefieras, camina 30 minutos una vez al dia."
+  },
+  {
+    "id": 6,
+    "titleOne": "Piensa positivo",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103216-removebg-preview_am0g4k.png",
+    "descriptionOne": "La tarea de hoy debes hacerla antes de dormir, una vez acostada. Cierra los ojos y duérmete imaginando escenas agradables. Al día siguiente escribe cómo te sentiste.",
+    "navigateTo": "TipSix",
+    "titleTwo": "Reto 6: Descanso agradable",
+    "imageTwo": "",
+    "descriptionTwo": "En el siguiente recuadro cuentanos como te sentiste"
+  },
+  {
+    "id": 7,
+    "titleOne": "Diseña tus metas",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103226-removebg-preview_frq7qa.png",
+    "descriptionOne": "Para evitar posponer lo que en un principio querías hacer, la idea es que diseñes tus propias metas en positivo y que desarrolles un estilo de afrontamiento activo.",
+    "navigateTo": "TipSeven",
+    "titleTwo": "Reto 7: Diseña tus propias metas",
+    "imageTwo": "",
+    "descriptionTwo": "Realiza una lista de tareas pendientes desde las más básicas hasta las más prioritarias, hazlas y táchalas una vez realizadas. Repítelo cada vez que lo necesites."
+  },
+  {
+    "id": 8,
+    "titleOne": "Aprende cosas nuevas",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015989/Captura_de_pantalla_2024-05-27_103237-removebg-preview_qmqgoy.png",
+    "descriptionOne": "Se puede aprender hasta el final de nuestros días. La maravilla de aprender es que nadie te lo puede arrebatar.",
+    "navigateTo": "TipEight",
+    "titleTwo": "Reto 8: Haz algo nuevo",
+    "imageTwo": "",
+    "descriptionTwo": "Selecciona tres actividades de la rutina diaria y hazlo de una manera diferente, (lavarte los dientes con la mano contraria, tomar otra ruta para ir a casa o al trabajo, arreglar tu cuarto de manera distinta, etc…) así como también piensa en algo que siempre hayas querido hacer o aprender y no lo dejes para después. El momento es ahora. Ejemplo: Bailar, cocinar, tocar un instrumento, aprender algún idioma. Etc…"
+  },
+  {
+    "id": 9,
+    "titleOne": "Crea tu red",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103247-removebg-preview_bq4uau.png",
+    "descriptionOne": "Las redes de apoyo nos permiten sentirnos acompañadas en los momentos donde necesitamos ayuda, identifica las tuyas. (familia, amigos, comunidad, vecinos, etc…)",
+    "navigateTo": "TipNine",
+    "titleTwo": "Reto 9:Creando mi red",
+    "imageTwo": "",
+    "descriptionTwo": "Identifica tu red de apoyo. Escribe tu nombre y el de las personas que consideres más cercanas y ubícalas en la telaraña."
+  },
+  {
+    "id": 10,
+    "titleOne": "Toma el control",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015988/Captura_de_pantalla_2024-05-27_103408-removebg-preview_mpldgg.png",
+    "descriptionOne": "Ser consientes de lo que sentimos nos permite tener un control sobre lo que nos afecta y nos permite actuar de manera asertiva.",
+    "navigateTo": "TipTen",
+    "titleTwo": "Reto 10: Controla tus impulsos",
+    "imageTwo": "",
+    "descriptionTwo": "Ser consientes de lo que sentimos nos permite tener un control sobre lo que nos afecta y nos permite actuar de manera asertiva."
+  },
+  {
+    "id": 11,
+    "titleOne": "Empoderate",
+    "imageOne": "https://res.cloudinary.com/deced3y33/image/upload/v1720015989/Captura_de_pantalla_2024-05-27_103418-removebg-preview_nzobwj.png",
+    "descriptionOne": "Hemos llegado al final de este proceso y es hora de que todo lo que has aprendido lo pongas en práctica, lo hagas parte de ti y lo compartas con quien lo necesite. EMPODERATE.",
+    "navigateTo": "TipEleven",
+    "titleTwo": "Reto 11: Comparte y contagia",
+    "imageTwo": "",
+    "descriptionTwo": "Expande tus conocimientos con ejemplo y optimismo.Comparte este reto y educa a quien lo necesite crea un grupo de auto-ayuda si es necesario "
+  }
+]

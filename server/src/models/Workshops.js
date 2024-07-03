@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       descriptionOne: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
       },
       titleTwo: {
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       descriptionTwo: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: true,
       },
     },
