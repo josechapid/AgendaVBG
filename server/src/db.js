@@ -49,12 +49,12 @@ const { Administrator, MyDate, MyNotes, User, Workshops, Response } = sequelize.
 
 User.belongsToMany(Workshops, {
   through: Response,
-  foreignKey: "usuario_id",
+  foreignKey: "user_id",
   timestamps: false,
 });
 Workshops.belongsToMany(User, {
   through: Response,
-  foreignKey: "taller_id",
+  foreignKey: "workshop_id",
   timestamps: false,
 });
 
