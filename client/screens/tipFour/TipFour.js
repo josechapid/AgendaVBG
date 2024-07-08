@@ -3,11 +3,43 @@ import React, { useState } from "react";
 import styles from "./styles";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { setDescription, clearDescription } from '../../redux_toolkit/features/counter/Slice';
 
+const BASE_URL = "http://localhost:3001";
 
 function TipFour () {
     const navigation = useNavigation();
-    const [description, setDescription] = useState("");
+    const dispatch = useDispatch();
+    const description = useSelector((state) => state.tip.description);
+    // const [description, setDescription] = useState("");
+
+      const handleEnviarDatos = async () => {
+    try {
+      const data = {
+        usuario_id: 2,
+        taller_id: 4, 
+        response: {
+          description: description
+        },
+      };
+      const response = await axios.post(`${BASE_URL}/response`, data);
+      console.log("Respuesta del servidor: ", response.data);
+      dispatch(clearDescription());
+      navigation.navigate("FinalTip", { tipId: 4 });
+    } catch (error) {
+      console.error("Error al enviar los datos: ", error);
+      if (error.response) {
+        console.error('Respuesta del servidor:', error.response.data);
+      } else if (error.request) {
+        console.error('Solicitud realizada, sin respuesta:', error.request);
+      } else {
+        console.error('Error en la configuración de la solicitud:', error.message);
+      }
+      console.error('Error de configuración:', error.config);
+    }
+  };
 
    return(
         <View style={styles.container}>
@@ -37,14 +69,14 @@ function TipFour () {
                     
                     placeholder="Escribe aquí tu descripción"
                     multiline
-                    onChangeText={text => setDescription(text)} 
+                    onChangeText={(text) => dispatch(setDescription(text))} 
                     value={description} 
                 />
                 </View>
             </View>
             <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("FinalTip",{tipId: 4})}>
+            onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
             
