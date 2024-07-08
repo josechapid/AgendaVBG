@@ -3,32 +3,42 @@ import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { setForgivenessLetter } from "../../redux_toolkit/features/counter/Slice";
+import { useDispatch, useSelector } from "react-redux";
 
 function TipThree() {
   const navigation = useNavigation();
+  const dispatch=useDispatch()
+  const {forgivenessLetter}= useSelector((state)=>state.tip)
   
   const [userExperience, setUserExperience] = useState("");
 
-  const handleSend = async () => {
-    try {
-      const response = await axios.post(
-        "https://your-endpoint.com/api/sendExperience",
-        {
-          tipId: 3,
-          experience: userExperience,
-        }
-      );
-
-      if (response.status === 200) {
-        Alert.alert("Éxito", "Tu experiencia ha sido enviada!");
-        navigation.navigate("FinalTip", { tipId: 3 });
-      } else {
-        Alert.alert("Error", "Hubo un error al enviar tu experiencia.");
-      }
-    } catch (error) {
-      Alert.alert("Error", "Hubo un error al enviar tu experiencia.");
+  function handleSend (){
+    if(userExperience.trim()!== ""){
+      dispatch(setForgivenessLetter(userExperience.trim()))
+      setUserExperience("")
     }
-  };
+  }
+
+  async function enviarDatos (){
+    try {
+      handleSend();
+      /* const data= {
+        user_id:2,
+        workshop_id: 3,
+        response: {
+          forgivenessLetter: forgivenessLetter
+        }
+      }
+      const response = await axios.post("http://localhost:3001/response", data);
+      console.log("Respuesta del servidor: ", response.data); */
+      navigation.navigate("FinalTip", { tipId: 3 });
+    } catch (error) {
+      console.error("Error al enviar los datos: ", error);
+    }
+  }
+
+  
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
       {/* ----------------------------------------------------Imagen inicial  */}
@@ -76,15 +86,15 @@ function TipThree() {
           <TextInput
             style={styles.textInput}
             placeholder="Escribe tu experiencia aquí..."
-            value={userExperience}
-            onChangeText={setUserExperience}
+            value={userExperience}            
+            onChangeText={setUserExperience}            
             multiline
           />
         </View>
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("FinalTip", { tipId: 3 })}
+        onPress={enviarDatos}
       >
         <Text style={styles.buttonText}>Enviar</Text>
       </TouchableOpacity>

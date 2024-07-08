@@ -3,34 +3,28 @@ import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { setRewards_behavior } from "../../redux_toolkit/features/counter/Slice";
+import { useDispatch, useSelector } from "react-redux";
 
 function TipTwo() {
   const navigation = useNavigation();
+  const dispatch= useDispatch()
+  const {rewards_behavior}= useSelector((state)=>state.tip)
   const [behavior, setBehavior]= useState("")
   const [rewards, setRewards] = useState("");
-  const [rewards_behavior, setRewards_behavior]= useState([])
-  const [nextId, setNextId] = useState(1);
+
 
   function handleAddRecompensa() {
-
-    const newRewards = {
-      id: nextId,
-      behavior,
-      rewards
-    };
-    setRewards_behavior([...rewards_behavior, newRewards]);
-    setBehavior("");
-    setRewards ("");
-    setNextId(nextId + 1);
+    if (behavior.trim() && rewards.trim()){
+      dispatch(setRewards_behavior({behavior, rewards}))
+      setBehavior("");
+      setRewards("");
+    }   
   }
 
     async function enviarDatos() {
       try {
-        /*  const response = await axios.post("http://servidor/api/tipUno", {
-        fortalezas: fortalezas,
-        debilidades: debilidades,
-      });
-      console.log(response.data) */
+        
         navigation.navigate("FinalTip", { tipId: 2 });
       } catch (error) {
         console.error(error);
@@ -88,9 +82,9 @@ function TipTwo() {
 
 
         <ScrollView style={styles.recompensasContainer}>
-          {rewards_behavior.map((item) => (
-            <View key={item.id} style={styles.recompensaItem}>
-              <Text style={styles.recompensaTitle}>Recompensa {item.id}</Text>
+          {rewards_behavior.map((item, index) => (
+            <View key={index} style={styles.recompensaItem}>
+              <Text style={styles.recompensaTitle}>Recompensa {index+1}</Text>
               <Text>Comportamiento: {item.behavior}</Text>
               <Text>Recompensa: {item.rewards}</Text>
             </View>
