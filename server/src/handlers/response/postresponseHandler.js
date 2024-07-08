@@ -1,12 +1,16 @@
 const postResponseController = require("../../controllers/response/postResponseController")
 
 const postResponseHandler =async (req, res)=>{
-    const {usuario_id, taller_id, response}=req.body
+    const {user_id, workshop_id, response}=req.body
     try {
-        if (!usuario_id || !taller_id || !response){
-            return res.status(400).json({error: "Faltan datos obligatorios"})
+        if (!user_id || !workshop_id || !response) {
+          return res.status(400).json({ error: "Faltan datos obligatorios" });
         }
-        const newResponse= await postResponseController(usuario_id, taller_id, response)
+        const newResponse = await postResponseController(
+          user_id,
+          workshop_id,
+          response
+        );
         res.status(200).json(newResponse)
     } catch (error) {
         res

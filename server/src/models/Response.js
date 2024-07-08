@@ -9,14 +9,14 @@ module.exports = (sequelize) => {
         autoIncrement: true,
         primaryKey: true,
       },
-      usuario_id: {
+      user_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "users",
           key: "id",
         },
       },
-      taller_id: {
+      workshop_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "workshops",
