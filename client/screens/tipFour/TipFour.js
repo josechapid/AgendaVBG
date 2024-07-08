@@ -7,37 +7,29 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setDescription, clearDescription } from '../../redux_toolkit/features/counter/Slice';
 
-const BASE_URL = "http://localhost:3001";
+
 
 function TipFour () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const description = useSelector((state) => state.tip.description);
-    // const [description, setDescription] = useState("");
+    
 
       const handleEnviarDatos = async () => {
     try {
       const data = {
-        usuario_id: 2,
-        taller_id: 4, 
+        user_id: 1,
+        workshop_id: 4, 
         response: {
           description: description
         },
       };
-      const response = await axios.post(`${BASE_URL}/response`, data);
+      const response = await axios.post("http://localhost:3001/response", data);
       console.log("Respuesta del servidor: ", response.data);
       dispatch(clearDescription());
       navigation.navigate("FinalTip", { tipId: 4 });
     } catch (error) {
-      console.error("Error al enviar los datos: ", error);
-      if (error.response) {
-        console.error('Respuesta del servidor:', error.response.data);
-      } else if (error.request) {
-        console.error('Solicitud realizada, sin respuesta:', error.request);
-      } else {
-        console.error('Error en la configuración de la solicitud:', error.message);
-      }
-      console.error('Error de configuración:', error.config);
+      console.error("Error al enviar los datos: ", error);      
     }
   };
 
