@@ -33,19 +33,16 @@ const tipSlice = createSlice({
         rewards: action.payload.rewards,
       };
       state.rewards_behavior.push(newReward);
-      console.log(state.rewards_behavior);
-      
-    } 
- },
+      console.log(state.rewards_behavior);      
+    },
     setDescription: (state,action) => {
       state.description = action.payload;
     },
     clearDescription: (state) => {
       state.description = "";
-    }
+    },
   },
-);
+})
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior } = tipSlice.actions;
-export const { setDescription,clearDescription } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription } = tipSlice.actions;
 export default tipSlice.reducer;
