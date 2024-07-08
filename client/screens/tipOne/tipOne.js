@@ -10,49 +10,59 @@ import {
 import { ScrollView } from "react-native-gesture-handler";
 import styles from './styles'
 import { useNavigation } from "@react-navigation/native";
+import { setFortalezas, setDebilidades, deleteFortalezas, deleteDebilidades } from '../../redux_toolkit/features/counter/Slice';
+import {useDispatch, useSelector} from "react-redux"
 import axios from 'axios'
 
 function TipOne (){
     const navigation = useNavigation();
+    const dispatch= useDispatch();
+    const {fortalezas, debilidades}=useSelector((state)=>state.tip)
 
     const [fortalezaActual, setFortalezaActual] = useState("");
     const [debilidadActual, setDebilidadActual] = useState("");
-    const [fortalezas, setFortalezas] = useState([]);
-    const [debilidades, setDebilidades] = useState([]);
+    
 
-    function agregarFortaleza() {
+    function addFortaleza() {
         if (fortalezaActual.trim() !== "") {
-        setFortalezas([...fortalezas, fortalezaActual.trim()]);
+        dispatch(setFortalezas(fortalezaActual.trim()))
         setFortalezaActual("");
         }
-        ; }
+      }
 
-    function eliminarFortaleza(index) {
-        const nuevasFortalezas = [...fortalezas];
-        nuevasFortalezas.splice(index, 1);
-        setFortalezas(nuevasFortalezas);
+    function deleteFortaleza(index) {
+        dispatch(deleteFortalezas(index))
         };
     
-    function agregarDebilidad() {
-    if (debilidadActual.trim() !== '') {
-      setDebilidades([...debilidades, debilidadActual.trim()]);
-      setDebilidadActual('');
+    function addDebilidad() {
+    if (debilidadActual.trim() !== "") {
+      dispatch(setDebilidades(debilidadActual.trim()))
+      setDebilidadActual("");
     }
   };
-   function  eliminarDebilidad(index) {
-     const nuevasDebilidades = [...debilidades];
-     nuevasDebilidades.splice(index, 1);
-     setDebilidades(nuevasDebilidades);
+   function  deleteDebilidad(index) {
+     dispatch(deleteDebilidades(index))
    };
 
   async function enviarDatos() {
     try {
-
-      navigation.navigate("FinalTip",{tipId: 1})
+      /* const data= {
+        user_id:2,
+        workshop_id: 2,
+        response: {
+          fortalezas: fortalezas,
+          debilidades: debilidades
+        }
+      }
+      const response = await axios.post("http://localhost:3001/response", data);
+      console.log("Respuesta del servidor: ", response.data); */
+      navigation.navigate("FinalTip", { tipId: 1 });
     } catch (error) {
-      console.error(error);
+      console.error("Error al enviar los datos: ", error);
+      
     }
   }
+   
 
     return (
       <View style={styles.container}>
@@ -86,13 +96,13 @@ function TipOne (){
             placeholder="Agrega tus fortalezas"
             value={fortalezaActual}
             onChangeText={setFortalezaActual}
-            onSubmitEditing={agregarFortaleza}
+            onSubmitEditing={addFortaleza}
           />
           <View style={styles.fortalezasContainer}>
             {fortalezas.map((fortaleza, index) => (
               <View key={index} style={styles.fortalezaItem}>
                 <Text>{fortaleza}</Text>
-                <TouchableOpacity onPress={() => eliminarFortaleza(index)}>
+                <TouchableOpacity onPress={() => deleteFortaleza(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
                 </TouchableOpacity>
               </View>
@@ -107,13 +117,13 @@ function TipOne (){
             placeholder="Agrega tus debilidades"
             value={debilidadActual}
             onChangeText={setDebilidadActual}
-            onSubmitEditing={agregarDebilidad}
+            onSubmitEditing={addDebilidad}
           />
           <View style={styles.debilidadesContainer}>
             {debilidades.map((debilidad, index) => (
               <View key={index} style={styles.debilidadItem}>
                 <Text>{debilidad}</Text>
-                <TouchableOpacity onPress={() => eliminarDebilidad(index)}>
+                <TouchableOpacity onPress={() => deleteDebilidad(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
                 </TouchableOpacity>
               </View>
