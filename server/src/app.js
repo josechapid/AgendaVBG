@@ -23,6 +23,7 @@ const allowedOrigins = [
   'http://localhost:3001',
   'http://192.168.0.93:8081',
   'http://localhost:8081',
+  
 ];
 
 const corsOptions = {
