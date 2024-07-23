@@ -2,10 +2,35 @@ import { View, Text, Image, TextInput,TouchableOpacity } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { setDescriptionSeis, clearDescriptionSeis } from '../../redux_toolkit/features/counter/Slice';
+import axios from "axios";
+
 
 function TipSix () {
     const navigation = useNavigation();
-    const [description, setDescription] = useState("");
+    const dispatch = useDispatch();
+    const descriptionTipSeis = useSelector((state) => state.tip.descriptionTipSeis);
+    // const [description, setDescription] = useState("");
+
+        const handleEnviarDatos = async () => {
+    try {
+      const data = {
+        user_id: 1,
+        workshop_id: 6, 
+        response: {
+          descriptionTipSeis: descriptionTipSeis
+        },
+      };
+      const response = await axios.post("http://localhost:3001/response", data);
+      console.log("Respuesta del servidor: ", response.data);
+      dispatch(clearDescriptionSeis());
+      navigation.navigate("FinalTip", { tipId: 6 });
+    } catch (error) {
+      console.error("Error al enviar los datos: ", error);      
+    }
+  };
+
 
     return(
         <View style={styles.container}>
@@ -27,13 +52,13 @@ function TipSix () {
                     
                     placeholder="Escribe aquí tu descripción"
                     multiline
-                    onChangeText={text => setDescription(text)} 
-                    value={description} 
+                    onChangeText={text => dispatch(setDescriptionSeis(text))} 
+                    value={descriptionTipSeis} 
                 />
             </View>
             <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("FinalTip",{tipId: 6})}>
+            onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
         </View>
