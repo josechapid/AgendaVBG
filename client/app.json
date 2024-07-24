@@ -20,6 +20,11 @@
         "backgroundColor": "#ffffff"
       }
     },
+
+    "permissions": [
+        "INTERNET"
+      ],
+      
     "web": {
       "favicon": "./assets/favicon.png"
     },

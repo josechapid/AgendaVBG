@@ -6,7 +6,7 @@ import styles from "./styles";
 function Login () {
     const navigation= useNavigation()
     const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [user, setUser] = useState("");
     const [birthdate, setBirthdate] = useState("");
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
@@ -24,15 +24,15 @@ function Login () {
         <View style={styles.formContainer}>
           <TextInput
             style={styles.input}
-            placeholder="Nombre"
+            placeholder="Nombre completo"
             value={name}
             onChangeText={setName}
           />
           <TextInput
             style={styles.input}
-            placeholder="Apellido"
-            value={lastName}
-            onChangeText={setLastName}
+            placeholder="Usuario"
+            value={user}
+            onChangeText={setUser}
           />
           <TextInput
             style={styles.input}

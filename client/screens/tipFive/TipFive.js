@@ -2,10 +2,35 @@ import { View, Text, Image, TextInput,TouchableOpacity } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { setTipFiveDay, setTipFiveExercise, clearTipFive } from "../../redux_toolkit/features/counter/Slice";
+import axios from "axios";
+
+
 
 function TipFive () {
      const navigation = useNavigation();
-     const [description, setDescription] = useState("");
+     const dispatch = useDispatch();
+     const { day, exercise} = useSelector((state) => state.tip.tipFive);
+
+    const handleEnviarDatos = async () => {
+        try{
+            const data = {
+                user_id: 1,
+                workshop_id: 5, 
+                response: {
+                    day,
+                    exercise
+                },
+            }
+            const response = await axios.post("http://localhost:3001/response", data);
+            console.log("Respuesta del servidor: ", response.data);
+            dispatch(clearTipFive());
+            navigation.navigate("FinalTip", { tipId: 5 });
+        }catch(error){
+            console.error("Error al enviar los datos: ", error);
+        }
+    };
 
     return(
         <View style={styles.container}>
@@ -29,22 +54,22 @@ function TipFive () {
                 <TextInput
                     
                     placeholder="Dia"
-                    onChangeText={text => setDescription(prevState => ({...prevState, day:text}))} 
-                    value={description.day} 
+                    onChangeText={text => dispatch(setTipFiveDay(text))} 
+                    value={day} 
                 />
                 </View>
                 <View style={styles.description}>
                 <TextInput
                     
                     placeholder="Ejercicio"
-                    onChangeText={text => setDescription(prevState => ({...prevState, exercise:text}))} 
-                    value={description.exercise} 
+                    onChangeText={text => dispatch(setTipFiveExercise(text))} 
+                    value={exercise} 
                 />
                 </View>
             </View>
              <TouchableOpacity 
             style={styles.button}
-            onPress={() => navigation.navigate("FinalTip",{tipId: 5})}>
+            onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
         </View>
