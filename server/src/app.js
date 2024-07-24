@@ -17,21 +17,20 @@ server.use(cookieParser());
 server.use(morgan('dev'));
 
 const allowedOrigins = [
-  'http://localhost:5173', 
-  'http://127.0.0.1:5173', 
-  'http://localhost:19006', // Añadir este origen
-  'http://localhost:3001',
-  'http://192.168.0.93:8081',
-  'http://localhost:8081',
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://localhost:19006", // Añadir este origen
+  "http://localhost:3001",
+  "http://192.168.0.93:8081",
+  "http://8.242.185.5:8081",
+  "http://localhost:8081",
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    
       callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
+    
   },
   credentials: true, // Permitir credenciales (cookies, encabezados de autenticación)
 };
