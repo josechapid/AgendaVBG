@@ -2,10 +2,35 @@ import React, { useState, useEffect } from "react";
 import {  Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { setTipTenSituation, setTipTenHowAct, setTipTenChange, clearTipTen } from "../../redux_toolkit/features/counter/Slice";
+import axios from "axios";
 
 const TipTen = () => {
      const navigation = useNavigation();
-     const [description, setDescription] = useState("");
+      const dispatch = useDispatch();
+     const { situation, howact, change} = useSelector((state) => state.tip.tipTen);
+    //  const [description, setDescription] = useState("");
+
+    const handleEnviarDatos = async () => {
+        try{
+            const data = {
+                user_id: 1,
+                workshop_id: 10, 
+                response: {
+                    situation,
+                    howact,
+                    change
+                },
+            }
+            const response = await axios.post("http://localhost:3001/response", data);
+            console.log("Respuesta del servidor: ", response.data);
+            dispatch(clearTipTen());
+            navigation.navigate("FinalTip", { tipId: 10 });
+        }catch(error){
+            console.error("Error al enviar los datos: ", error);
+        }
+    };
 
     return(
         <View style={styles.container}>
@@ -26,30 +51,30 @@ const TipTen = () => {
                 <TextInput
                     
                     placeholder="Situacion"
-                    onChangeText={text => setDescription(prevState => ({...prevState, day:text}))} 
-                    value={description.day} 
+                    onChangeText={text => dispatch(setTipTenSituation(text))} 
+                    value={situation} 
                 />
                 </View>
                 <View style={styles.description}>
                 <TextInput
                     
                     placeholder="Como actuo"
-                    onChangeText={text => setDescription(prevState => ({...prevState, exercise:text}))} 
-                    value={description.exercise} 
+                    onChangeText={text => dispatch(setTipTenHowAct(text))} 
+                    value={howact} 
                 />
                 </View>
                 <View style={styles.description}>
                 <TextInput
                     
                     placeholder="Cambios"
-                    onChangeText={text => setDescription(prevState => ({...prevState, exercise:text}))} 
-                    value={description.exercise} 
+                    onChangeText={text => dispatch(setTipTenChange(text))} 
+                    value={change} 
                 />
                 </View>
             </View>
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate("FinalTip",{tipId: 10})}>
+                onPress={handleEnviarDatos}>
                 <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
         </View>

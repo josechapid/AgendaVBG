@@ -13,6 +13,11 @@ const tipSlice = createSlice({
       exercise:''
     },
     descriptionTipSeis: "",
+    tipTen: {
+      situation:'',
+      howact:'',
+      change: ''
+    },
   },
   reducers: {
     setFortalezas: (state, action)=> {
@@ -66,8 +71,25 @@ const tipSlice = createSlice({
     clearDescriptionSeis: (state) => {
       state.descriptionTipSeis = "";
     },
+    //reducer y acciones de tip diez:
+    setTipTenSituation: (state, action) => {
+      state.tipTen.situation = action.payload;
+    },
+    setTipTenHowAct: (state, action) => {
+      state.tipTen.howact = action.payload;
+    },
+    setTipTenChange: (state, action) => {
+      state.tipTen.change = action.payload;
+    },
+    clearTipTen: (state) => {
+      state.tipTen = {
+        situation:'',
+        howact:'',
+        change:''
+      };
+    },
   },
 })
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setTipFiveDay, setTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setTipFiveDay, setTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen } = tipSlice.actions;
 export default tipSlice.reducer;
