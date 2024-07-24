@@ -8,6 +8,9 @@ const tipSlice = createSlice({
     forgivenessLetter: [],
     rewards_behavior: [],
     description: "",
+    newActivities: [],
+    supportNet:[],
+    myGoals: [],
   },
   reducers: {
     setFortalezas: (state, action)=> {
@@ -41,8 +44,20 @@ const tipSlice = createSlice({
     clearDescription: (state) => {
       state.description = "";
     },
+    setNewActivities: (state, action)=>{
+      state.newActivities=action.payload;
+    },
+    setSupportNet: (state, action)=>{
+      state.supportNet=action.payload
+    },
+    setMyGoals: (state, action)=>{
+      state.myGoals.push(action.payload)
+    },
+    deleteMyGoals:(state, action)=>{
+      state.myGoals.splice(action.payload, 1)
+    }
   },
 })
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals } = tipSlice.actions;
 export default tipSlice.reducer;
