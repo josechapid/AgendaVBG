@@ -10,34 +10,49 @@ import {
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { setSupportNet } from "../../redux_toolkit/features/counter/Slice";
+import { useSelector, useDispatch } from "react-redux";
+ 
 import axios from "axios";
 
 function TipNine() {
     const navigation= useNavigation()
+    const dispatch = useDispatch()
+    const {supportNet}= useSelector((state)=>state.tip)
     const [name, setName] = useState("")
     const [rol, setRol] = useState ("")
-    const [people, setPeople] = useState([])
-    const [nextId, setNextId] =useState(1)
+    const [people, setPeople]=useState([])
+    const [idCounter, setIdCounter] = useState(1);
+   
 
     function handlerAddPerson(){
        const addPerson = {
-        id: nextId, 
-        name, 
-        rol 
-       } 
+         id: idCounter,
+         name,
+         rol,
+       }; 
        setPeople([...people, addPerson])
        setName("")
        setRol("")
-       setNextId(nextId+1)
+       setIdCounter(idCounter+1);
     }
 
 async function enviarDatos() {
       try {
-        /*  const response = await axios.post("http://servidor/api/tipUno", {
-        fortalezas: fortalezas,
-        debilidades: debilidades,
-      });
-      console.log(response.data) */
+        if(people.length!==0){
+          dispatch(setSupportNet(people))
+        }
+        /* const data={
+          user_id:2,
+          workshop_id:9,
+          response:{
+            supportNet: supportNet
+          }
+        }
+        const response = await axios.post(
+          "http://localhost:3001/response",
+          data
+        ); */
         navigation.navigate("FinalTip", { tipId: 9 });
       } catch (error) {
         console.error(error);

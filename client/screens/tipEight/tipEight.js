@@ -1,20 +1,39 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  TextInput,
-  Button,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewActivities } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 
 function TipEight() {
     const navigation = useNavigation();
+    const dispatch= useDispatch();
+    const {newActivities}=useSelector((state)=>state.tip)
     const [userExperience, setUserExperience] = useState("");
+
+
+    async function sendDates (){
+      try {
+         if (userExperience.trim() !== "") {
+           dispatch(setNewActivities(userExperience.trim()));
+           setUserExperience("");
+         }
+        /* const data = {
+          user_id: 2,
+          workshop_id: 8,
+          response: {
+            newActivities: newActivities
+          },
+        };
+        const response = await axios.post("http://localhost:3001/response", data); */
+        navigation.navigate("FinalTip", {tipId: 8})        
+      } catch (error) {
+        console.error("Error al enviar los datos: ", error)
+      }
+    }
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
@@ -50,10 +69,7 @@ function TipEight() {
           />
         </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("FinalTip", { tipId: 8 })}
-        >
+        <TouchableOpacity style={styles.button} onPress={sendDates}>
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
       </ScrollView>

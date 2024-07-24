@@ -13,6 +13,7 @@ const postResponseHandler =async (req, res)=>{
         );
         res.status(200).json(newResponse)
     } catch (error) {
+      console.log(error);
         res
           .status(500)
           .json({

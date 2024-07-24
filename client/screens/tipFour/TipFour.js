@@ -13,7 +13,9 @@ function TipFour () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const description = useSelector((state) => state.tip.description);
-    
+    console.log("navigation: ", navigation);
+    console.log("dispacth: ", dispatch);
+    console.log("description: ", description);
 
       const handleEnviarDatos = async () => {
     try {
@@ -24,12 +26,17 @@ function TipFour () {
           description: description
         },
       };
-      const response = await axios.post("http://localhost:3001/response", data);
+      const response = await axios.post(
+        "http://8.242.185.5:3001/response",
+        data
+      );
+      console.log("Respuesta del servidor res: ", response);
       console.log("Respuesta del servidor: ", response.data);
       dispatch(clearDescription());
       navigation.navigate("FinalTip", { tipId: 4 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);      
+      
     }
   };
 
