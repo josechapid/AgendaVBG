@@ -32,6 +32,8 @@ const Dates = () => {
         }
 };
 
+
+
 const hideSnackbar = () => {
         setSnackbarVisible(false);
     };
@@ -70,7 +72,7 @@ const hideSnackbar = () => {
             editable={false}
             style={styles.input}
           />
-          <Button onPress={confirmAppointment} mode="contained" style={styles.confirmButton}>
+          <Button onPress={ confirmAppointment} mode="contained" style={styles.confirmButton}>
             Confirmar Cita
           </Button>
           {confirmed && (
