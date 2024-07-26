@@ -1,11 +1,14 @@
 import React, {useState} from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { setNewUser } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 import styles from "./styles";
 
 function Login () {
-    const navigation= useNavigation()
+    const navigation= useNavigation();
+    const dispatch=useDispatch();
     const [name, setName] = useState("");
     const [user, setUser] = useState("");
     const [dateOfBirth, setDateOfBirth] = useState("");
@@ -16,6 +19,9 @@ function Login () {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     async function sendDates(){
+      if(password !== confirmPassword){
+        Alert.alert("Las contraseñas no coinciden")
+      }
       try {
         const dates = {
            name,
@@ -27,7 +33,10 @@ function Login () {
           password,
         };
         const response = await axios.post("http://localhost:3001/user", dates);
-        navigation.navigate("Main");
+        if(response.data){
+          dispatch(setNewUser(response.data));
+          navigation.navigate("Main");
+        }
       } catch (error) {
         console.error("No se pueden enviar los datos: ", error)
       }

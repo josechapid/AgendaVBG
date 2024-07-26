@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import {View, Text, TouchableOpacity,TextInput} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { setNewUser } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 import styles from "./styles";
 
 function SignIn () {
     const navigation = useNavigation();
+    const dispatch= useDispatch();
     const [email, setEmail]= useState("")
     const [password, setPassword] = useState("");
 
@@ -14,7 +17,9 @@ function SignIn () {
     async function handleLogin (){
       try {
         const response = await axios.post("http://localhost:3001/login", data)
-        if(response){
+       
+        if(response.data){
+          dispatch(setNewUser(response.data));
           navigation.navigate("Main")
         } else{
           alert("no se encontro usuario")
