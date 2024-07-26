@@ -18,7 +18,7 @@ function Login () {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    async function sendDates(){
+    /* async function sendDates(){
       if(password !== confirmPassword){
         Alert.alert("Las contraseñas no coinciden")
       }
@@ -35,6 +35,30 @@ function Login () {
         const response = await axios.post("http://localhost:3001/user", dates);
         if(response.data){
           dispatch(setNewUser(response.data));
+          navigation.navigate("Main");
+        }
+      } catch (error) {
+        console.error("No se pueden enviar los datos: ", error)
+      }
+    } */
+    async function sendDates(){
+      if(password !== confirmPassword){
+        Alert.alert("Las contraseñas no coinciden")
+      }
+      try {
+        const dates = {
+           id:1,
+           name,
+           user,
+           dateOfBirth,
+           address,
+           phone,
+           email,
+           password,
+        };
+        
+        if(dates){
+          dispatch(setNewUser(dates));
           navigation.navigate("Main");
         }
       } catch (error) {
