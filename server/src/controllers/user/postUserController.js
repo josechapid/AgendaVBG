@@ -2,7 +2,7 @@ const {User} = require ("../../db")
 
 const postUserController = async({
   name,
-  lastName,
+  user,
   email,
   address,
   phone,
@@ -11,7 +11,7 @@ const postUserController = async({
 })=>{
     const newUser= await User.create({
         name,
-        lastName,
+        user,
         email,
         address,
         phone,
