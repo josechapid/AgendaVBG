@@ -28,7 +28,7 @@ const MyNotes = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify({ title, description}),
       });
 
       if (response.ok) {
