@@ -43,20 +43,6 @@ const HomeScreen = ({navigation}) => {
             </View>
           </View>
         ))}
-{/* 
-        
-        <Button
-          title = "Final de cada tip"
-          onPress={()=>
-            navigation.navigate("FinalTip", {name: "FinalTip"})
-          }
-        />
-        <Button
-          title = "Final de cada tip"
-          onPress={()=>
-            navigation.navigate("TipFinalFour", {name: "TipFinalFour"})
-          }
-        /> */}
         
       </ScrollView>
     );

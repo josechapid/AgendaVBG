@@ -1,18 +1,37 @@
 import React, {useState} from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 import styles from "./styles";
 
 function Login () {
     const navigation= useNavigation()
     const [name, setName] = useState("");
     const [user, setUser] = useState("");
-    const [birthdate, setBirthdate] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
+    async function sendDates(){
+      try {
+        const dates = {
+           name,
+           user,
+           dateOfBirth,
+           address,
+           phone,
+           email,
+          password,
+        };
+        const response = await axios.post("http://localhost:3001/user", dates);
+        navigation.navigate("Main");
+      } catch (error) {
+        console.error("No se pueden enviar los datos: ", error)
+      }
+    }
 
     return (
       <View style={styles.login}>
@@ -36,9 +55,9 @@ function Login () {
           />
           <TextInput
             style={styles.input}
-            placeholder="Fecha de Nacimiento"
-            value={birthdate}
-            onChangeText={setBirthdate}
+            placeholder="Fecha de Nacimiento ej. 26 october 1993 "
+            value={dateOfBirth}
+            onChangeText={setDateOfBirth}
           />
           <TextInput
             style={styles.input}
@@ -74,10 +93,7 @@ function Login () {
             onChangeText={setConfirmPassword}
             secureTextEntry
           />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() =>navigation.navigate("Main")}
-          >
+          <TouchableOpacity style={styles.button} onPress={sendDates}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
         </View>
