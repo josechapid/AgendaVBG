@@ -1,14 +1,17 @@
 import React from 'react';
 import { Text, View, Button, Image, TouchableOpacity } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { useSelector } from "react-redux";
 import workshops from '../../assets/json/workshops.json'
 import styles from "./styles"
 
 const HomeScreen = ({navigation}) => {
+  const user= useSelector((state)=> state.tip.user)
   const icon= require('../../assets/img/homeScree/libro.png')
     return (
       <ScrollView style={styles.scrollViewContainer}>
         {/* ------------------------------------section logo y title */}
+        {user && <Text style={styles.greeting}>Hola, {user.user}</Text>}
         <View style={styles.headerContainer}>
           <View style={styles.logoHeader}>
             <Image
@@ -43,20 +46,6 @@ const HomeScreen = ({navigation}) => {
             </View>
           </View>
         ))}
-{/* 
-        
-        <Button
-          title = "Final de cada tip"
-          onPress={()=>
-            navigation.navigate("FinalTip", {name: "FinalTip"})
-          }
-        />
-        <Button
-          title = "Final de cada tip"
-          onPress={()=>
-            navigation.navigate("TipFinalFour", {name: "TipFinalFour"})
-          }
-        /> */}
         
       </ScrollView>
     );

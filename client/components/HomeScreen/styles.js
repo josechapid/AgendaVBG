@@ -4,7 +4,7 @@ export default StyleSheet.create({
   headerContainer: {
     alignItems: "center",
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   logoHeader: {},
   logo: {
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     marginRight: 50,
   },
   alignRight: {
-    marginRight:20,
+    marginRight: 20,
     marginLeft: 50,
   },
   workshopTitle: {
@@ -64,5 +64,12 @@ export default StyleSheet.create({
     color: "black",
     fontSize: 16,
     textAlign: "center",
+  },
+  greeting: {
+    fontSize: 34,
+    color: "#333", // Puedes cambiar el color según tu esquema de colores
+    marginVertical: 10, // Espacio vertical alrededor del saludo
+    margin: 0,
+    paddingLeft: 15
   },
 });
