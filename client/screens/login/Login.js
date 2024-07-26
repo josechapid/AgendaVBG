@@ -1,18 +1,70 @@
 import React, {useState} from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { setNewUser } from "../../redux_toolkit/features/counter/Slice";
+import axios from "axios";
 import styles from "./styles";
 
 function Login () {
-    const navigation= useNavigation()
+    const navigation= useNavigation();
+    const dispatch=useDispatch();
     const [name, setName] = useState("");
     const [user, setUser] = useState("");
-    const [birthdate, setBirthdate] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
+    /* async function sendDates(){
+      if(password !== confirmPassword){
+        Alert.alert("Las contraseñas no coinciden")
+      }
+      try {
+        const dates = {
+           name,
+           user,
+           dateOfBirth,
+           address,
+           phone,
+           email,
+          password,
+        };
+        const response = await axios.post("http://localhost:3001/user", dates);
+        if(response.data){
+          dispatch(setNewUser(response.data));
+          navigation.navigate("Main");
+        }
+      } catch (error) {
+        console.error("No se pueden enviar los datos: ", error)
+      }
+    } */
+    async function sendDates(){
+      if(password !== confirmPassword){
+        Alert.alert("Las contraseñas no coinciden")
+      }
+      try {
+        const dates = {
+           id:1,
+           name,
+           user,
+           dateOfBirth,
+           address,
+           phone,
+           email,
+           password,
+        };
+        
+        if(dates){
+          dispatch(setNewUser(dates));
+          navigation.navigate("Main");
+        }
+      } catch (error) {
+        console.error("No se pueden enviar los datos: ", error)
+      }
+    }
 
     return (
       <View style={styles.login}>
@@ -36,9 +88,9 @@ function Login () {
           />
           <TextInput
             style={styles.input}
-            placeholder="Fecha de Nacimiento"
-            value={birthdate}
-            onChangeText={setBirthdate}
+            placeholder="Fecha de Nacimiento ej. 26 october 1993 "
+            value={dateOfBirth}
+            onChangeText={setDateOfBirth}
           />
           <TextInput
             style={styles.input}
@@ -74,10 +126,7 @@ function Login () {
             onChangeText={setConfirmPassword}
             secureTextEntry
           />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() =>navigation.navigate("Main")}
-          >
+          <TouchableOpacity style={styles.button} onPress={sendDates}>
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
         </View>
