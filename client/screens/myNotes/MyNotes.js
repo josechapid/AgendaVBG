@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {  Text, View, Image, TextInput, TouchableOpacity, Alert,FlatList } from 'react-native';
+import {useSelector} from "react-redux";
 import styles from "./styles";
 
 const MyNotes = () => {
      const [description, setDescription] = useState("");
     const [title, setTitle] = useState("");
     const [notes, setNotes] = useState([]);
-
+    const userId = useSelector((state) => state.tip.user.userId);
+    
     useEffect(() => {
         fetchNotes();
     }, []);
@@ -28,7 +30,7 @@ const MyNotes = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, description}),
+        body: JSON.stringify({ title, description, userId}),
       });
 
       if (response.ok) {

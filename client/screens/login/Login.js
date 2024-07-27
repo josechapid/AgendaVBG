@@ -47,7 +47,7 @@ function Login () {
       }
       try {
         const dates = {
-           id:1,
+           userId:1,
            name,
            user,
            dateOfBirth,
@@ -56,11 +56,11 @@ function Login () {
            email,
            password,
         };
+        console.log('estos son los datos',dates)
         
-        if(dates){
           dispatch(setNewUser(dates));
           navigation.navigate("Main");
-        }
+        
       } catch (error) {
         console.error("No se pueden enviar los datos: ", error)
       }

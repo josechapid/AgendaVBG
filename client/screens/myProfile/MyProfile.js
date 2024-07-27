@@ -1,13 +1,56 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Button,Image, TextInput, TouchableOpacity } from 'react-native';
+import {  Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+
 
 const MyProfile = () => {
   const navigation = useNavigation();
-      const [nombre, setNombre] = React.useState('');
-      const [usuario, setUsuario] = React.useState('');
-      const [correo, setCorreo] = React.useState('');
+      const [nombre, setNombre] = useState('');
+      const [usuario, setUsuario] = useState('');
+      const [correo, setCorreo] = useState('');
+      const user = useSelector((state) => state.tip.user);
+
+   useEffect(() => {
+    if (user?.id) {
+      const loadUserData = async () => {
+        try {
+          const response = await axios.get(`http://localhost:3001/user/${user.id}`);
+          const { name, user: user, email } = response.data;
+          setNombre(name);
+          setUsuario(user);
+          setCorreo(email);
+        } catch (error) {
+          console.error('Error al cargar los datos del usuario:', error);
+        }
+      };
+
+      loadUserData();
+    }
+  }, [user]);
+
+
+
+  const handleSaveChanges = async () => {
+     if (!user?.id) {
+      console.error('ID de usuario no definido');
+      return;
+    }
+    try {
+      const response = await axios.patch(`http://localhost:3001/user/${user.id}`, {
+        name: nombre,
+        user: usuario,
+        email: correo
+      });
+      console.log(response.data.message); // Maneja la respuesta según sea necesario
+      navigation.navigate("Main"); // Navegar después de guardar los cambios
+    } catch (error) {
+      console.error('Error al guardar los cambios:', error);
+    }
+  };
+ 
 
   return (
     <View style={styles.container}>
@@ -50,7 +93,7 @@ const MyProfile = () => {
       
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Main")}
+        onPress={handleSaveChanges}
       >
         <Text style={styles.buttonText}>Guardar cambios</Text>
       </TouchableOpacity>
