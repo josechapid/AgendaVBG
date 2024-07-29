@@ -11,14 +11,16 @@ const MyProfile = () => {
       const [nombre, setNombre] = useState('');
       const [usuario, setUsuario] = useState('');
       const [correo, setCorreo] = useState('');
-      const user = useSelector((state) => state.tip.user);
+      // const user = useSelector((state) => state.tip.user);
+      const userId = useSelector((state) => state.tip.user.userId);
 
    useEffect(() => {
-    if (user?.id) {
+    console.log("User object:", userId);
+    if (userId) {
       const loadUserData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3001/user/${user.id}`);
-          const { name, user: user, email } = response.data;
+          const response = await axios.get(`http://localhost:3001/user/${userId}`);
+          const { name, user, email } = response.data;
           setNombre(name);
           setUsuario(user);
           setCorreo(email);
@@ -29,17 +31,17 @@ const MyProfile = () => {
 
       loadUserData();
     }
-  }, [user]);
+  }, [userId]);
 
 
 
   const handleSaveChanges = async () => {
-     if (!user?.id) {
+     if (!userId) {
       console.error('ID de usuario no definido');
       return;
     }
     try {
-      const response = await axios.patch(`http://localhost:3001/user/${user.id}`, {
+      const response = await axios.patch(`http://localhost:3001/user/${userId}`, {
         name: nombre,
         user: usuario,
         email: correo
