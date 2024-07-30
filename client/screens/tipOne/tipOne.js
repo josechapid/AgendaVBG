@@ -46,16 +46,23 @@ function TipOne (){
 
   async function enviarDatos() {
     try {
-      /* const data= {
-        user_id:2,
+      const data = {
+        user_id: 7,
         workshop_id: 2,
         response: {
           fortalezas: fortalezas,
-          debilidades: debilidades
-        }
-      }
-      const response = await axios.post("http://localhost:3001/response", data);
-      console.log("Respuesta del servidor: ", response.data); */
+          debilidades: debilidades,
+        },
+      };
+      const url =
+        typeof window === "undefined"
+          ? "http://192.168.1.17:3001/response" // Móvil (React Native)
+          : "http://localhost:3001/response"; // Web
+      const response = await axios.post(
+        url,
+        data
+      );
+      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 1 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);

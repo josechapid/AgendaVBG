@@ -24,7 +24,7 @@ const startWorkshops= require ("./functions/startWorkshops.js")
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async() => {
   await startWorkshops()
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(3001, "0.0.0.0", () => {
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
 });
