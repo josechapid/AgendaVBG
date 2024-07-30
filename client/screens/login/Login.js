@@ -18,7 +18,7 @@ function Login () {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    /* async function sendDates(){
+    async function sendDates(){
       if(password !== confirmPassword){
         Alert.alert("Las contraseñas no coinciden")
       }
@@ -32,7 +32,10 @@ function Login () {
            email,
           password,
         };
-        const response = await axios.post("http://localhost:3001/user", dates);
+        const response = await axios.post(
+          "http://192.168.1.17:3001/user",
+          dates
+        );
         if(response.data){
           dispatch(setNewUser(response.data));
           navigation.navigate("Main");
@@ -40,8 +43,8 @@ function Login () {
       } catch (error) {
         console.error("No se pueden enviar los datos: ", error)
       }
-    } */
-    async function sendDates(){
+    }
+   /*  async function sendDates(){
       if(password !== confirmPassword){
         Alert.alert("Las contraseñas no coinciden")
       }
@@ -64,7 +67,7 @@ function Login () {
       } catch (error) {
         console.error("No se pueden enviar los datos: ", error)
       }
-    }
+    } */
 
     return (
       <View style={styles.login}>

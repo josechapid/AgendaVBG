@@ -2,6 +2,11 @@ const postResponseController = require("../../controllers/response/postResponseC
 
 const postResponseHandler =async (req, res)=>{
     const {user_id, workshop_id, response}=req.body
+    console.log("Datos recibidos en el handler:", {
+      user_id,
+      workshop_id,
+      response,
+    });
     try {
         if (!user_id || !workshop_id || !response) {
           return res.status(400).json({ error: "Faltan datos obligatorios" });
@@ -11,15 +16,14 @@ const postResponseHandler =async (req, res)=>{
           workshop_id,
           response
         );
+        
         res.status(200).json(newResponse)
     } catch (error) {
-      console.log(error);
-        res
-          .status(500)
-          .json({
-            error: "Error interno del servidor",
-            message: error.message,
-          });
+      console.log("Error en el handler:", error); // Log de error
+      res.status(500).json({
+        error: "Error interno del servidor",
+        message: error.message,
+      });
     }
 }
 
