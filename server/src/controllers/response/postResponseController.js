@@ -7,27 +7,17 @@ const postResponseController = async (user_id, workshop_id, response) => {
       workshop_id,
       response,
     });
+
     if (newResponse) {
-      return { message: "Datos enviados correctamente" };
+      return { success: true, message: "Datos enviados correctamente" };
     } else {
-      return { message: "No se enviaron los datos " };
+      throw new Error("No se enviaron los datos");
     }
   } catch (error) {
-    console.log("Error en el controlador:", error); // Log de error
-    throw error;
+    console.log("Error en el controlador:", error);
+    throw new Error(error.message);
   }
 };
-/*  const newResponse = await Response.create({
-   user_id,
-   workshop_id,
-   response,
- });
- if (newResponse) {
-   return { message: "Datos enviados correctamente" };
- } else {
-   return { message: "No se enviaron los datos " };
-   
- }
-} */
+
 
 module.exports= postResponseController

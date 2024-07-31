@@ -1,13 +1,14 @@
 const {Workshops} = require("../../db")
 
 const postWorkshopController = async (
- titleOne,
+  titleOne,
   imageOne,
   descriptionOne,
   titleTwo,
   imageTwo,
   descriptionTwo
 ) => {
+  try {
     const response = await Workshops.create({
       titleOne,
       imageOne,
@@ -16,11 +17,14 @@ const postWorkshopController = async (
       imageTwo,
       descriptionTwo,
     });
-    if(response){
-        return "workshop creado con exito"
+    if (response) {
+      return { success: true, message: "Workshop creado con éxito", data: response };
     } else {
-        return "no se pudo crear el workshop "
+      throw new Error("No se pudo crear el workshop");
     }
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
 module.exports= postWorkshopController
