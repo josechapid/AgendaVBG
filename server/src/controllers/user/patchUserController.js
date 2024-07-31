@@ -1,34 +1,35 @@
 const {User}= require("../../db")
 
-const patchUserController = async(
+const patchUserController = async (
   { id },
-  { name, lastName, password, address, phone, email, dateOfBirth}
-)=>{
-    const user= await User.findOne({where: {id: parseInt(id, 10)}})
-    if(user){
-        const upDateData={
-            name, lastName, password, address, phone, email, dateOfBirth
-        }
-
-        const editUser= await User.update(upDateData, {
-            where:{
-                id: parseInt(id, 10)
-            }
-        })
-
-        if(editUser){
-            return {message: "Perfil actualizado exitosamente"}
-        } else {
-            return {
-                message: "No se realizaron cambios"
-            }
-        }
+  { name, user, password, address, phone, email, dateOfBirth }
+) => {
+  try {
+    // Verificar que el ID esté presente
+    if (!id) {
+      throw new Error("ID de usuario faltante");
     }
-    else{
-        return{
-            message: "Usuario no encontrado"
-        }
+
+    const userName = await User.findOne({ where: { id: parseInt(id, 10) } });
+
+    if (!userName) {
+      throw new Error("Usuario no encontrado");
     }
+
+    const upDateData = { name, user, password, address, phone, email, dateOfBirth };
+
+    const [updated] = await User.update(upDateData, {
+      where: { id: parseInt(id, 10) }
+    });
+
+    if (updated) {
+      return { success: true, message: "Perfil actualizado exitosamente" };
+    } else {
+      return { success: false, message: "No se realizaron cambios" };
+    }
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
 module.exports= patchUserController
