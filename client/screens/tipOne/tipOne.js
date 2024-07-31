@@ -12,6 +12,7 @@ import styles from './styles'
 import { useNavigation } from "@react-navigation/native";
 import { setFortalezas, setDebilidades, deleteFortalezas, deleteDebilidades } from '../../redux_toolkit/features/counter/Slice';
 import {useDispatch, useSelector} from "react-redux"
+import { getApiUrl } from "../../config"
 import axios from 'axios'
 
 function TipOne (){
@@ -47,21 +48,21 @@ function TipOne (){
   async function enviarDatos() {
     try {
       const data = {
-        user_id: 7,
+        user_id: 2,
         workshop_id: 2,
         response: {
           fortalezas: fortalezas,
           debilidades: debilidades,
         },
       };
-      const url =
+       const url = getApiUrl();
+    /*   const url =
         typeof window === "undefined"
-          ? "http://192.168.1.17:3001/response" // Móvil (React Native)
-          : "http://localhost:3001/response"; // Web
-      const response = await axios.post(
-        url,
-        data
-      );
+          ? import.meta.env.VITE_API_URL_MOBILE // Móvil (React Native)
+          : import.meta.env.VITE_API_URL_WEB; // Web */
+
+      
+      const response = await axios.post("http://192.168.1.17:3001/response", data);
       console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 1 });
     } catch (error) {
