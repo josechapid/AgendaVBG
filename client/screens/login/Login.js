@@ -106,14 +106,16 @@ function Login () {
             placeholder="Teléfono"
             value={phone}
             onChangeText={setPhone}
-            keyboardType="phone-pad"
+            /* keyboardType="phone-pad" */
+            inputMode="numeric"
           />
           <TextInput
             style={styles.input}
             placeholder="Correo Electrónico"
             value={email}
             onChangeText={setEmail}
-            keyboardType="email-address"
+            /* keyboardType="email-address" */
+            inputMode="email"
           />
           <TextInput
             style={styles.input}
