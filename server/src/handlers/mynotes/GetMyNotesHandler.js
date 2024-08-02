@@ -5,7 +5,8 @@ const getMyNotesHandler = async (req, res) => {
     const notes = await getMyNotesController();
     res.status(200).json(notes);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log("Error en el handler:", error); // Opcional: registrar el error
+    res.status(500).json({ error: "Error interno del servidor", message: error.message });
   }
 };
 

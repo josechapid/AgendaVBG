@@ -68,8 +68,8 @@ User.hasMany(MyDate)
 MyDate.belongsTo(User)
 
 //relacion de user-mynotes (uno a muchos)
-User.hasMany(MyNotes);
-MyNotes.belongsTo(User);
+/* User.hasMany(MyNotes);
+MyNotes.belongsTo(User); */
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

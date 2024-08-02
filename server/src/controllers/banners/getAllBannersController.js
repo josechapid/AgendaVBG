@@ -1,9 +1,15 @@
 const {Banners} = require ("../../db")
 
-const getAllBannersController= async ()=>{
+const getAllBannersController = async () => {
+  try {
+    const bannersDb = await Banners.findAll();
+    return bannersDb;
+  } catch (error) {
+    throw new Error("Error al obtener los banners: " + error.message);
+  }
+};
 
-    const bannersDb= await Banners.findAll()
-    return bannersDb
-}
+module.exports = getAllBannersController;
+
 
 module.exports= getAllBannersController
