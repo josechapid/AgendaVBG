@@ -1,13 +1,18 @@
 const createMyNotesController = require("../../controllers/mynotes/CreateMyNotesController")
 
 const createMyNotesHandler = async (req, res) => {
- const { title, description, userId } = req.body;
+  const { title, description, userId } = req.body;
+
   try {
-    const note = await createMyNotesController (title, description, userId);
+   if (!title || !description || !userId) {
+      return res.status(400).json({ error: "Todos los campos son requeridos" });
+    }
+
+    const note = await createMyNotesController(title, description, userId);
     res.status(201).json(note);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log("Error en el handler:", error); 
+    res.status(500).json({ error: "Error interno del servidor", message: error.message });
   }
 };
-
 module.exports = createMyNotesHandler;

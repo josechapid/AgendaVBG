@@ -17,7 +17,12 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-    },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        
+    }
+  },
     { timestamps: false }
   );
 };
