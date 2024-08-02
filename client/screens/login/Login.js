@@ -33,9 +33,10 @@ function Login () {
           password,
         };
         const response = await axios.post(
-          "http://192.168.1.17:3001/user",
+          "http://192.168.0.93:3001/user",
           dates
         );
+        console.log("esta es la respuesta", response)
         if(response.data){
           dispatch(setNewUser(response.data));
           navigation.navigate("Main");
