@@ -3,14 +3,14 @@ const deleteMyDatesController = require("../../controllers/mydates/DeleteMyDates
 const deleteMyDatesHandler = async (req, res) => {
   const { id } = req.params;
   try {
-    const deleted = await deleteMyDatesController(id);
-    if (!deleted) {
-      res.status(404).json({ error: "Date not found" });
-    } else {
-      res.status(204).json();
-    }
+    const response = await deleteMyDatesController(id);
+    res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    if (error.message.includes("Date not found")) {
+      res.status(404).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: error.message });
+    }
   }
 };
 

@@ -24,6 +24,11 @@ module.exports = (sequelize) => {
         allowNull: false,
         
       },
+       userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        
+    }
       
      }, { timestamps: false });
 };
