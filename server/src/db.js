@@ -64,8 +64,8 @@ Response.belongsTo(User);
 Workshops.hasMany(Response);
 Response.belongsTo(Workshops); */
 // relacion user-myDates (uno a muchos)
-User.hasMany(MyDate)
-MyDate.belongsTo(User)
+// User.hasMany(MyDate)
+// MyDate.belongsTo(User)
 
 //relacion de user-mynotes (uno a muchos)
 /* User.hasMany(MyNotes);
