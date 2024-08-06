@@ -6,8 +6,9 @@
   "scripts": {
     "git": "node ../commit-push.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",        
-    "start:dev": "nodemon -L"      
+    "server": "nodemon -L",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "local": "npm run server"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.0"
   }
 }
