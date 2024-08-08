@@ -14,9 +14,9 @@ function SignIn () {
 
     const data= {email, password}
 
-   /*  async function handleLogin (){
+    async function handleLogin (){
       try {
-        const response = await axios.post("http://localhost:3001/login", data)
+        const response = await axios.post("https://agendavbg.onrender.com/login", data)
        
         if(response.data){
           dispatch(setNewUser(response.data));
@@ -27,21 +27,21 @@ function SignIn () {
       } catch (error) {
         console.error("Error al enviar datos: ", error)
       }
-    } */
-    async function handleLogin (){
-      try {
-        const response = {email, password}
+    } 
+    // async function handleLogin (){
+    //   try {
+    //     const response = {email, password}
        
-        if(response){
-          dispatch(setNewUser(response));
-          navigation.navigate("Main")
-        } else{
-          alert("no se encontro usuario")
-        }
-      } catch (error) {
-        console.error("Error al enviar datos: ", error)
-      }
-    }
+    //     if(response){
+    //       dispatch(setNewUser(response));
+    //       navigation.navigate("Main")
+    //     } else{
+    //       alert("no se encontro usuario")
+    //     }
+    //   } catch (error) {
+    //     console.error("Error al enviar datos: ", error)
+    //   }
+    // }
 
     return (
       <View style={styles.loginContainer}>

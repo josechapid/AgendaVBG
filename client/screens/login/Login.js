@@ -33,10 +33,10 @@ function Login () {
           password,
         };
         const response = await axios.post(
-          "http://192.168.0.93:3001/user",
+          "https://agendavbg.onrender.com/user",
           dates
         );
-        console.log("esta es la respuesta", response)
+        console.log("esta es la respuesta con render", response)
         if(response.data){
           dispatch(setNewUser(response.data));
           navigation.navigate("Main");

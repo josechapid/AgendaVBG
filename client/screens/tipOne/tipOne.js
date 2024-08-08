@@ -12,14 +12,13 @@ import styles from './styles'
 import { useNavigation } from "@react-navigation/native";
 import { setFortalezas, setDebilidades, deleteFortalezas, deleteDebilidades } from '../../redux_toolkit/features/counter/Slice';
 import {useDispatch, useSelector} from "react-redux"
-import { getApiUrl } from "../../config"
 import axios from 'axios'
 
 function TipOne (){
     const navigation = useNavigation();
     const dispatch= useDispatch();
     const {fortalezas, debilidades}=useSelector((state)=>state.tip)
-
+    const userIdR = useSelector((state) => state.tip.user)
     const [fortalezaActual, setFortalezaActual] = useState("");
     const [debilidadActual, setDebilidadActual] = useState("");
     
@@ -48,21 +47,15 @@ function TipOne (){
   async function enviarDatos() {
     try {
       const data = {
-        user_id: 2,
-        workshop_id: 2,
+        user_id: userIdR.data.id,
+        workshop_id: 1,
         response: {
           fortalezas: fortalezas,
           debilidades: debilidades,
         },
       };
-       const url = getApiUrl();
-    /*   const url =
-        typeof window === "undefined"
-          ? import.meta.env.VITE_API_URL_MOBILE // Móvil (React Native)
-          : import.meta.env.VITE_API_URL_WEB; // Web */
-
-      
-      const response = await axios.post("http://192.168.1.17:3001/response", data);
+       
+      const response = await axios.post("https://agendavbg.onrender.com/response", data);
       console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 1 });
     } catch (error) {

@@ -7,11 +7,12 @@ import styles from "./styles"
 
 const HomeScreen = ({navigation}) => {
   const user= useSelector((state)=> state.tip.user)
+  console.log("este es el user", user)
   const icon= require('../../assets/img/homeScree/libro.png')
     return (
       <ScrollView style={styles.scrollViewContainer}>
         {/* ------------------------------------section logo y title */}
-        {user && <Text style={styles.greeting}>Hola, {user.user}</Text>}
+        {user && <Text style={styles.greeting}>Hola, {user.data.user}</Text>}
         <View style={styles.headerContainer}>
           <View style={styles.logoHeader}>
             <Image
