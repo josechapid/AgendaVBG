@@ -5,13 +5,17 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { setRewards_behavior } from "../../redux_toolkit/features/counter/Slice";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 function TipTwo() {
   const navigation = useNavigation();
   const dispatch= useDispatch()
   const {rewards_behavior}= useSelector((state)=>state.tip)
+  console.log("este es el redux", rewards_behavior)
+  const userIdR = useSelector((state) => state.tip.user)
   const [behavior, setBehavior]= useState("")
   const [rewards, setRewards] = useState("");
+  
 
 
   function handleAddRecompensa() {
@@ -23,13 +27,23 @@ function TipTwo() {
   }
 
     async function enviarDatos() {
-      try {
-        
-        navigation.navigate("FinalTip", { tipId: 2 });
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      const data = {
+        user_id: userIdR.data.id,
+        workshop_id: 2,
+        response: {
+          rewards_behavior
+        },
+      };
+       
+      const response = await axios.post("https://agendavbg.onrender.com/response", data);
+      console.log("Respuesta del servidor: ", response.data);
+      navigation.navigate("FinalTip", { tipId: 2 });
+    } catch (error) {
+      console.error("Error al enviar los datos: ", error);
+      
     }
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
