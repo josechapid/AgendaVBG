@@ -1,20 +1,16 @@
-const postHowDoIFellController = require("../../controllers/howDoIFeel/postHowDoIFeelController");
+const postHowDoIFeelController = require("../../controllers/howDoIFeel/postHowDoIFeelController");
 
 const postHowDoIFeelHandler = async (req, res) => {
   const { user_id, response } = req.body;
   try {
     if (!user_id || !response) {
-      return res.status(400).json({ error: "Flatan datos" });
+      return res.status(400).json({ error: "Faltan datos" });
     }
-    const responseController = await postHowDoIFellController({
+    const responseController = await postHowDoIFeelController({
       user_id,
       response,
     });
-    if (responseController.success) {
-      res.status(200).json(responseController);
-    } else {
-      res.status(400).json({ error: responseController.message });
-    }
+      res.status(200).json(responseController);    
   } catch (error) {
     res
       .status(500)
