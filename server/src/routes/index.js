@@ -10,6 +10,7 @@ const bannersRouter= require("./bannersRouter")
 const responseRouter= require("./responseRouter")
 const workshopRouter= require("./workshopRouter") 
 const loginRouter= require("./loginRouter")
+const howDoIFeelRouter= require("./howDoIFeel")
 
 
 //Router User
@@ -20,6 +21,7 @@ router.use("/workshop", workshopRouter)
 router.use("/mynotes", MyNotesRouter)
 router.use("/mydates", MyDatesRouter)
 router.use("/login", loginRouter)
+router.use("/howDoIFeel", howDoIFeelRouter)
 
 
 module.exports = router;
