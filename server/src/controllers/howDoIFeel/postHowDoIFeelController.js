@@ -7,7 +7,7 @@ try {
         response
     })
     if (postDate){
-        return {success: true, message: "Datos enviados correctamente"}
+        return {success: true, message: "Datos enviados correctamente", data:postDate}
     } else {
         throw new Error("No se enviaron los datos")
     }
