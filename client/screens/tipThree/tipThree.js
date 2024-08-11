@@ -5,33 +5,38 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { setForgivenessLetter } from "../../redux_toolkit/features/counter/Slice";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios"
 
 function TipThree() {
   const navigation = useNavigation();
   const dispatch=useDispatch()
-  const {forgivenessLetter}= useSelector((state)=>state.tip)
+  const forgiveness= useSelector((state)=>state.tip.forgivenessLetter)
+  console.log("esta es el estado de forgiven", forgiveness);
+  
+  const userIdR = useSelector((state) => state.tip.user);
   
   const [userExperience, setUserExperience] = useState("");
 
-  function handleSend (){
-    if(userExperience.trim()!== ""){
-      dispatch(setForgivenessLetter(userExperience.trim()))
-      setUserExperience("")
-    }
+  function handleInputChange(text) {
+    setUserExperience(text);
+    dispatch(setForgivenessLetter(text.trim()));
   }
 
   async function enviarDatos (){
     try {
-      handleSend();
-      /* const data= {
-        user_id:2,
+      
+      const data = {
+        user_id: userIdR.data.id,
         workshop_id: 3,
         response: {
-          forgivenessLetter: forgivenessLetter
-        }
-      }
-      const response = await axios.post("http://localhost:3001/response", data);
-      console.log("Respuesta del servidor: ", response.data); */
+          forgiveness,
+        },
+      };
+      const response = await axios.post(
+        "https://agendavbg.onrender.com/response",
+        data
+      );
+      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 3 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);
@@ -86,16 +91,13 @@ function TipThree() {
           <TextInput
             style={styles.textInput}
             placeholder="Escribe tu experiencia aquí..."
-            value={userExperience}            
-            onChangeText={setUserExperience}            
+            value={userExperience}
+            onChangeText={handleInputChange}
             multiline
           />
         </View>
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={enviarDatos}
-      >
+      <TouchableOpacity style={styles.button} onPress={enviarDatos}>
         <Text style={styles.buttonText}>Enviar</Text>
       </TouchableOpacity>
     </ScrollView>

@@ -11,7 +11,7 @@ function TipTwo() {
   const navigation = useNavigation();
   const dispatch= useDispatch()
   const {rewards_behavior}= useSelector((state)=>state.tip)
-  console.log("este es el redux", rewards_behavior)
+ 
   const userIdR = useSelector((state) => state.tip.user)
   const [behavior, setBehavior]= useState("")
   const [rewards, setRewards] = useState("");
@@ -32,12 +32,11 @@ function TipTwo() {
         user_id: userIdR.data.id,
         workshop_id: 2,
         response: {
-          rewards_behavior
+          rewards_behavior: rewards_behavior
         },
       };
        
       const response = await axios.post("https://agendavbg.onrender.com/response", data);
-      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 2 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);
