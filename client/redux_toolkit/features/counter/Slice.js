@@ -9,47 +9,48 @@ const tipSlice = createSlice({
     rewards_behavior: [],
     description: "",
     tipFive: {
-      day:'',
-      exercise:''
+      day: "",
+      exercise: "",
     },
     descriptionTipSeis: "",
     tipTen: {
-      situation:'',
-      howact:'',
-      change: ''
+      situation: "",
+      howact: "",
+      change: "",
     },
     newActivities: [],
-    supportNet:[],
+    supportNet: [],
     myGoals: [],
-    user:null,
+    user: null,
+    howDoIFeel: [],
   },
   reducers: {
-    setFortalezas: (state, action)=> {
+    setFortalezas: (state, action) => {
       state.fortalezas.push(action.payload);
-      console.log(state.fortalezas)
-    }, 
-    deleteFortalezas:(state, action)=>{
-      state.fortalezas.splice(action.payload, 1)
+      console.log(state.fortalezas);
     },
-    setDebilidades: (state, action)=>{
-      state.debilidades.push(action.payload)
+    deleteFortalezas: (state, action) => {
+      state.fortalezas.splice(action.payload, 1);
     },
-    deleteDebilidades:(state, action)=>{
-      state.debilidades.splice(action.payload, 1)
+    setDebilidades: (state, action) => {
+      state.debilidades.push(action.payload);
     },
-    setForgivenessLetter: (state, action)=>{
-      state.forgivenessLetter.push(action.payload)
+    deleteDebilidades: (state, action) => {
+      state.debilidades.splice(action.payload, 1);
+    },
+    setForgivenessLetter: (state, action) => {
+      state.forgivenessLetter= [action.payload];
       console.log(state.forgivenessLetter);
     },
-    setRewards_behavior: (state, action) =>{
-      const newReward= {
+    setRewards_behavior: (state, action) => {
+      const newReward = {
         behavior: action.payload.behavior,
         rewards: action.payload.rewards,
       };
       state.rewards_behavior.push(newReward);
-      console.log(state.rewards_behavior);      
+      console.log(state.rewards_behavior);
     },
-    setDescription: (state,action) => {
+    setDescription: (state, action) => {
       state.description = action.payload;
     },
     clearDescription: (state) => {
@@ -64,12 +65,12 @@ const tipSlice = createSlice({
     },
     clearTipFive: (state) => {
       state.tipFive = {
-        day:'',
-        exercise:''
+        day: "",
+        exercise: "",
       };
     },
     //reducer y acciones de tip seis:
-    setDescriptionSeis: (state,action) => {
+    setDescriptionSeis: (state, action) => {
       state.descriptionTipSeis = action.payload;
     },
     clearDescriptionSeis: (state) => {
@@ -87,32 +88,36 @@ const tipSlice = createSlice({
     },
     clearTipTen: (state) => {
       state.tipTen = {
-        situation:'',
-        howact:'',
-        change:''
+        situation: "",
+        howact: "",
+        change: "",
       };
     },
-    setNewActivities: (state, action)=>{
-      state.newActivities=action.payload;
+    setNewActivities: (state, action) => {
+      state.newActivities = action.payload;
     },
-    setSupportNet: (state, action)=>{
-      state.supportNet=action.payload
+    setSupportNet: (state, action) => {
+      state.supportNet = action.payload;
     },
-    setMyGoals: (state, action)=>{
-      state.myGoals.push(action.payload)
+    setMyGoals: (state, action) => {
+      state.myGoals.push(action.payload);
     },
-    deleteMyGoals:(state, action)=>{
-      state.myGoals.splice(action.payload, 1)
+    deleteMyGoals: (state, action) => {
+      state.myGoals.splice(action.payload, 1);
     },
-    setNewUser: (state, action)=>{
+    setNewUser: (state, action) => {
       state.user = action.payload;
-      console.log(state.user)
-    }, 
-    clearUser: (state)=>{
+      console.log(state.user);
+    },
+    clearUser: (state) => {
       state.user = null;
     },
+    setHowDoIFeel: (state, action) => {
+      state.howDoIFeel=[action.payload];
+      console.log(state.howDoIFeel);
+    },
   },
-})
+});
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay, setTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen, setNewUser, clearUser  } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay, setTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen, setNewUser, clearUser, setHowDoIFeel  } = tipSlice.actions;
 export default tipSlice.reducer;

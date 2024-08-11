@@ -36,7 +36,6 @@ function Login () {
           "https://agendavbg.onrender.com/user",
           dates
         );
-        console.log("esta es la respuesta con render", response)
         if(response.data){
           dispatch(setNewUser(response.data));
           navigation.navigate("Main");
@@ -45,30 +44,6 @@ function Login () {
         console.error("No se pueden enviar los datos: ", error)
       }
     }
-   /*  async function sendDates(){
-      if(password !== confirmPassword){
-        Alert.alert("Las contraseñas no coinciden")
-      }
-      try {
-        const dates = {
-           userId:1,
-           name,
-           user,
-           dateOfBirth,
-           address,
-           phone,
-           email,
-           password,
-        };
-        console.log('estos son los datos',dates)
-        
-          dispatch(setNewUser(dates));
-          navigation.navigate("Main");
-        
-      } catch (error) {
-        console.error("No se pueden enviar los datos: ", error)
-      }
-    } */
 
     return (
       <View style={styles.login}>

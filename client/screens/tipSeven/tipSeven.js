@@ -22,6 +22,7 @@ function TipSevent (){
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { myGoals } = useSelector((state) => state.tip);
+  const userIdR = useSelector((state) => state.tip.user);
 
   const [goal, setGoal] = useState("");
 
@@ -37,15 +38,18 @@ function TipSevent (){
 
   async function enviarDatos() {
     try {
-      /* const data= {
-        user_id:2,
+      const data = {
+        user_id: userIdR.data.id,
         workshop_id: 7,
         response: {
-          myGoals: myGoals
-        }
-      }
-      const response = await axios.post("http://localhost:3001/response", data);
-      console.log("Respuesta del servidor: ", response.data); */
+          myGoals: myGoals,
+        },
+      };
+      const response = await axios.post(
+        "https://agendavbg.onrender.com/response",
+        data
+      );
+      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 7 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);

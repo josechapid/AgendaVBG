@@ -11,14 +11,14 @@ import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { setSupportNet } from "../../redux_toolkit/features/counter/Slice";
-import { useSelector, useDispatch } from "react-redux";
- 
+import { useSelector, useDispatch } from "react-redux"; 
 import axios from "axios";
 
 function TipNine() {
     const navigation= useNavigation()
     const dispatch = useDispatch()
     const {supportNet}= useSelector((state)=>state.tip)
+    const userIdR = useSelector((state) => state.tip.user);
     const [name, setName] = useState("")
     const [rol, setRol] = useState ("")
     const [people, setPeople]=useState([])
@@ -42,17 +42,17 @@ async function enviarDatos() {
         if(people.length!==0){
           dispatch(setSupportNet(people))
         }
-        /* const data={
-          user_id:2,
-          workshop_id:9,
-          response:{
-            supportNet: supportNet
-          }
-        }
+        const data = {
+          user_id: userIdR.data.id,
+          workshop_id: 9,
+          response: {
+            supportNet: supportNet,
+          },
+        };
         const response = await axios.post(
-          "http://localhost:3001/response",
+          "https://agendavbg.onrender.com/response",
           data
-        ); */
+        );
         navigation.navigate("FinalTip", { tipId: 9 });
       } catch (error) {
         console.error(error);

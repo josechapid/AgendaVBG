@@ -9,6 +9,14 @@ const HomeScreen = ({navigation}) => {
   const user= useSelector((state)=> state.tip.user)
   console.log("este es el user", user)
   const icon= require('../../assets/img/homeScree/libro.png')
+
+  const handleWorkshopPress = (workshop) => {
+    if (workshop.id === 1) {
+      navigation.navigate("HowDoIFeel"); 
+    } else {
+      navigation.navigate("TipsScreen", { tipId: workshop.id }); // Navegar a la TipsScreen para otros talleres
+    }
+  };
     return (
       <ScrollView style={styles.scrollViewContainer}>
         {/* ------------------------------------section logo y title */}
@@ -32,22 +40,20 @@ const HomeScreen = ({navigation}) => {
             ]}
           >
             <Text style={styles.workshopTitle}>{workshop.title}</Text>
-            <Text style={styles.workshopDescription}>{workshop.description}</Text>
+            <Text style={styles.workshopDescription}>
+              {workshop.description}
+            </Text>
             <View style={styles.buttonIcon}>
               <TouchableOpacity
                 style={styles.workshopButton}
-                onPress={() => navigation.navigate('TipsScreen', { tipId: workshop.id })}
+                onPress={() => handleWorkshopPress(workshop)}
               >
                 <Text style={styles.buttonText}>Continuar</Text>
               </TouchableOpacity>
-              <Image
-                source={icon}
-                style={styles.icon}
-              />
+              <Image source={icon} style={styles.icon} />
             </View>
           </View>
         ))}
-        
       </ScrollView>
     );
 };
