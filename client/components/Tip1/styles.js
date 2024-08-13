@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    backgroundColor: "#f0f0f0", // Color de fondo del ScrollView
+  },
   container: {
     flex: 1,
     alignContent: "center",

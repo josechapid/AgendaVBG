@@ -7,14 +7,13 @@ import styles from "./styles"
 
 const HomeScreen = ({navigation}) => {
   const user= useSelector((state)=> state.tip.user)
-  console.log("este es el user", user)
   const icon= require('../../assets/img/homeScree/libro.png')
 
   const handleWorkshopPress = (workshop) => {
     if (workshop.id === 1) {
       navigation.navigate("HowDoIFeel"); 
     } else {
-      navigation.navigate("TipsScreen", { tipId: workshop.id }); // Navegar a la TipsScreen para otros talleres
+      navigation.navigate("TipsScreen", { tipId: workshop.id });
     }
   };
     return (
