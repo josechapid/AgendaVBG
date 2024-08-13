@@ -7,16 +7,18 @@ const MyNotes = () => {
      const [description, setDescription] = useState("");
     const [title, setTitle] = useState("");
     const [notes, setNotes] = useState([]);
-    const userId = useSelector((state) => state.tip.user.userId);
+    const userId = useSelector((state) => state.tip.user.data.id);
+    console.log("este es el userId", userId)
     
-    useEffect(() => {
-        fetchNotes();
-    }, []);
+    // useEffect(() => {
+    //     fetchNotes();
+    // }, []);
 
     const fetchNotes = async () => {
     try {
-      const response = await fetch('http://localhost:3001/mynotes');
+      const response = await fetch('https://agendavbg.onrender.com/mynotes');
       const data = await response.json();
+      console.log("Notes fetched:", data);
       setNotes(data);
     } catch (error) {
       Alert.alert('Error', 'No se pudieron cargar las notas');
@@ -25,7 +27,7 @@ const MyNotes = () => {
     
       const handleSave = async () => {
     try {
-      const response = await fetch('http://localhost:3001/mynotes', {
+      const response = await fetch('https://agendavbg.onrender.com/mynotes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ const MyNotes = () => {
 
     const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/mynotes/${id}`, {
+      const response = await fetch(`https://agendavbg.onrender.com/mynotes/${id}`, {
         method: 'DELETE',
       });
 

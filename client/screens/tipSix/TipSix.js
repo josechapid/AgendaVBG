@@ -11,18 +11,19 @@ function TipSix () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const descriptionTipSeis = useSelector((state) => state.tip.descriptionTipSeis);
-    // const [description, setDescription] = useState("");
+    const userIdR = useSelector((state) => state.tip.user)
+    
 
         const handleEnviarDatos = async () => {
     try {
       const data = {
-        user_id: 1,
+        user_id: userIdR.data.id,
         workshop_id: 6, 
         response: {
           descriptionTipSeis: descriptionTipSeis
         },
       };
-      const response = await axios.post("http://localhost:3001/response", data);
+      const response = await axios.post("https://agendavbg.onrender.com/response", data);
       console.log("Respuesta del servidor: ", response.data);
       dispatch(clearDescriptionSeis());
       navigation.navigate("FinalTip", { tipId: 6 });

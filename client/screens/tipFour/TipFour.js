@@ -13,6 +13,7 @@ function TipFour () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const description = useSelector((state) => state.tip.description);
+    const userIdR = useSelector((state) => state.tip.user)
     console.log("navigation: ", navigation);
     console.log("dispacth: ", dispatch);
     console.log("description: ", description);
@@ -20,14 +21,14 @@ function TipFour () {
       const handleEnviarDatos = async () => {
     try {
       const data = {
-        user_id: 1,
+        user_id: userIdR.data.id,
         workshop_id: 4, 
         response: {
           description: description
         },
       };
       const response = await axios.post(
-        "http://8.242.185.5:3001/response",
+        "https://agendavbg.onrender.com/response",
         data
       );
       console.log("Respuesta del servidor res: ", response);
