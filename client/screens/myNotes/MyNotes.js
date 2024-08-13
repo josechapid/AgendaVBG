@@ -10,9 +10,7 @@ const MyNotes = () => {
     const userId = useSelector((state) => state.tip.user.data.id);
     console.log("este es el userId", userId)
     
-    // useEffect(() => {
-    //     fetchNotes();
-    // }, []);
+    
 
     const fetchNotes = async () => {
     try {

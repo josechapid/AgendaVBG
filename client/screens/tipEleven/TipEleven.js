@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import {  Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 
 
 const TipEleven = () => {
+    const [feeling, setFeeling] = useState(''); 
     const navigation = useNavigation();
     
     return(
         <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
             <View style={styles.topSection}>
                 <Text style={styles.title}>Empoderate</Text>
             </View>
@@ -22,12 +24,28 @@ const TipEleven = () => {
                 source={require("../../assets/img/tip11/Power.jpeg")}
                 style={styles.img}
                 />
+               <View style={styles.section}>
+                <View style={styles.textSection}>
+                    <Text style={styles.textCenter}>Como me senti</Text>
+                </View>
+                <View style={styles.description}>
+                
+                <TextInput
+                    
+                    placeholder="Escribe aquí tu descripción"
+                    multiline
+                    onChangeText={setFeeling} 
+                    value={feeling} 
+                />
+                </View>
+            </View>
             </View>
             <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate("FinalTip",{tipId: 11})}>
                 <Text style={styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
+            </ScrollView>
         </View>
     )
 }
