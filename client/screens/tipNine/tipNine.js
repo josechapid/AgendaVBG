@@ -23,25 +23,23 @@ function TipNine() {
     const [rol, setRol] = useState ("")
     const [people, setPeople]=useState([])
     const [idCounter, setIdCounter] = useState(1);
-   
 
     function handlerAddPerson(){
-       const addPerson = {
-         id: idCounter,
-         name,
-         rol,
-       }; 
-       setPeople([...people, addPerson])
-       setName("")
-       setRol("")
-       setIdCounter(idCounter+1);
+      const addPerson = {
+        id: idCounter,
+        name,
+        rol,
+        }; 
+        const updatedPeople = [...people, addPerson]
+        setPeople(updatedPeople);
+        setName("")
+        setRol("")
+        setIdCounter(idCounter+1);
+        dispatch(setSupportNet(updatedPeople));
     }
 
 async function enviarDatos() {
       try {
-        if(people.length!==0){
-          dispatch(setSupportNet(people))
-        }
         const data = {
           user_id: userIdR.data.id,
           workshop_id: 9,

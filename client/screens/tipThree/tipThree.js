@@ -11,7 +11,6 @@ function TipThree() {
   const navigation = useNavigation();
   const dispatch=useDispatch()
   const forgiveness= useSelector((state)=>state.tip.forgivenessLetter)
-  console.log("esta es el estado de forgiven", forgiveness);
   
   const userIdR = useSelector((state) => state.tip.user);
   

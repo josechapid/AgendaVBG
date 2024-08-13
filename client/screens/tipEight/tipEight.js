@@ -14,13 +14,15 @@ function TipEight() {
     const userIdR = useSelector((state) => state.tip.user);
     const [userExperience, setUserExperience] = useState("");
 
+    function setActivities(text){
+      setUserExperience(text)
+      dispatch(setNewActivities(text.trim()));
+    }
+      
+    
 
     async function sendDates (){
       try {
-        if (userExperience.trim() !== "") {
-          dispatch(setNewActivities(userExperience.trim()));
-          setUserExperience("");
-        }
         const data = {
           user_id: userIdR.data.id,
           workshop_id: 8,
@@ -65,7 +67,7 @@ function TipEight() {
             style={styles.textInput}
             placeholder="Escribe tu experiencia aquí..."
             value={userExperience}
-            onChangeText={setUserExperience}
+            onChangeText={setActivities}
             multiline
           />
         </View>
