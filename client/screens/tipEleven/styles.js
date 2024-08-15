@@ -5,6 +5,10 @@ export default StyleSheet.create({
         flex: 1,
         
     },
+     scrollContainer: {
+        flexGrow: 1,
+        justifyContent: 'space-between',
+    },
     section: {
         margin: 15,
     },
@@ -54,6 +58,19 @@ export default StyleSheet.create({
         alignSelf: 'center',
         marginTop:50,
         marginBottom:15
+    },
+     description:{
+        width: '100%', 
+        height: 150, 
+        backgroundColor: '#d9d9d9', 
+        paddingHorizontal: 10, 
+        paddingVertical: 10, 
+        borderRadius: 8, 
+        textAlignVertical: 'top', 
+        fontSize: 16, 
+        marginTop:20,
+        marginBottom:10
+        
     },
 
 });

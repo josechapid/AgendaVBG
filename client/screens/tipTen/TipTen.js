@@ -7,15 +7,16 @@ import { setTipTenSituation, setTipTenHowAct, setTipTenChange, clearTipTen } fro
 import axios from "axios";
 
 const TipTen = () => {
-     const navigation = useNavigation();
-      const dispatch = useDispatch();
-     const { situation, howact, change} = useSelector((state) => state.tip.tipTen);
-    //  const [description, setDescription] = useState("");
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
+    const { situation, howact, change} = useSelector((state) => state.tip.tipTen);
+    const userIdR = useSelector((state) => state.tip.user)
+    
 
     const handleEnviarDatos = async () => {
         try{
             const data = {
-                user_id: 1,
+                user_id: userIdR.data.id,
                 workshop_id: 10, 
                 response: {
                     situation,
@@ -23,7 +24,7 @@ const TipTen = () => {
                     change
                 },
             }
-            const response = await axios.post("http://localhost:3001/response", data);
+            const response = await axios.post("https://agendavbg.onrender.com/response", data);
             console.log("Respuesta del servidor: ", response.data);
             dispatch(clearTipTen());
             navigation.navigate("FinalTip", { tipId: 10 });

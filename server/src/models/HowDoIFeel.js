@@ -16,7 +16,11 @@ module.exports = (sequelize) => {
       response: {
         type: DataTypes.JSON,
         allowNull: true,
-      },      
+      },
+      number: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },     
     },
     { timestamps: false }
   );
