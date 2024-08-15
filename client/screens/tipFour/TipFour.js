@@ -23,6 +23,7 @@ function TipFour () {
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 4, 
+        filled: true,
         response: {
           description: description
         },

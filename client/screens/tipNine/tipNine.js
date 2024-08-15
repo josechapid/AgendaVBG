@@ -43,6 +43,7 @@ async function enviarDatos() {
         const data = {
           user_id: userIdR.data.id,
           workshop_id: 9,
+          filled: true,
           response: {
             supportNet: supportNet,
           },

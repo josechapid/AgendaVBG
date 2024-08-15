@@ -49,6 +49,7 @@ function TipOne (){
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 1,
+        filled: true,
         response: {
           fortalezas: fortalezas,
           debilidades: debilidades,

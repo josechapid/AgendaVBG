@@ -20,6 +20,7 @@ function TipFive () {
             const data = {
                 user_id: userIdR.data.id,
                 workshop_id: 5, 
+                filled: true,
                 response: {
                     day,
                     exercise

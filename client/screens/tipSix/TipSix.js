@@ -19,6 +19,7 @@ function TipSix () {
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 6, 
+        filled: true,
         response: {
           descriptionTipSeis: descriptionTipSeis
         },

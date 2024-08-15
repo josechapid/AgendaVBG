@@ -41,6 +41,7 @@ function TipSevent (){
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 7,
+        filled: true,
         response: {
           myGoals: myGoals,
         },

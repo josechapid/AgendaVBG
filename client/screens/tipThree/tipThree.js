@@ -27,6 +27,7 @@ function TipThree() {
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 3,
+        filled: true,
         response: {
           forgiveness,
         },
