@@ -1,11 +1,12 @@
 const {Response} = require("../../db")
 
-const postResponseController = async (user_id, workshop_id, response) => {
+const postResponseController = async (user_id, workshop_id, response, filled) => {
   try {
     const newResponse = await Response.create({
       user_id,
       workshop_id,
       response,
+      filled
     });
 
     if (newResponse) {
