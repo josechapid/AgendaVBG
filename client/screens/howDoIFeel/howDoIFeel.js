@@ -25,6 +25,7 @@ function HowDoIFeel (){
         
         const data = {
           user_id: userIdR.data.id,
+          number: 1,
           response: {
             howDoIFeel,
           },

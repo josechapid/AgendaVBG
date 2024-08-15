@@ -2,11 +2,44 @@ import React, { useState, useEffect } from "react";
 import {  Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
+import { setHowDoIFeel } from "../../redux_toolkit/features/counter/Slice";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+
 
 
 const TipEleven = () => {
-    const [feeling, setFeeling] = useState(''); 
     const navigation = useNavigation();
+    const dispatch = useDispatch();     
+    const userIdR = useSelector((state) => state.tip.user);
+    const {howDoIFeel}= useSelector((state)=>state.tip)
+    const [feeling, setFeeling] = useState(''); 
+
+    function handleSend(text){        
+        setFeeling(text)
+        dispatch(setHowDoIFeel(text.trim()));
+    }
+
+    async function enviarDatos() {
+      try {
+        
+        const data = {
+          user_id: userIdR.data.id,
+          number: 2,
+          response: {
+            howDoIFeel,
+          },
+        };
+        const response = await axios.post(
+          "https://agendavbg.onrender.com/howDoIFeel",
+          data
+        );
+        console.log("Respuesta del servidor: ", response.data);
+        navigation.navigate("FinalTip",{tipId: 11});
+      } catch (error) {
+        console.error("Error al enviar los datos: ", error);
+      }
+    }
     
     return(
         <View style={styles.container}>
@@ -34,7 +67,7 @@ const TipEleven = () => {
                     
                     placeholder="Escribe aquí tu descripción"
                     multiline
-                    onChangeText={setFeeling} 
+                    onChangeText={handleSend} 
                     value={feeling} 
                 />
                 </View>
@@ -42,7 +75,7 @@ const TipEleven = () => {
             </View>
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate("FinalTip",{tipId: 11})}>
+                onPress={enviarDatos}>
                 <Text style={styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
             </ScrollView>
