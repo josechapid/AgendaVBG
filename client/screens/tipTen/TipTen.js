@@ -18,6 +18,7 @@ const TipTen = () => {
             const data = {
                 user_id: userIdR.data.id,
                 workshop_id: 10, 
+                filled: true,
                 response: {
                     situation,
                     howact,

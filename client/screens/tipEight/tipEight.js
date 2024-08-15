@@ -26,6 +26,7 @@ function TipEight() {
         const data = {
           user_id: userIdR.data.id,
           workshop_id: 8,
+          filled: true,
           response: {
             newActivities: newActivities,
           },

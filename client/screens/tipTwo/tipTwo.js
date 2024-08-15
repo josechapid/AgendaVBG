@@ -31,6 +31,7 @@ function TipTwo() {
       const data = {
         user_id: userIdR.data.id,
         workshop_id: 2,
+        filled: true,
         response: {
           rewards_behavior: rewards_behavior
         },
