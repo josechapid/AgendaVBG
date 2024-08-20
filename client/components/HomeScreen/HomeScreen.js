@@ -23,9 +23,9 @@ const HomeScreen = ({navigation}) => {
       const consult = await axios.get(
         `https://agendavbg.onrender.com/response${queryString}`
       );
-      console.log("esta es la consulta", consult);
+      console.log("esta es la consulta", consult.data);
 
-      if (consult.response.data === false) {
+      if (consult.data === false) {
         if (workshop.id === 1) {
           navigation.navigate("HowDoIFeel");
         } else {
@@ -34,6 +34,8 @@ const HomeScreen = ({navigation}) => {
         /* navigation.navigate("Feedback"); /
       } 
       / else { */
+      }else{
+        navigation.navigate("Feedback");
       }
     } catch (error) {
       console.error("Error fetching response:", error);
