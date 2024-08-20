@@ -5,6 +5,10 @@ export default StyleSheet.create({
         flex: 1,
         
     },
+    scrollContainer: {
+    paddingHorizontal: 15, // Espaciado horizontal (izquierda y derecha)
+    paddingVertical: 20,   // Espaciado vertical (arriba y abajo)
+},
     topSection:{
         flex: 0.5,
         backgroundColor: "#f4a261",
