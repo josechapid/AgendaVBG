@@ -10,8 +10,11 @@ const getResponseController = async (user_id, workshop_id) => {
       }
     });
     
-    if (response && response.filled) {
-      return { success: true, data: response.response };
+    if (response) {
+        if(response.filled){
+            return { success: true, data: response.response };
+        }
+      
     } else {
       return { success: false, message: "No se encontraron respuestas" };
     }
