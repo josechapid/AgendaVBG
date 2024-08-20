@@ -14,19 +14,31 @@ const HomeScreen = ({navigation}) => {
   const handleWorkshopPress = async (workshop) => {
     const data = {
       user_id: user.data.id,
-      workshop_id: workshop.id
-    }
-    const consult = await axios.get("https://agendavbg.onrender.com/response", data)
-    if(consult){
-      navigation.navigate("Feedback")
-    }else{
-      if (workshop.id === 1) {
-      navigation.navigate("HowDoIFeel"); 
-    } else {
-      navigation.navigate("TipsScreen", { tipId: workshop.id });
-    }
-    }
+      workshop_id: workshop.id,
+    };
+    const queryString = `?user_id=${data.user_id}&workshop_id=${data.workshop_id}`;
+    console.log("este es el link del query:",queryString);
     
+    try {
+      const consult = await axios.get(
+        `https://agendavbg.onrender.com/response${queryString}`
+      );
+      console.log("esta es la consulta", consult);
+
+      if (consult.response.data === false) {
+        if (workshop.id === 1) {
+          navigation.navigate("HowDoIFeel");
+        } else {
+          navigation.navigate("TipsScreen", { tipId: workshop.id });
+        }
+        /* navigation.navigate("Feedback"); /
+      } 
+      / else { */
+      }
+    } catch (error) {
+      console.error("Error fetching response:", error);
+
+    }
   };
     return (
       <ScrollView style={styles.scrollViewContainer}>
