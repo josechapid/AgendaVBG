@@ -152,6 +152,8 @@ export default function App() {
           <Stack.Screen name="TipTen" component={TipTen} />
           <Stack.Screen name="TipEleven" component={TipEleven} />
           <Stack.Screen name="HowDoIFeel" component={HowDoIFeel} />
+          <Stack.Screen name="Feedback" component={Feedback} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -4,17 +4,29 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useSelector } from "react-redux";
 import workshops from '../../assets/json/workshops.json'
 import styles from "./styles"
+import axios from 'axios';
+
 
 const HomeScreen = ({navigation}) => {
   const user= useSelector((state)=> state.tip.user)
   const icon= require('../../assets/img/homeScree/libro.png')
 
-  const handleWorkshopPress = (workshop) => {
-    if (workshop.id === 1) {
+  const handleWorkshopPress = async (workshop) => {
+    const data = {
+      user_id: user.data.id,
+      workshop_id: workshop.id
+    }
+    const consult = await axios.get("https://agendavbg.onrender.com/response", data)
+    if(consult){
+      navigation.navigate("Feedback")
+    }else{
+      if (workshop.id === 1) {
       navigation.navigate("HowDoIFeel"); 
     } else {
       navigation.navigate("TipsScreen", { tipId: workshop.id });
     }
+    }
+    
   };
     return (
       <ScrollView style={styles.scrollViewContainer}>
