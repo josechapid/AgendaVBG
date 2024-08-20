@@ -13,7 +13,7 @@ console.log("userId",user_id,"este es el whorkshop", workshop_id)
     if (response.success) {
       res.status(200).json(response);
     } else {
-      res.status(404).json({ error: response.message });
+      res.status(404).json(response.success, {message: response.message});
     }
   } catch (error) {
     res.status(500).json({
