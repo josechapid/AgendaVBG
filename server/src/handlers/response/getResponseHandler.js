@@ -2,7 +2,7 @@ const getResponseController = require("../../controllers/response/getResponseCon
 
 const getResponseHandler = async (req, res) => {
   const { user_id, workshop_id } = req.query;
-
+console.log("userId",user_id,"este es el whorkshop", workshop_id)
   try {
     if (!user_id || !workshop_id ) {
       return res.status(400).json({ error: "Faltan datos obligatorios" });
