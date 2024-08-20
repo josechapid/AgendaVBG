@@ -1,7 +1,7 @@
 const getResponseController = require("../../controllers/response/getResponseController")
 
 const getResponseHandler = async (req, res) => {
-  const { user_id, workshop_id } = req.body;
+  const { user_id, workshop_id } = req.query;
 
   try {
     if (!user_id || !workshop_id ) {
