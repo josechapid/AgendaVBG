@@ -12,7 +12,6 @@ const TipTen = () => {
     const { situation, howact, change} = useSelector((state) => state.tip.tipTen);
     const userIdR = useSelector((state) => state.tip.user)
     
-
     const handleEnviarDatos = async () => {
         try{
             const data = {
@@ -26,7 +25,6 @@ const TipTen = () => {
                 },
             }
             const response = await axios.post("https://agendavbg.onrender.com/response", data);
-            console.log("Respuesta del servidor: ", response.data);
             dispatch(clearTipTen());
             navigation.navigate("FinalTip", { tipId: 10 });
         }catch(error){

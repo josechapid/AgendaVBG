@@ -55,17 +55,12 @@ function TipOne (){
           debilidades: debilidades,
         },
       };
-       
       const response = await axios.post("https://agendavbg.onrender.com/response", data);
-      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 1 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);
-      
     }
   }
-   
-
     return (
       <View style={styles.container}>
 

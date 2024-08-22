@@ -19,8 +19,6 @@ function TipEight() {
       dispatch(setNewActivities(text.trim()));
     }
       
-    
-
     async function sendDates (){
       try {
         const data = {

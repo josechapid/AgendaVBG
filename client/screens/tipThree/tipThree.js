@@ -36,7 +36,7 @@ function TipThree() {
         "https://agendavbg.onrender.com/response",
         data
       );
-      console.log("Respuesta del servidor: ", response.data);
+      
       navigation.navigate("FinalTip", { tipId: 3 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);
