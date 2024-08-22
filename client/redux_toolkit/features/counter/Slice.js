@@ -27,7 +27,6 @@ const tipSlice = createSlice({
   reducers: {
     setFortalezas: (state, action) => {
       state.fortalezas.push(action.payload);
-      console.log(state.fortalezas);
     },
     deleteFortalezas: (state, action) => {
       state.fortalezas.splice(action.payload, 1);
@@ -40,7 +39,6 @@ const tipSlice = createSlice({
     },
     setForgivenessLetter: (state, action) => {
       state.forgivenessLetter= [action.payload];
-      console.log(state.forgivenessLetter);
     },
     setRewards_behavior: (state, action) => {
       const newReward = {
@@ -48,7 +46,6 @@ const tipSlice = createSlice({
         rewards: action.payload.rewards,
       };
       state.rewards_behavior.push(newReward);
-      console.log(state.rewards_behavior);
     },
     setDescription: (state, action) => {
       state.description = action.payload;
@@ -107,14 +104,12 @@ const tipSlice = createSlice({
     },
     setNewUser: (state, action) => {
       state.user = action.payload;
-      console.log(state.user);
     },
     clearUser: (state) => {
       state.user = null;
     },
     setHowDoIFeel: (state, action) => {
       state.howDoIFeel=[action.payload];
-      console.log(state.howDoIFeel);
     },
   },
 });
