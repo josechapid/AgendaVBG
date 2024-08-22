@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, Image,TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import tipFinal from "../../assets/json/tipFinal.json";
 import styles from './styles';
 import axios from 'axios';
 
 
-const Feedback = ({route,  navigation }) => {
+const Feedback = ({route }) => {
     const {tipId} =route.params;
     const tip= tipFinal.find(t=> t.id === tipId);
     const userIdR = useSelector((state) => state.tip.user)
@@ -36,29 +36,36 @@ const Feedback = ({route,  navigation }) => {
     }, [userIdR.data.id, tipId]);
 
 const renderResponse = (response) => {
-        if (typeof response === 'string') {
-            return <Text>{response}</Text>;
-        } else if (Array.isArray(response)) {
-            return response.map((item, index) => <Text key={index}>{item}</Text>);
-        } else if (typeof response === 'object') {
-            return Object.entries(response).map(([key, value]) => (
-                 <View key={key}>
-                <Text>{key}:</Text>
-                {typeof value === 'object' && !Array.isArray(value) ? (
-                    Object.entries(value).map(([subKey, subValue]) => (
-                        <View key={subKey}>
-                            <Text>{subKey}:</Text>
-                            <Text>{subValue}</Text>
-                        </View>
-                    ))
-                ) : (
-                    <Text>{value}</Text>
-                )}
+      if (typeof response === 'string') {
+        return (
+            <View style={styles.responseContainer}>
+                <Text style={styles.responseText}>{response}</Text>
+            </View>
+        );
+    } else if (Array.isArray(response)) {
+        return response.map((item, index) => (
+            <View style={styles.responseContainer} key={index}>
+                {renderResponse(item)}  
             </View>
         ));
-        } else {
-            return <Text>Tipo de dato no soportado</Text>;
-        }
+    } else if (typeof response === 'object' && response !== null) {
+        return (
+            <View style={styles.responseContainer}>
+                {Object.entries(response).map(([key, value]) => (
+                    <View key={key} style={{ marginBottom: 10 }}>
+                        <Text style={styles.keyText}>{key}:</Text>
+                        {renderResponse(value)}
+                    </View>
+                ))}
+            </View>
+        );
+    } else {
+        return (
+            <View style={styles.responseContainer}>
+                <Text style={styles.responseText}>Tipo de dato no soportado</Text>
+            </View>
+        );
+    }
     };
 
     if (loading) {
@@ -78,12 +85,12 @@ const renderResponse = (response) => {
             </View>
             <View style={styles.section}>
                 <View style={styles.textSection}>
-                    <Text style={styles.textCenter}>Mis respuestas:</Text>
+                    <Text>Mis respuestas:</Text>
                 </View>
             </View>
-            <View>
+            <ScrollView>
                 {renderResponse(response)}
-            </View>
+            </ScrollView>
             
         </View>
 

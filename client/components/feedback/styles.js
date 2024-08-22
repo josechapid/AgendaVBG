@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     container:{
-        flex:1,
+        flex:0.8,
        
     },
      scrollContainer: {
@@ -28,16 +28,27 @@ export default StyleSheet.create({
         textAlign: 'center'
 },
 textSection: {
-        backgroundColor: "#F5CAC3",
+        backgroundColor: "#f4a261",
         width: "100%",
         padding: 8,
         borderRadius: 5,
         alignSelf: 'center',
         margin: 15,
     },
-    // textCenter:{
-    //     textAlign:'center',
-    //     fontWeight: "bold",
-    //     fontSize:15
-    // },
+    responseContainer: {
+        backgroundColor: '#d9d9d9', 
+        padding: 15,
+        margin: 15,
+        borderRadius: 10,
+        marginBottom: 10,
+    },
+    responseText: {
+        fontSize: 16,
+        color: 'black',  
+    },
+    keyText: {
+        fontWeight: 'bold',
+        marginBottom: 5,
+        color: 'black',  
+    },
 });

@@ -1,12 +1,12 @@
-import { View, Text, Image, TextInput,TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput,TouchableOpacity, ScrollView } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
-import { AntDesign } from '@expo/vector-icons';
+// import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setDescription, clearDescription } from '../../redux_toolkit/features/counter/Slice';
-
+import { Video } from 'expo-av';
 
 
 function TipFour () {
@@ -39,7 +39,7 @@ function TipFour () {
   };
 
    return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.topSection}>
                 <Text style={styles.title}>Encuentra la calma</Text>
             </View>
@@ -54,11 +54,23 @@ function TipFour () {
                 <View>
                     <Text style={styles.text}>Mira el siguiente video y sigue cada instruccion que te dan. Cuentanos como te sentistes</Text>
                 </View>
+                  
+        {/* Aquí agregas el video */}
+        <Video
+          source={require("../../assets/video/Principiantes_6Minutos_.mp4")} 
+          rate={1.0}
+          volume={1.0}
+          isMuted={false}
+          resizeMode="contain"
+          shouldPlay
+          useNativeControls
+          style={{ width: '100%', height: 150 }} 
+        />
                 
             </View>
-            <View style={styles.icon}>
+            {/* <View style={styles.icon}>
                 <AntDesign name="caretright" size={30} color="#f4a261" />
-            </View>
+            </View> */}
             <View style={styles.section}>
                 <View style={styles.description}>
                 
@@ -77,7 +89,7 @@ function TipFour () {
             <Text style={styles.buttonText}>Enviar</Text>
           </TouchableOpacity>
             
-        </View>
+        </ScrollView>
     )
 }
 
