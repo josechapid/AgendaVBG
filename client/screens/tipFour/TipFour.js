@@ -30,8 +30,6 @@ function TipFour () {
         "https://agendavbg.onrender.com/response",
         data
       );
-      console.log("Respuesta del servidor res: ", response);
-      console.log("Respuesta del servidor: ", response.data);
       dispatch(clearDescription());
       navigation.navigate("FinalTip", { tipId: 4 });
     } catch (error) {
