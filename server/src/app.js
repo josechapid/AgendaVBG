@@ -37,6 +37,7 @@ const allowedOrigins = [
   "http://8.242.185.5:8081",
   "http://localhost:8081",
   "http://192.168.1.17:3001",
+  "http://192.168.1.21",
 ];
 
 server.use((req, res, next) => {
