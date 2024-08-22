@@ -16,8 +16,6 @@ function TipTwo() {
   const [behavior, setBehavior]= useState("")
   const [rewards, setRewards] = useState("");
   
-
-
   function handleAddRecompensa() {
     if (behavior.trim() && rewards.trim()){
       dispatch(setRewards_behavior({behavior, rewards}))
@@ -36,7 +34,6 @@ function TipTwo() {
           rewards_behavior: rewards_behavior
         },
       };
-       
       const response = await axios.post("https://agendavbg.onrender.com/response", data);
       navigation.navigate("FinalTip", { tipId: 2 });
     } catch (error) {

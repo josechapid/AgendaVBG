@@ -6,14 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTipFiveDay, setTipFiveExercise, clearTipFive } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 
-
-
 function TipFive () {
      const navigation = useNavigation();
      const dispatch = useDispatch();
      const { day, exercise} = useSelector((state) => state.tip.tipFive);
      const userIdR = useSelector((state) => state.tip.user)
-
 
     const handleEnviarDatos = async () => {
         try{
@@ -27,7 +24,6 @@ function TipFive () {
                 },
             }
             const response = await axios.post("https://agendavbg.onrender.com/response", data);
-            console.log("Respuesta del servidor: ", response.data);
             dispatch(clearTipFive());
             navigation.navigate("FinalTip", { tipId: 5 });
         }catch(error){

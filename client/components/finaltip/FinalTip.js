@@ -6,7 +6,7 @@ import images from '../../assets/json/imageMapFinal';
 
 
 const FinalTip = ({route,  navigation }) => {
-    const {tipId} =route.params;
+  const {tipId} =route.params;
   const tip= tipFinal.find(t=> t.id === tipId);
   const imagePath = images[tip.image];
     

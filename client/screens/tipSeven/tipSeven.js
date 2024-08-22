@@ -17,13 +17,11 @@ import {
 } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 
-
 function TipSevent (){
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { myGoals } = useSelector((state) => state.tip);
   const userIdR = useSelector((state) => state.tip.user);
-
   const [goal, setGoal] = useState("");
 
   function addGoal() {
@@ -50,7 +48,6 @@ function TipSevent (){
         "https://agendavbg.onrender.com/response",
         data
       );
-      console.log("Respuesta del servidor: ", response.data);
       navigation.navigate("FinalTip", { tipId: 7 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);

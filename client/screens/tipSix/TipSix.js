@@ -6,15 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDescriptionSeis, clearDescriptionSeis } from '../../redux_toolkit/features/counter/Slice';
 import axios from "axios";
 
-
 function TipSix () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const descriptionTipSeis = useSelector((state) => state.tip.descriptionTipSeis);
     const userIdR = useSelector((state) => state.tip.user)
     
-
-        const handleEnviarDatos = async () => {
+    const handleEnviarDatos = async () => {
     try {
       const data = {
         user_id: userIdR.data.id,
@@ -25,14 +23,12 @@ function TipSix () {
         },
       };
       const response = await axios.post("https://agendavbg.onrender.com/response", data);
-      console.log("Respuesta del servidor: ", response.data);
       dispatch(clearDescriptionSeis());
       navigation.navigate("FinalTip", { tipId: 6 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);      
     }
   };
-
 
     return(
         <View style={styles.container}>

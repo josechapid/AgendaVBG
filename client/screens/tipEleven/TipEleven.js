@@ -6,8 +6,6 @@ import { setHowDoIFeel } from "../../redux_toolkit/features/counter/Slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-
-
 const TipEleven = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();     
@@ -34,7 +32,6 @@ const TipEleven = () => {
           "https://agendavbg.onrender.com/howDoIFeel",
           data
         );
-        console.log("Respuesta del servidor: ", response.data);
         navigation.navigate("FinalTip",{tipId: 11});
       } catch (error) {
         console.error("Error al enviar los datos: ", error);

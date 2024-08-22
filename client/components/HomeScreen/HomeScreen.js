@@ -31,11 +31,8 @@ const HomeScreen = ({navigation}) => {
         } else {
           navigation.navigate("TipsScreen", { tipId: workshop.id });
         }
-        /* navigation.navigate("Feedback"); /
-      } 
-      / else { */
       }else{
-        navigation.navigate("Feedback");
+        navigation.navigate("Feedback", {tipId: workshop.id});
       }
     } catch (error) {
       console.error("Error fetching response:", error);

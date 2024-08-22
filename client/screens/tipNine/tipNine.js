@@ -24,7 +24,7 @@ function TipNine() {
     const [people, setPeople]=useState([])
     const [idCounter, setIdCounter] = useState(1);
 
-    function handlerAddPerson(){
+function handlerAddPerson(){
       const addPerson = {
         id: idCounter,
         name,

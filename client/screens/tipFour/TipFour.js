@@ -14,9 +14,7 @@ function TipFour () {
     const dispatch = useDispatch();
     const description = useSelector((state) => state.tip.description);
     const userIdR = useSelector((state) => state.tip.user)
-    console.log("navigation: ", navigation);
-    console.log("dispacth: ", dispatch);
-    console.log("description: ", description);
+    
 
       const handleEnviarDatos = async () => {
     try {
