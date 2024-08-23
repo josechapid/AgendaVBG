@@ -13,13 +13,13 @@ const MyProfile = () => {
       const [correo, setCorreo] = useState('');
       // const user = useSelector((state) => state.tip.user);
       const userId = useSelector((state) => state.tip.user.id);
-  console.log("User object:", userId);
+  
    useEffect(() => {
     
     if (userId) {
       const loadUserData = async () => {
         try {
-          const response = await axios.get(`http://192.168.0.93:3001/user/${userId}`);
+          const response = await axios.get(`https://agendavbg.onrender.com/user/${userId}`);
           const { name, user, email } = response.data;
           setNombre(name);
           setUsuario(user);

@@ -17,13 +17,13 @@ const HomeScreen = ({navigation}) => {
       workshop_id: workshop.id,
     };
     const queryString = `?user_id=${data.user_id}&workshop_id=${data.workshop_id}`;
-    console.log("este es el link del query:",queryString);
+    
     
     try {
       const consult = await axios.get(
         `https://agendavbg.onrender.com/response${queryString}`
       );
-      console.log("esta es la consulta", consult.data);
+    
 
       if (consult.data === false) {
         if (workshop.id === 1) {
