@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TouchableOpacity,TextInput} from "react-native";
+import {View, Text, TouchableOpacity, TextInput, Alert} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setNewUser } from "../../redux_toolkit/features/counter/Slice";
@@ -8,54 +8,72 @@ import styles from "./styles";
 
 function SignIn () {
     const navigation = useNavigation();
-    const dispatch= useDispatch();
-    const [email, setEmail]= useState("")
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const data= {email, password}
+    const data = { email, password };
 
-    async function handleLogin (){
-      try {
-        const response = await axios.post("https://agendavbg.onrender.com/login", data)
-       
-        if(response.data){
-          dispatch(setNewUser(response.data));
-          navigation.navigate("Main")
-        } else{
-          alert("no se encontro usuario")
+    // Función para validar el formato de un correo electrónico
+    const validateEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    };
+
+    async function handleLogin() {
+        if (!validateEmail(email)) {
+            Alert.alert("Error", "Por favor ingresa un correo electrónico válido.");
+            return;
         }
-      } catch (error) {
-        console.error("Error al enviar datos: ", error)
-      }
-    } 
+
+        if (password.length === 0) {
+            Alert.alert("Error", "Por favor ingresa una contraseña.");
+            return;
+        }
+
+        try {
+            const response = await axios.post("https://agendavbg.onrender.com/login", data);
+
+            if (response.data) {
+                dispatch(setNewUser(response.data));
+                navigation.navigate("Main");
+            } else {
+                Alert.alert("Error", "Correo electrónico o contraseña incorrectos.");
+            }
+        } catch (error) {
+            console.error("Error al enviar datos: ", error);
+            Alert.alert("Error", "Hubo un problema al iniciar sesión. Inténtalo de nuevo.");
+        }
+    }
 
     return (
-      <View style={styles.loginContainer}>
-        {/* ------------------------------------section logo y title */}
-        <View style={styles.headerContainer}>
-          <Text style={styles.title}>Hola! </Text>
-          <Text style={styles.titleInitial}>Ingresa a tu cuenta</Text>
+        <View style={styles.loginContainer}>
+            <View style={styles.headerContainer}>
+                <Text style={styles.title}>¡Hola!</Text>
+                <Text style={styles.titleInitial}>Ingresa a tu cuenta</Text>
+            </View>
+            <View style={styles.formContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Correo electrónico"
+                    value={email}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Contraseña"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry={true}
+                />
+                <TouchableOpacity style={styles.button} onPress={handleLogin}>
+                    <Text style={styles.buttonText}>Enviar</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-        <View style={styles.formContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Correo electronico"
-            value={email}
-            onChangeText={setEmail}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-          />
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
     );
-};
-
+}
 
 export default SignIn;
