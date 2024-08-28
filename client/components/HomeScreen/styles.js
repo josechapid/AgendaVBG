@@ -70,6 +70,7 @@ export default StyleSheet.create({
     color: "#333", // Puedes cambiar el color según tu esquema de colores
     marginVertical: 10, // Espacio vertical alrededor del saludo
     margin: 0,
-    paddingLeft: 15
+    paddingLeft: 15,
+    fontFamily: "EduVICWANTBeginner-Medium",
   },
 });
