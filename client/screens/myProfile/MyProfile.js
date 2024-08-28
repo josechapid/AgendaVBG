@@ -13,7 +13,7 @@ const MyProfile = () => {
       const [correo, setCorreo] = useState('');
       // const user = useSelector((state) => state.tip.user);
       const userId = useSelector((state) => state.tip.user.data.id);
-       console.log("este es el userId", userId)
+       
   
    useEffect(() => {
     
@@ -74,7 +74,7 @@ const MyProfile = () => {
       <View style={styles.section}>
         <TextInput
           style={styles.input}
-          placeholder="Nombre"
+          placeholder= "Nombre"
           value={nombre}
           onChangeText={(text) => setNombre(text)}
         />

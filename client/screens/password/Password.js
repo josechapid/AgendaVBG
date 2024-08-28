@@ -1,28 +1,49 @@
 import React from "react";
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-const Password = () => {
+
+const Password =  () => {
     const navigation = useNavigation();
     const [newPassword, setNewPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
     const [showPassword, setShowPassword] = React.useState(false);
     const [error, setError] = React.useState('');
-
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const handleSave = () => {
+    const userId = useSelector((state) => state.tip.user.data.id);
+    
+   const handleEnviarDatos = async () => {
+    try {
         if (newPassword !== confirmPassword) {
             setError('Las contraseñas no coinciden');
             return;
         }
         
+        const data = {
+        password: newPassword
+    }
+    
+    const response = await axios.patch(`https://agendavbg.onrender.com/user/${userId}`, data)
+    if(response){
         navigation.navigate("MyProfile");
+    }else{
+        Alert.alert("Error al modificar password")
+    }
+    
+    } catch (error) {
+        console.error("error al enviar datos",error)
+    }
+    
+   }
+
+    const toggleShowPassword = () => {
+        setShowPassword(!showPassword);
     };
+
+    
 
     return (
         <View style={styles.container}>
@@ -67,7 +88,7 @@ const Password = () => {
 
                 <TouchableOpacity 
                     style={styles.button}
-                    onPress={handleSave}>
+                    onPress={handleEnviarDatos}>
                     <Text style={styles.buttonText}>Guardar cambios</Text>
                 </TouchableOpacity>
             </View>
