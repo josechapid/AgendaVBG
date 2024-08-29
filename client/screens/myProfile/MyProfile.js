@@ -1,44 +1,49 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-
+import { updateUserData } from '../../redux_toolkit/features/counter/Slice'; // Importa la acción de Redux para actualizar los datos del usuario
 
 const MyProfile = () => {
   const navigation = useNavigation();
-      const [nombre, setNombre] = useState('');
-      const [usuario, setUsuario] = useState('');
-      const [correo, setCorreo] = useState('');
-      // const user = useSelector((state) => state.tip.user);
-      const userId = useSelector((state) => state.tip.user.data.id);
-       
-  
-   useEffect(() => {
-    
-    if (userId.data) {
-      const loadUserData = async () => {
-        try {
-          const response = await axios.get(`https://agendavbg.onrender.com/user/${userId.data}`);
-          const { name, user, email } = response.data;
-          setNombre(name);
-          setUsuario(user);
-          setCorreo(email);
-        } catch (error) {
-          console.error('Error al cargar los datos del usuario:', error);
-        }
-      };
+  const dispatch = useDispatch();
+  const [nombre, setNombre] = useState('');
+  const [usuario, setUsuario] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [loading, setLoading] = useState(true); // Estado de carga
 
-      loadUserData();
-    }
-  }, [userId]);
+  const userData = useSelector((state) => state.tip.user.data);  
+  const userId = userData?.id;
 
+  useEffect(() => {
+    const loadUserData = async () => {
+      if (!userId) return;
 
+      setLoading(true);  
+      try {
+        const response = await axios.get(`https://agendavbg.onrender.com/user/${userId}`);
+        const { name, user, email } = response.data;
+
+        setNombre(name || '');   
+        setUsuario(user || '');
+        setCorreo(email || '');
+
+        // Actualizar estado de Redux con los datos más recientes
+        dispatch(updateUserData({ name, user, email, id: userId }));
+      } catch (error) {
+        console.error('Error al cargar los datos del usuario:', error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    loadUserData();
+  }, [userId, dispatch]);
 
   const handleSaveChanges = async () => {
-    console.log("este es el user",userId)
-     if (!userId) {
+    if (!userId) {
       console.error('ID de usuario no definido');
       return;
     }
@@ -48,23 +53,31 @@ const MyProfile = () => {
         user: usuario,
         email: correo
       });
-      console.log(response.data.message); // Maneja la respuesta según sea necesario
-      navigation.navigate("Main"); // Navegar después de guardar los cambios
+
+      console.log(response.data.message); 
+      
+      dispatch(updateUserData({ name: nombre, user: usuario, email: correo, id: userId }));
+
+      navigation.navigate("Main"); 
     } catch (error) {
       console.error('Error al guardar los cambios:', error);
     }
   };
- 
+
+  if (loading) {
+    
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Text style={styles.title}>Mi Perfil</Text>
       </View>
-      {/* <Button
-              title="Cambiar Avatar"
-              onPress={() => navigation.navigate('Avatar')}
-            /> */}
       <View>
         <Image
           source={require("../../assets/img/myProfile/avatarMujer.jpg")}
@@ -74,7 +87,7 @@ const MyProfile = () => {
       <View style={styles.section}>
         <TextInput
           style={styles.input}
-          placeholder= "Nombre"
+          placeholder="Nombre"
           value={nombre}
           onChangeText={(text) => setNombre(text)}
         />
