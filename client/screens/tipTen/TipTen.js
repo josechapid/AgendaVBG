@@ -9,7 +9,7 @@ import axios from "axios";
 const TipTen = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
-    const { situation, howact, change} = useSelector((state) => state.tip.tipTen);
+    const { situacion, como_actuo, cambio} = useSelector((state) => state.tip.tipTen);
     const userIdR = useSelector((state) => state.tip.user)
     
     const handleEnviarDatos = async () => {
@@ -19,9 +19,9 @@ const TipTen = () => {
                 workshop_id: 10, 
                 filled: true,
                 response: {
-                    situation,
-                    howact,
-                    change
+                    situacion,
+                    como_actuo,
+                    cambio
                 },
             }
             const response = await axios.post("https://agendavbg.onrender.com/response", data);
@@ -52,7 +52,7 @@ const TipTen = () => {
                     
                     placeholder="Situacion"
                     onChangeText={text => dispatch(setTipTenSituation(text))} 
-                    value={situation} 
+                    value={situacion} 
                 />
                 </View>
                 <View style={styles.description}>
@@ -60,7 +60,7 @@ const TipTen = () => {
                     
                     placeholder="Como actuo"
                     onChangeText={text => dispatch(setTipTenHowAct(text))} 
-                    value={howact} 
+                    value={como_actuo} 
                 />
                 </View>
                 <View style={styles.description}>
@@ -68,7 +68,7 @@ const TipTen = () => {
                     
                     placeholder="Cambios"
                     onChangeText={text => dispatch(setTipTenChange(text))} 
-                    value={change} 
+                    value={cambio} 
                 />
                 </View>
             </View>

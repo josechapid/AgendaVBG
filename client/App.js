@@ -95,6 +95,7 @@ export default function App() {
     await Font.loadAsync({
       "BirthstoneBounce-Medium": require("./assets/fonts/BirthstoneBounce-Medium-abcdef123456.ttf"),
       "BirthstoneBounce-Regular": require("./assets/fonts/BirthstoneBounce-Regular-abcdef123457.ttf"),
+      "EduVICWANTBeginner-Medium": require("./assets/fonts/EduVICWANTBeginner-Medium.ttf"),
     });
     setFontsLoaded(true);
   };

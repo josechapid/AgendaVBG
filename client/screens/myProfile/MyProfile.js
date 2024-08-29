@@ -12,14 +12,15 @@ const MyProfile = () => {
       const [usuario, setUsuario] = useState('');
       const [correo, setCorreo] = useState('');
       // const user = useSelector((state) => state.tip.user);
-      const userId = useSelector((state) => state.tip.user.id);
+      const userId = useSelector((state) => state.tip.user.data.id);
+       
   
    useEffect(() => {
     
-    if (userId) {
+    if (userId.data) {
       const loadUserData = async () => {
         try {
-          const response = await axios.get(`https://agendavbg.onrender.com/user/${userId}`);
+          const response = await axios.get(`https://agendavbg.onrender.com/user/${userId.data}`);
           const { name, user, email } = response.data;
           setNombre(name);
           setUsuario(user);
@@ -36,12 +37,13 @@ const MyProfile = () => {
 
 
   const handleSaveChanges = async () => {
+    console.log("este es el user",userId)
      if (!userId) {
       console.error('ID de usuario no definido');
       return;
     }
     try {
-      const response = await axios.patch(`http://192.168.0.93:3001/user/${userId}`, {
+      const response = await axios.patch(`https://agendavbg.onrender.com/user/${userId}`, {
         name: nombre,
         user: usuario,
         email: correo
@@ -72,7 +74,7 @@ const MyProfile = () => {
       <View style={styles.section}>
         <TextInput
           style={styles.input}
-          placeholder="Nombre"
+          placeholder= "Nombre"
           value={nombre}
           onChangeText={(text) => setNombre(text)}
         />

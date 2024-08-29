@@ -12,7 +12,7 @@ import { Video } from 'expo-av';
 function TipFour () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
-    const description = useSelector((state) => state.tip.description);
+    const descripcion = useSelector((state) => state.tip.descripcion);
     const userIdR = useSelector((state) => state.tip.user)
     
 
@@ -23,7 +23,7 @@ function TipFour () {
         workshop_id: 4, 
         filled: true,
         response: {
-          description: description
+          descripcion: descripcion
         },
       };
       const response = await axios.post(
@@ -79,7 +79,7 @@ function TipFour () {
                     placeholder="Escribe aquí tu descripción"
                     multiline
                     onChangeText={(text) => dispatch(setDescription(text))} 
-                    value={description} 
+                    value={descripcion} 
                 />
                 </View>
             </View>

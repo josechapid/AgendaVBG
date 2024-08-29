@@ -41,4 +41,9 @@ passwordVisibilityButton: {
     right: 10,
     top: 10
   },
+  errorText: {
+    color: 'red',
+    marginTop: 5,
+    textAlign: 'center',
+},
 });

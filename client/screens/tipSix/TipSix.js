@@ -9,7 +9,7 @@ import axios from "axios";
 function TipSix () {
     const navigation = useNavigation();
     const dispatch = useDispatch();
-    const descriptionTipSeis = useSelector((state) => state.tip.descriptionTipSeis);
+    const descripcion = useSelector((state) => state.tip.descripcion);
     const userIdR = useSelector((state) => state.tip.user)
     
     const handleEnviarDatos = async () => {
@@ -19,7 +19,7 @@ function TipSix () {
         workshop_id: 6, 
         filled: true,
         response: {
-          descriptionTipSeis: descriptionTipSeis
+          descripcion: descripcion
         },
       };
       const response = await axios.post("https://agendavbg.onrender.com/response", data);
@@ -51,7 +51,7 @@ function TipSix () {
                     placeholder="Escribe aquí tu descripción"
                     multiline
                     onChangeText={text => dispatch(setDescriptionSeis(text))} 
-                    value={descriptionTipSeis} 
+                    value={descripcion} 
                 />
             </View>
             <TouchableOpacity 

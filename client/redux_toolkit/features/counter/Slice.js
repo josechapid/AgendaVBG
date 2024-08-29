@@ -8,15 +8,18 @@ const tipSlice = createSlice({
     cartaPerdon: [],
     recompensa_comportamiento: [],
     description: "",
+    forgivenessLetter: [],
+    rewards_behavior: [],
+    descripcion: "",
     tipFive: {
-      day: "",
-      exercise: "",
+      dia: "",
+      ejercicio: "",
     },
-    descriptionTipSeis: "",
+    descripcion: "",
     tipTen: {
-      situation: "",
-      howact: "",
-      change: "",
+      situacion: "",
+      como_actuo: "",
+      cambio: "",
     },
     nuevasActividades: [],
     redApoyo: [],
@@ -48,46 +51,46 @@ const tipSlice = createSlice({
       state.recompensa_comportamiento.push(newReward);
     },
     setDescription: (state, action) => {
-      state.description = action.payload;
+      state.descripcion = action.payload;
     },
     clearDescription: (state) => {
-      state.description = "";
+      state.descripcion = "";
     },
     //reducer y acciones de tip cinco:
     setTipFiveDay: (state, action) => {
-      state.tipFive.day = action.payload;
+      state.tipFive.dia = action.payload;
     },
     setTipFiveExercise: (state, action) => {
-      state.tipFive.exercise = action.payload;
+      state.tipFive.ejercicio = action.payload;
     },
     clearTipFive: (state) => {
       state.tipFive = {
-        day: "",
-        exercise: "",
+        dia: "",
+        ejercicio: "",
       };
     },
     //reducer y acciones de tip seis:
     setDescriptionSeis: (state, action) => {
-      state.descriptionTipSeis = action.payload;
+      state.descripcion = action.payload;
     },
     clearDescriptionSeis: (state) => {
-      state.descriptionTipSeis = "";
+      state.descripcion = "";
     },
     //reducer y acciones de tip diez:
     setTipTenSituation: (state, action) => {
-      state.tipTen.situation = action.payload;
+      state.tipTen.situacion = action.payload;
     },
     setTipTenHowAct: (state, action) => {
-      state.tipTen.howact = action.payload;
+      state.tipTen.como_actuo = action.payload;
     },
     setTipTenChange: (state, action) => {
-      state.tipTen.change = action.payload;
+      state.tipTen.cambio = action.payload;
     },
     clearTipTen: (state) => {
       state.tipTen = {
-        situation: "",
-        howact: "",
-        change: "",
+        situacion: "",
+        como_actuo: "",
+        cambio: "",
       };
     },
     setNewActivities: (state, action) => {

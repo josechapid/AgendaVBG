@@ -9,7 +9,7 @@ import axios from "axios";
 function TipFive () {
      const navigation = useNavigation();
      const dispatch = useDispatch();
-     const { day, exercise} = useSelector((state) => state.tip.tipFive);
+     const { dia, ejercicio} = useSelector((state) => state.tip.tipFive);
      const userIdR = useSelector((state) => state.tip.user)
 
     const handleEnviarDatos = async () => {
@@ -19,8 +19,8 @@ function TipFive () {
                 workshop_id: 5, 
                 filled: true,
                 response: {
-                    day,
-                    exercise
+                    dia,
+                    ejercicio
                 },
             }
             const response = await axios.post("https://agendavbg.onrender.com/response", data);
@@ -54,7 +54,7 @@ function TipFive () {
                     
                     placeholder="Dia"
                     onChangeText={text => dispatch(setTipFiveDay(text))} 
-                    value={day} 
+                    value={dia} 
                 />
                 </View>
                 <View style={styles.description}>
@@ -62,7 +62,7 @@ function TipFive () {
                     
                     placeholder="Ejercicio"
                     onChangeText={text => dispatch(setTipFiveExercise(text))} 
-                    value={exercise} 
+                    value={ejercicio} 
                 />
                 </View>
             </View>
