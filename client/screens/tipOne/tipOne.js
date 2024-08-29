@@ -63,9 +63,7 @@ function TipOne (){
   }
     return (
       <View style={styles.container}>
-
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        
+        <ScrollView contentContainerStyle={styles.scrollViewContainer}>
           {/* ----------------------------------------------------Imagen inicial  */}
           <View style={styles.imageContainer}>
             <Image
@@ -87,14 +85,6 @@ function TipOne (){
           <View style={styles.subTitleContainer}>
             <Text style={styles.subTitle}>Fortalezas</Text>
           </View>
-
-          <TextInput
-            style={styles.input}
-            placeholder="Agrega tus fortalezas"
-            value={fortalezaActual}
-            onChangeText={setFortalezaActual}
-            onSubmitEditing={addFortaleza}
-          />
           <View style={styles.fortalezasContainer}>
             {fortalezas.map((fortaleza, index) => (
               <View key={index} style={styles.fortalezaItem}>
@@ -105,17 +95,21 @@ function TipOne (){
               </View>
             ))}
           </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Agrega tus fortalezas"
+            value={fortalezaActual}
+            onChangeText={setFortalezaActual}
+            onSubmitEditing={addFortaleza}
+          />
+          <TouchableOpacity style={styles.enviarButtonn} onPress={addFortaleza}>
+            <Text style={styles.enviarButtonText}>Generar</Text>
+          </TouchableOpacity>
+
           {/* ----------------------------------------------------section debilidades  */}
           <View style={styles.subTitleContainer}>
             <Text style={styles.subTitle}>Debilidades</Text>
           </View>
-          <TextInput
-            style={styles.input}
-            placeholder="Agrega tus debilidades"
-            value={debilidadActual}
-            onChangeText={setDebilidadActual}
-            onSubmitEditing={addDebilidad}
-          />
           <View style={styles.debilidadesContainer}>
             {debilidades.map((debilidad, index) => (
               <View key={index} style={styles.debilidadItem}>
@@ -125,14 +119,24 @@ function TipOne (){
                 </TouchableOpacity>
               </View>
             ))}
-            {/* ----------------------------------------------------boton de envio   */}
-
-            <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
-              <Text style={styles.enviarButtonText}>Enviar</Text>
-            </TouchableOpacity>
           </View>
-        
-      </ScrollView>
+          <TextInput
+            style={styles.input}
+            placeholder="Agrega tus debilidades"
+            value={debilidadActual}
+            onChangeText={setDebilidadActual}
+            onSubmitEditing={addDebilidad}
+          />
+          <TouchableOpacity style={styles.enviarButtonn} onPress={addDebilidad}>
+            <Text style={styles.enviarButtonText}>Generar</Text>
+          </TouchableOpacity>
+
+          {/* ----------------------------------------------------boton de envio   */}
+
+          <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
+            <Text style={styles.enviarButtonText}>Enviar</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     );
 }

@@ -16,14 +16,16 @@ const HomeScreen = ({navigation}) => {
       user_id: user.data.id,
       workshop_id: workshop.id,
     };
+    const dataTwo={
+      user_id: user.data.id,
+      number: 2
+    }
     const queryString = `?user_id=${data.user_id}&workshop_id=${data.workshop_id}`;
     
-    
     try {
-      const consult = await axios.get(
-        `https://agendavbg.onrender.com/response${queryString}`
-      );
-    
+      const consultTipEleven = await axios.get(`https://agendavbg.onrender.com/howDoIFeel`, dataTwo);
+
+      const consult = await axios.get(`https://agendavbg.onrender.com/response${queryString}`);    
 
       if (consult.data === false) {
         if (workshop.id === 1) {

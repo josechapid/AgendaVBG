@@ -61,8 +61,8 @@ export default StyleSheet.create({
     width: "100%",
     backgroundColor: "#D9D9D9",
   },
-  goalContainer: {
-    marginTop: 0,
+  goalsContainer: {
+    marginTop: 5,
   },
   goalItem: {
     flexDirection: "row",
@@ -82,6 +82,17 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: 5,
     width: 100,
+    height: 50,
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  enviarButtonn: {
+    backgroundColor: "#a9d0db",
+    padding: 15,
+    borderRadius: 5,
+    alignItems: "center",
+    marginTop: 5,
+    width: 85,
     height: 50,
     alignSelf: "center",
     marginBottom: 30,
