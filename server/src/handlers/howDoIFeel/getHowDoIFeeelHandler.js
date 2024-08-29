@@ -2,7 +2,7 @@ const getHowDoIFeelController= require ("../../controllers/howDoIFeel/getHowDoIF
 
 const getHowDoIFeelHandler= async (req, res)=>{
 try {
-    const {user_id, number}= req.body
+    const {user_id, number}= req.query
     console.log("estos son los datos", user_id, number);
     
     const response= await getHowDoIFeelController(user_id, number)
