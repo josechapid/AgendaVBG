@@ -7,7 +7,7 @@ try {
     if(response){
         res.status(200).json(response)
     } else{
-        res.status(400).json(response.success)
+        res.status(200).json(response.success)
     }
 } catch (error) {
     res.status(500).json({ error: error.message });
