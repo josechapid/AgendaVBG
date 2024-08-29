@@ -1,6 +1,6 @@
 const {HowDoIFeel} = require ("../../db")
 
-const getHowDoIFeelController = async ({user_id, number})=>{
+const getHowDoIFeelController = async (user_id, number)=>{
     try {
     const response= await HowDoIFeel.findOne({
         where: {user_id:user_id}
