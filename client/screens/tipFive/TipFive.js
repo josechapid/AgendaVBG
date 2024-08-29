@@ -3,7 +3,7 @@ import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
-import { setTipFiveDay, setTipFiveExercise, clearTipFive } from "../../redux_toolkit/features/counter/Slice";
+import { setTipFiveDay, setdeleteTipFiveDay, setTipFiveExercise, setdeleteTipFiveExercise, clearTipFive } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 
 function TipFive () {
@@ -11,6 +11,7 @@ function TipFive () {
      const dispatch = useDispatch();
      const { dia, ejercicio} = useSelector((state) => state.tip.tipFive);
      const userIdR = useSelector((state) => state.tip.user)
+     
 
     const handleEnviarDatos = async () => {
         try{
@@ -55,6 +56,7 @@ function TipFive () {
                     placeholder="Dia"
                     onChangeText={text => dispatch(setTipFiveDay(text))} 
                     value={dia} 
+
                 />
                 </View>
                 <View style={styles.description}>

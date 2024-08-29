@@ -5,6 +5,9 @@ export default StyleSheet.create({
         flex: 1
         
     },
+    section: {
+        margin: 15,
+    },
     topSection:{
         flex: 0.2,
         backgroundColor: "#f4a261",
@@ -44,7 +47,8 @@ export default StyleSheet.create({
         borderRadius: 8, 
         textAlignVertical: 'top', 
         fontSize: 16, 
-        marginTop:20
+        marginTop:20,
+        marginBottom:10,
     },
      button:{
         backgroundColor: "#F5CAC3",
