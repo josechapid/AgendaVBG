@@ -19,7 +19,7 @@ const tipSlice = createSlice({
       change: "",
     },
     nuevasActividades: [],
-    red_de_apoyo: [],
+    redApoyo: [],
     mis_Metas: [],
     user: null,
     howDoIFeel: [],
@@ -94,7 +94,7 @@ const tipSlice = createSlice({
       state.nuevasActividades = action.payload;
     },
     setSupportNet: (state, action) => {
-      state.red_de_apoyo = action.payload;
+      state.redApoyo = action.payload;
     },
     setMyGoals: (state, action) => {
       state.mis_Metas.push(action.payload);
