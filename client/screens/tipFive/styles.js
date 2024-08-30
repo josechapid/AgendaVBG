@@ -30,6 +30,7 @@ export default StyleSheet.create({
         borderRadius: 5,
         alignSelf: 'center'
     },
+   
      descriptionContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',

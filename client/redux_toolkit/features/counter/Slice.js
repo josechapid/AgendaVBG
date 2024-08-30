@@ -12,8 +12,8 @@ const tipSlice = createSlice({
     rewards_behavior: [],
     descripcion: "",
     tipFive: {
-      dia: "",
-      ejercicio: "",
+      dia:"",
+      ejercicio:"",
     },
     descripcion: "",
     tipTen: {
@@ -60,8 +60,14 @@ const tipSlice = createSlice({
     setTipFiveDay: (state, action) => {
       state.tipFive.dia = action.payload;
     },
+    setdeleteTipFiveDay: (state, action) => {
+      state.dia.splice(action.payload, 1);
+    },
     setTipFiveExercise: (state, action) => {
       state.tipFive.ejercicio = action.payload;
+    },
+    setdeleteTipFiveExercise: (state, action) => {
+      state.ejercicio.splice(action.payload, 1);
     },
     clearTipFive: (state) => {
       state.tipFive = {
@@ -114,8 +120,19 @@ const tipSlice = createSlice({
     setHowDoIFeel: (state, action) => {
       state.howDoIFeel=[action.payload];
     },
+     
+    updateUserData: (state, action) => {
+      if (state.user) {
+        state.user = {
+          ...state.user,  // Mantenemos los datos anteriores del usuario
+          ...action.payload,  // Sobrescribimos los datos actualizados
+        };
+      }
+    },
+  
   },
+ 
 });
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay, setTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen, setNewUser, clearUser, setHowDoIFeel  } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay,setdeleteTipFiveDay, setTipFiveExercise,setdeleteTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen, setNewUser, clearUser, setHowDoIFeel,updateUserData,  } = tipSlice.actions;
 export default tipSlice.reducer;

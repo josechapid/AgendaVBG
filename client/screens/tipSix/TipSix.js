@@ -44,6 +44,7 @@ function TipSix () {
                     <Text style={styles.text}>Como te sentiste</Text>
                 </View>
             </View>
+            <View style={styles.section}>
             <View style={styles.description}>
                 
                 <TextInput
@@ -53,6 +54,7 @@ function TipSix () {
                     onChangeText={text => dispatch(setDescriptionSeis(text))} 
                     value={descripcion} 
                 />
+            </View>
             </View>
             <TouchableOpacity 
             style={styles.button}
