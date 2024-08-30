@@ -12,14 +12,14 @@ const tipSlice = createSlice({
     rewards_behavior: [],
     descripcion: "",
     tipFive: {
-      dia:"",
-      ejercicio:"",
+      dia: [],
+      ejercicio: [],
     },
     descripcion: "",
     tipTen: {
-      situacion: "",
-      como_actuo: "",
-      cambio: "",
+      situacion: [],
+      como_actuo: [],
+      cambio: [],
     },
     nuevasActividades: [],
     redApoyo: [],
@@ -58,21 +58,21 @@ const tipSlice = createSlice({
     },
     //reducer y acciones de tip cinco:
     setTipFiveDay: (state, action) => {
-      state.tipFive.dia = action.payload;
+      state.tipFive.dia.push(action.payload);
     },
-    setdeleteTipFiveDay: (state, action) => {
-      state.dia.splice(action.payload, 1);
+    deleteTipFiveDay: (state, action) => {
+      state.tipFive.dia.splice(action.payload, 1);
     },
     setTipFiveExercise: (state, action) => {
-      state.tipFive.ejercicio = action.payload;
+      state.tipFive.ejercicio.push(action.payload);
     },
-    setdeleteTipFiveExercise: (state, action) => {
-      state.ejercicio.splice(action.payload, 1);
+    deleteTipFiveExercise: (state, action) => {
+      state.tipFive.ejercicio.splice(action.payload, 1);
     },
     clearTipFive: (state) => {
       state.tipFive = {
-        dia: "",
-        ejercicio: "",
+        dia: [],
+        ejercicio: [],
       };
     },
     //reducer y acciones de tip seis:
@@ -84,19 +84,28 @@ const tipSlice = createSlice({
     },
     //reducer y acciones de tip diez:
     setTipTenSituation: (state, action) => {
-      state.tipTen.situacion = action.payload;
+      state.tipTen.situacion.push(action.payload);
+    },
+    removeSituation: (state, action) => {
+      state.tipTen.situacion.splice(action.payload, 1);
     },
     setTipTenHowAct: (state, action) => {
-      state.tipTen.como_actuo = action.payload;
+      state.tipTen.como_actuo.push(action.payload);
+    },
+     removeHowAct: (state, action) => {
+      state.tipTen.como_actuo.splice(action.payload, 1);
     },
     setTipTenChange: (state, action) => {
-      state.tipTen.cambio = action.payload;
+      state.tipTen.cambio.push(action.payload);
+    },
+    removeChange: (state, action) => {
+      state.tipTen.cambio.splice(action.payload, 1);
     },
     clearTipTen: (state) => {
       state.tipTen = {
-        situacion: "",
-        como_actuo: "",
-        cambio: "",
+        situacion: [],
+        como_actuo: [],
+        cambio: [],
       };
     },
     setNewActivities: (state, action) => {
@@ -134,5 +143,5 @@ const tipSlice = createSlice({
  
 });
 
-export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay,setdeleteTipFiveDay, setTipFiveExercise,setdeleteTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,setTipTenHowAct,setTipTenChange,clearTipTen, setNewUser, clearUser, setHowDoIFeel,updateUserData,  } = tipSlice.actions;
+export const {setFortalezas, deleteFortalezas, setDebilidades, deleteDebilidades, setForgivenessLetter, setRewards_behavior,setDescription,clearDescription, setNewActivities, setSupportNet, setMyGoals, deleteMyGoals, setTipFiveDay,deleteTipFiveDay, setTipFiveExercise,deleteTipFiveExercise, clearTipFive, setDescriptionSeis, clearDescriptionSeis,setTipTenSituation,removeSituation,setTipTenHowAct,removeHowAct,setTipTenChange,removeChange,clearTipTen, setNewUser, clearUser, setHowDoIFeel,updateUserData,  } = tipSlice.actions;
 export default tipSlice.reducer;
