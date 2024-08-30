@@ -5,6 +5,9 @@ const tipSlice = createSlice({
   initialState: {
     fortalezas: [],
     debilidades: [],
+    cartaPerdon: [],
+    recompensa_comportamiento: [],
+    description: "",
     forgivenessLetter: [],
     rewards_behavior: [],
     descripcion: "",
@@ -18,9 +21,9 @@ const tipSlice = createSlice({
       como_actuo: "",
       cambio: "",
     },
-    newActivities: [],
-    supportNet: [],
-    myGoals: [],
+    nuevasActividades: [],
+    redApoyo: [],
+    mis_Metas: [],
     user: null,
     howDoIFeel: [],
   },
@@ -38,14 +41,14 @@ const tipSlice = createSlice({
       state.debilidades.splice(action.payload, 1);
     },
     setForgivenessLetter: (state, action) => {
-      state.forgivenessLetter= [action.payload];
+      state.cartaPerdon = [action.payload];
     },
     setRewards_behavior: (state, action) => {
       const newReward = {
         behavior: action.payload.behavior,
         rewards: action.payload.rewards,
       };
-      state.rewards_behavior.push(newReward);
+      state.recompensa_comportamiento.push(newReward);
     },
     setDescription: (state, action) => {
       state.descripcion = action.payload;
@@ -97,16 +100,16 @@ const tipSlice = createSlice({
       };
     },
     setNewActivities: (state, action) => {
-      state.newActivities = action.payload;
+      state.nuevasActividades = action.payload;
     },
     setSupportNet: (state, action) => {
-      state.supportNet = action.payload;
+      state.redApoyo = action.payload;
     },
     setMyGoals: (state, action) => {
-      state.myGoals.push(action.payload);
+      state.mis_Metas.push(action.payload);
     },
     deleteMyGoals: (state, action) => {
-      state.myGoals.splice(action.payload, 1);
+      state.mis_Metas.splice(action.payload, 1);
     },
     setNewUser: (state, action) => {
       state.user = action.payload;

@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Button,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
@@ -17,7 +16,7 @@ import axios from "axios";
 function TipNine() {
     const navigation= useNavigation()
     const dispatch = useDispatch()
-    const {supportNet}= useSelector((state)=>state.tip)
+    const {redApoyo}= useSelector((state)=>state.tip)
     const userIdR = useSelector((state) => state.tip.user);
     const [name, setName] = useState("")
     const [rol, setRol] = useState ("")
@@ -45,7 +44,7 @@ async function enviarDatos() {
           workshop_id: 9,
           filled: true,
           response: {
-            supportNet: supportNet,
+            redApoyo: redApoyo,
           },
         };
         const response = await axios.post(

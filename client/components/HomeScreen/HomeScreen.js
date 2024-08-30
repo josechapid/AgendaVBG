@@ -1,38 +1,73 @@
 import React from 'react';
-import { Text, View, Button, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, BackHandler } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import workshops from '../../assets/json/workshops.json'
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { clearUser } from '../../redux_toolkit/features/counter/Slice';
 import styles from "./styles"
 import axios from 'axios';
 
 
 const HomeScreen = ({navigation}) => {
   const user= useSelector((state)=> state.tip.user)
+  const dispatch = useDispatch()
   const icon= require('../../assets/img/homeScree/libro.png')
 
+  const handleLogout =()=>{
+    dispatch(clearUser())
+    navigation.navigate("Bienvenida")
+  }
+
+   useFocusEffect(
+     React.useCallback(() => {
+       const onBackPress = () => {
+         return true; // Esto bloquea la acción de regresar
+       };
+
+       BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+       return () => {
+         BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+       };
+     }, [])
+   );
   const handleWorkshopPress = async (workshop) => {
     const data = {
       user_id: user.data.id,
       workshop_id: workshop.id,
     };
+    const dataTwo={
+      user_id: user.data.id,
+      number: 2
+    }
+    console.log("esta es la dataTwo", dataTwo);
+    
     const queryString = `?user_id=${data.user_id}&workshop_id=${data.workshop_id}`;
+    const queryStringTwo = `?user_id=${dataTwo.user_id}&number=${dataTwo.number}`;
     
-    
-    try {
-      const consult = await axios.get(
-        `https://agendavbg.onrender.com/response${queryString}`
-      );
-    
+    try {      
+      const consult = await axios.get(`https://agendavbg.onrender.com/response${queryString}`);  
 
-      if (consult.data === false) {
-        if (workshop.id === 1) {
-          navigation.navigate("HowDoIFeel");
+      if(workshop.id===11){
+        const consultTipEleven = await axios.get(`https://agendavbg.onrender.com/howDoIFeel${queryStringTwo}`);
+        if (consultTipEleven.data.success === true) {
+          navigation.navigate("Feedback", { tipId: workshop.id });
         } else {
           navigation.navigate("TipsScreen", { tipId: workshop.id });
         }
-      }else{
-        navigation.navigate("Feedback", {tipId: workshop.id});
+      } else{
+      if (consult.data === false) {
+      if (workshop.id === 1) {
+        navigation.navigate("HowDoIFeel");
+      } else {
+        navigation.navigate("TipsScreen", { tipId: workshop.id });
+      }
+    }else{
+      navigation.navigate("Feedback", {tipId: workshop.id});
+    }
+    
       }
     } catch (error) {
       console.error("Error fetching response:", error);
@@ -42,7 +77,13 @@ const HomeScreen = ({navigation}) => {
     return (
       <ScrollView style={styles.scrollViewContainer}>
         {/* ------------------------------------section logo y title */}
-        {user && <Text style={styles.greeting}>Hola, {user.data.user}</Text>}
+        <View style={styles.userGreetingContainer}>
+          {user && <Text style={styles.greeting}>Hola, {user.data.user}</Text>}
+          
+          <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+            <Ionicons name="log-out-outline" size={30} color="black" />
+          </TouchableOpacity>
+        </View>
         <View style={styles.headerContainer}>
           <View style={styles.logoHeader}>
             <Image

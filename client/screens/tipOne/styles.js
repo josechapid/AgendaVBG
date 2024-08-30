@@ -62,7 +62,7 @@ export default StyleSheet.create({
     backgroundColor: "#D9D9D9",
   },
   fortalezasContainer: {
-    marginTop: 0,
+    marginTop: 5,
   },
   fortalezaItem: {
     flexDirection: "row",
@@ -76,7 +76,7 @@ export default StyleSheet.create({
     height: 50,
   },
   debilidadesContainer: {
-    marginTop: 0,
+    marginTop: 5,
   },
   debilidadItem: {
     flexDirection: "row",
@@ -90,17 +90,28 @@ export default StyleSheet.create({
     height: 50,
   },
   enviarButton: {
-    backgroundColor: "#F5CAC3",
+    backgroundColor: "#F4A261",
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
     marginTop: 5,
-    width: 100,
-    height: 50,
+    width: 80,
+    height: 47,
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  enviarButtonn: {
+    backgroundColor: "#a9d0db",
+    padding: 15,
+    borderRadius: 5,
+    alignItems: "center",
+    marginTop: 5,
+    width: 85,
+    height: 47,
     alignSelf: "center",
     marginBottom: 30,
   },
   enviarButtonText: {
-    fontSize: 16,
+    fontSize: 14,
   },
 });

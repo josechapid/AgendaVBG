@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Button,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
@@ -20,7 +19,7 @@ import axios from "axios";
 function TipSevent (){
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const { myGoals } = useSelector((state) => state.tip);
+  const { mis_Metas } = useSelector((state) => state.tip);
   const userIdR = useSelector((state) => state.tip.user);
   const [goal, setGoal] = useState("");
 
@@ -41,7 +40,7 @@ function TipSevent (){
         workshop_id: 7,
         filled: true,
         response: {
-          myGoals: myGoals,
+          mis_Metas: mis_Metas,
         },
       };
       const response = await axios.post(
@@ -77,15 +76,8 @@ function TipSevent (){
         <View style={styles.subTitleContainer}>
           <Text style={styles.subTitle}>Mis Metas</Text>
         </View>
-        <TextInput
-          style={styles.input}
-          placeholder="Agrega tu meta"
-          value={goal}
-          onChangeText={setGoal}
-          onSubmitEditing={addGoal}
-        />
         <View style={styles.goalsContainer}>
-          {myGoals.map((goal, index) => (
+          {mis_Metas.map((goal, index) => (
             <View key={index} style={styles.goalItem}>
               <Text>{goal}</Text>
               <TouchableOpacity onPress={() => deleteGoal(index)}>
@@ -94,11 +86,22 @@ function TipSevent (){
             </View>
           ))}
         </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Agrega tu meta"
+          value={goal}
+          onChangeText={setGoal}
+          onSubmitEditing={addGoal}
+        />
+        <TouchableOpacity style={styles.enviarButtonn} onPress={addGoal}>
+          <Text style={styles.enviarButtonText}>Generar</Text>
+        </TouchableOpacity>
+
         <View>
-         <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
-              <Text style={styles.enviarButtonText}>Enviar</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
+            <Text style={styles.enviarButtonText}>Enviar</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   );
