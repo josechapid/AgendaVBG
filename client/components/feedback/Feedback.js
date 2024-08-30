@@ -13,6 +13,7 @@ const Feedback = ({route }) => {
     const [response, setResponse] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [eleven, setEleven]=useState(null)
 
      useEffect(() => {
         async function fetchResponse() {
@@ -23,8 +24,16 @@ const Feedback = ({route }) => {
                         workshop_id: tipId, 
                     }
                 });
-                console.log("esa es la data", data)
+                const dataTwo = {
+                  user_id: userIdR.data.id,
+                  number: 2,
+                };
+                const queryStringTwo = `?user_id=${dataTwo.user_id}&number=${dataTwo.number}`;
+                 const consultTipEleven = await axios.get(
+                   `https://agendavbg.onrender.com/howDoIFeel${queryStringTwo}`
+                 );
                 setResponse(data.data);
+                setEleven(consultTipEleven.data.data)
             } catch (err) {
                 setError(err.message || "Error al obtener los datos");
             } finally {
@@ -35,7 +44,10 @@ const Feedback = ({route }) => {
         fetchResponse();
     }, [userIdR.data.id, tipId]);
 
-const renderResponse = (response) => {
+    console.log("este es elevent despues del effect", eleven);
+    
+
+const renderResponse = (response, eleven) => {
       if (typeof response === 'string') {
         return (
             <View style={styles.responseContainer}>
@@ -52,6 +64,17 @@ const renderResponse = (response) => {
         return (
             <View style={styles.responseContainer}>
                 {Object.entries(response).map(([key, value]) => (
+                    <View key={key} style={{ marginBottom: 10 }}>
+                        <Text style={styles.keyText}>{key}:</Text>
+                        {renderResponse(value)}
+                    </View>
+                ))}
+            </View>
+        );
+    } else if (typeof eleven === 'object' && eleven !== null) {
+        return (
+            <View style={styles.responseContainer}>
+                {Object.entries(eleven).map(([key, value]) => (
                     <View key={key} style={{ marginBottom: 10 }}>
                         <Text style={styles.keyText}>{key}:</Text>
                         {renderResponse(value)}
@@ -89,7 +112,7 @@ const renderResponse = (response) => {
                 </View>
             </View>
             <ScrollView>
-                {renderResponse(response)}
+                {renderResponse(response, eleven)}
             </ScrollView>
             
         </View>

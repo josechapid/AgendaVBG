@@ -7,6 +7,19 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   logoHeader: {},
+  userGreetingContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  greeting: {
+    fontSize: 18,
+    color: "black",
+  },
+  logoutButton: {
+    marginLeft: 10,
+    marginRight:15
+  },
   logo: {
     resizeMode: "contain",
     height: 100,
