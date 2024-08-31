@@ -43,8 +43,6 @@ const Feedback = ({route }) => {
 
         fetchResponse();
     }, [userIdR.data.id, tipId]);
-
-    console.log("este es elevent despues del effect", eleven);
     
 
 const renderResponse = (response, eleven) => {
@@ -62,25 +60,25 @@ const renderResponse = (response, eleven) => {
         ));
     } else if (typeof response === 'object' && response !== null) {
         return (
-            <View style={styles.responseContainer}>
-                {Object.entries(response).map(([key, value]) => (
-                    <View key={key} style={{ marginBottom: 10 }}>
-                        <Text style={styles.keyText}>{key}:</Text>
-                        {renderResponse(value)}
-                    </View>
-                ))}
-            </View>
+          <View style={styles.responseContainer}>
+            {Object.entries(response).map(([key, value]) => (
+              <View key={key} style={styles.responseContainerObject}>
+                <Text style={styles.keyText}>{key}:</Text>
+                {renderResponse(value)}
+              </View>
+            ))}
+          </View>
         );
     } else if (typeof eleven === 'object' && eleven !== null) {
         return (
-            <View style={styles.responseContainer}>
-                {Object.entries(eleven).map(([key, value]) => (
-                    <View key={key} style={{ marginBottom: 10 }}>
-                        <Text style={styles.keyText}>{key}:</Text>
-                        {renderResponse(value)}
-                    </View>
-                ))}
-            </View>
+          <View style={styles.responseContainer}>
+            {Object.entries(eleven).map(([key, value]) => (
+              <View key={key} style={styles.responseContainerObject}>
+                <Text style={styles.keyText}>{key}:</Text>
+                {renderResponse(value)}
+              </View>
+            ))}
+          </View>
         );
     } else {
         return (
