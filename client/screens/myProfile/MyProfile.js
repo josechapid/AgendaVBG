@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
@@ -74,47 +75,46 @@ const MyProfile = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.topSection}>
-        <Text style={styles.title}>Mi Perfil</Text>
-      </View>
-      <View>
-        <Image
-          source={require("../../assets/img/myProfile/avatarMujer.jpg")}
-          style={styles.img}
-        />
-      </View>
-      <View style={styles.section}>
-        <TextInput
-          style={styles.input}
-          placeholder="Nombre"
-          value={nombre}
-          onChangeText={(text) => setNombre(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Usuario"
-          value={usuario}
-          onChangeText={(text) => setUsuario(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Correo"
-          value={correo}
-          onChangeText={(text) => setCorreo(text)}
-        />
-        <TouchableOpacity onPress={() => navigation.navigate("Password")}>
-          <Text style={styles.changePasswordText}>Cambiar Contraseña</Text>
+    <ScrollView style={styles.scrollViewContainer}>
+      <View style={styles.container}>
+        <View style={styles.topSection}>
+          <Text style={styles.title}>Mi Perfil</Text>
+        </View>
+        <View>
+          <Image
+            source={require("../../assets/img/myProfile/avatarMujer.jpg")}
+            style={styles.img}
+          />
+        </View>
+        <View style={styles.section}>
+          <TextInput
+            style={styles.input}
+            placeholder="Nombre"
+            value={nombre}
+            onChangeText={(text) => setNombre(text)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Usuario"
+            value={usuario}
+            onChangeText={(text) => setUsuario(text)}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Correo"
+            value={correo}
+            onChangeText={(text) => setCorreo(text)}
+          />
+          <TouchableOpacity onPress={() => navigation.navigate("Password")}>
+            <Text style={styles.changePasswordText}>Cambiar Contraseña</Text>
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity style={styles.button} onPress={handleSaveChanges}>
+          <Text style={styles.buttonText}>Guardar cambios</Text>
         </TouchableOpacity>
       </View>
-      
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handleSaveChanges}
-      >
-        <Text style={styles.buttonText}>Guardar cambios</Text>
-      </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 

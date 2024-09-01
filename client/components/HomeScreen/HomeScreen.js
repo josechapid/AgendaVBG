@@ -33,6 +33,8 @@ const HomeScreen = ({navigation}) => {
        };
      }, [])
    );
+
+   
   const handleWorkshopPress = async (workshop) => {
     const data = {
       user_id: user.data.id,

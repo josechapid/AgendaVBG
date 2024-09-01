@@ -22,16 +22,20 @@ export default StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     marginTop: 15,
     backgroundColor: "#F5CAC3",
     height: 50,
-    alignSelf: 'center',
+    alignSelf: "center",
     width: 150,
-    borderRadius: 10
+    borderRadius: 10,
   },
-  buttonText:{
-    textAlign: 'center',
-    justifyContent: 'center'
+  buttonText: {
+    textAlign: "center",
+    justifyContent: "center",
+  },
+  errorText:{
+    marginLeft:15,
+    marginRight: 15
   }
 });

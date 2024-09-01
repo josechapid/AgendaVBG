@@ -101,15 +101,15 @@ export default StyleSheet.create({
     marginBottom: 30,
   },
   enviarButtonn: {
-    backgroundColor: "#a9d0db",
+    backgroundColor: "#F5CAC3",
     padding: 15,
     borderRadius: 5,
     alignItems: "center",
-    marginTop: 5,
+    marginTop: 2,
     width: 85,
     height: 47,
     alignSelf: "center",
-    marginBottom: 30,
+    marginBottom: 5,
   },
   enviarButtonText: {
     fontSize: 14,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  Text, View, Image, TextInput, TouchableOpacity, Alert,FlatList } from 'react-native';
+import { ScrollView } from "react-native-gesture-handler";
 import {useSelector} from "react-redux";
 import styles from "./styles";
 
@@ -8,7 +9,6 @@ const MyNotes = () => {
     const [title, setTitle] = useState("");
     const [notes, setNotes] = useState([]);
     const userId = useSelector((state) => state.tip.user.data.id);
-    console.log("este es el userId", userId)
     
     
 
@@ -77,51 +77,52 @@ const MyNotes = () => {
     </View>
   );
 
-    return(
+    return (
+      <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.container}>
-            <View style={styles.topSection}>
-                <Text style={styles.title}>Mis Notas</Text>
-            </View>
-            <View style={styles.section}>
-                <Text style={styles.text}>Utiliza este espacio para descargar tus emociones y recordar cada cambio positivo que has logrado </Text>
+          <View style={styles.topSection}>
+            <Text style={styles.title}>Mis Notas</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.text}>
+              Utiliza este espacio para descargar tus emociones y recordar cada
+              cambio positivo que has logrado{" "}
+            </Text>
 
-                <Image
-                source={require("../../assets/img/MyNotes.jpeg")}
-                style={styles.img}
-                />
-                <View style={styles.textSection}>
-                    <Text style={styles.textCenter}>Escribe tus notas</Text>
-                </View>
+            <Image
+              source={require("../../assets/img/MyNotes.jpeg")}
+              style={styles.img}
+            />
+            <View style={styles.textSection}>
+              <Text style={styles.textCenter}>Escribe tus notas</Text>
             </View>
-            <View style={styles.section}>
-                <View style={styles.description}>
-                <TextInput
-                    placeholder="Título de la nota"
-                    onChangeText={text => setTitle(text)}
-                    value={title}
-                />
-                <TextInput
-                    
-                    placeholder="Escribe aquí tu descripción"
-                    multiline
-                    onChangeText={text => setDescription(text)} 
-                    value={description} 
-                    
-                />
-                </View>
+          </View>
+          <View style={styles.section}>
+            <View style={styles.description}>
+              <TextInput
+                placeholder="Título de la nota"
+                onChangeText={(text) => setTitle(text)}
+                value={title}
+              />
+              <TextInput
+                placeholder="Escribe aquí tu descripción"
+                multiline
+                onChangeText={(text) => setDescription(text)}
+                value={description}
+              />
             </View>
-            <TouchableOpacity 
-            style={styles.button}
-            onPress={handleSave}>
+          </View>
+          <TouchableOpacity style={styles.button} onPress={handleSave}>
             <Text style={styles.buttonText}>Guardar nota</Text>
           </TouchableOpacity>
-           <FlatList
-        data={notes}
-        renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
-        style={styles.notesList}
-      />
+          <FlatList
+            data={notes}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id.toString()}
+            style={styles.notesList}
+          />
         </View>
+      </ScrollView>
     );
 };
 

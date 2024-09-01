@@ -3,22 +3,22 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container:{
         flex:0.8,
-       
     },
      scrollContainer: {
         flexGrow: 1,
         justifyContent: 'space-between',
     },
-     section: {
-        margin: 15,
+    section: {
+        marginRight: 15,
+        marginLeft: 15
     },
     topSection: {
         flex: 0.5,
         backgroundColor: "#f4a261",
         width: '100%',
-        margin:0
-         
-         
+        margin:0,
+        justifyContent: "center",
+        height: 0.5
     },
 
     title: {
@@ -37,10 +37,17 @@ textSection: {
     },
     responseContainer: {
         backgroundColor: '#d9d9d9', 
-        padding: 15,
         margin: 15,
+        padding: 5,
         borderRadius: 10,
         marginBottom: 10,
+    },
+    responseContainerArray:{
+
+    },
+    responseContainerObject:{
+        margin: 0,
+        padding: 0
     },
     responseText: {
         fontSize: 16,
@@ -48,7 +55,9 @@ textSection: {
     },
     keyText: {
         fontWeight: 'bold',
-        marginBottom: 5,
-        color: 'black',  
+        marginBottom: 2,
+        color: 'blue', 
+        margin: 0,
+        padding: 0 
     },
 });
