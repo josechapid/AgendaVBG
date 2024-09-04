@@ -120,12 +120,11 @@ function Login() {
 
 
   async function sendDates() {
-    
     if (Object.values(errors).some((error) => error !== "")) {
       Alert.alert("Error", "Por favor corrige los errores antes de continuar.");
       return;
     }
-    
+
     try {
       const dates = {
         name,
@@ -145,10 +144,22 @@ function Login() {
         navigation.navigate("Main");
       }
     } catch (error) {
-      console.error(
-        "No se pueden enviar los datos: ",
-        error.response ? error.response.data : error.message
-      );
+      if (error.response) {
+        const serverMessage = error.response.data.error;
+
+        if (
+          serverMessage.includes("ya existe un usuario con ese nombre o correo")
+        ) {
+          Alert.alert(
+            "Error",
+            "El nombre de usuario o el correo ya están en uso."
+          );
+        } else {
+          Alert.alert("Error", serverMessage);
+        }
+      } else {
+        Alert.alert("Error", "No se pueden enviar los datos: " + error.message);
+      }
     }
   }
 

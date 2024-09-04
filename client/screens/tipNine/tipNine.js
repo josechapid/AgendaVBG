@@ -24,20 +24,35 @@ function TipNine() {
     const [idCounter, setIdCounter] = useState(1);
 
 function handlerAddPerson(){
-      const addPerson = {
-        id: idCounter,
-        name,
-        rol,
-        }; 
-        const updatedPeople = [...people, addPerson]
-        setPeople(updatedPeople);
-        setName("")
-        setRol("")
-        setIdCounter(idCounter+1);
-        dispatch(setSupportNet(updatedPeople));
+       if (name.trim() === "" || rol.trim() === "") {
+         Alert.alert(
+           "Campos incompletos",
+           "Por favor, completa todos los campos antes de agregar."
+         );
+         return;
+       }
+
+       const addPerson = {
+         id: idCounter,
+         name,
+         rol,
+       };
+       const updatedPeople = [...people, addPerson];
+       setPeople(updatedPeople);
+       setName("");
+       setRol("");
+       setIdCounter(idCounter + 1);
+       dispatch(setSupportNet(updatedPeople));
     }
 
 async function enviarDatos() {
+   if (redApoyo.length === 0) {
+     Alert.alert(
+       "Lista vacía",
+       "No has agregado ninguna persona a tu red de apoyo."
+     );
+     return;
+   }
       try {
         const data = {
           user_id: userIdR.data.id,
@@ -55,6 +70,7 @@ async function enviarDatos() {
       } catch (error) {
         console.error(error);
       }}
+      
   return (
     <View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>

@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Alert
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
@@ -24,16 +25,25 @@ function TipSevent (){
   const [goal, setGoal] = useState("");
 
   function addGoal() {
-    if (goal.trim() !== "") {
+      if (goal.trim() === "") {
+        Alert.alert(
+          "Campo vacío",
+          "Por favor, escribe una meta antes de agregarla."
+        );
+        return;
+      }
       dispatch(setMyGoals(goal.trim()));
       setGoal("");
-    }
   }
   function deleteGoal(index) {
     dispatch(deleteMyGoals(index));
   }
 
   async function enviarDatos() {
+     if (mis_Metas.length === 0) {
+       Alert.alert("Sin metas", "No tienes metas para enviar.");
+       return;
+     }
     try {
       const data = {
         user_id: userIdR.data.id,

@@ -5,7 +5,7 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Button,
+  Alert
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from './styles'
@@ -45,6 +45,13 @@ function TipOne (){
    };
 
   async function enviarDatos() {
+    if (fortalezas.length=== 0 || debilidades.length=== 0){
+      Alert.alert(
+        "Campos incompletos", 
+        "Por favor, asegúrate de haber agregado al menos una fortaleza y una debilidad antes de continuar "
+      )
+      return
+    }
     try {
       const data = {
         user_id: userIdR.data.id,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, TextInput} from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -12,21 +12,28 @@ function TipEight() {
     const dispatch= useDispatch();
     const { nuevasActividades } = useSelector((state) => state.tip);
     const userIdR = useSelector((state) => state.tip.user);
-    const [userExperience, setUserExperience] = useState("");
+    const [activity, setActivity] = useState("");
 
-    function setActivities(text){
-      setUserExperience(text)
-      dispatch(setNewActivities(text.trim()));
+    function handleAddActivity() {
+      setActivity(activity.trim())
+      dispatch(setNewActivities(activity.trim()))
     }
       
     async function sendDates (){
+     if (nuevasActividades === "") {
+       Alert.alert(
+         "Campo Vacio",
+         "Por favor, agrega la descripcion de las nuevas actividades que hayas aprendido."
+       );
+       return;
+     }
       try {
         const data = {
           user_id: userIdR.data.id,
           workshop_id: 8,
           filled: true,
           response: {
-            newActivities: nuevasActividades,
+           nuevasActividades: nuevasActividades,
           },
         };
         const response = await axios.post("https://agendavbg.onrender.com/response", data);
@@ -52,21 +59,23 @@ function TipEight() {
         </View>
         <View style={styles.textDescription}>
           <Text style={styles.description}>
-            Selecciona tres actividades de la rutina diaria y hazlo de una
-            manera diferente, (lavarte los dientes con la mano contraria, tomar
-            otra ruta para ir a casa o al trabajo, arreglar tu cuarto de manera
-            distinta, etc…) así como también piensa en algo que siempre hayas
-            querido hacer o aprender y no lo dejes para después. {"\n"} {"\n"}El
-            momento es ahora. Ejemplo: Bailar, cocinar, tocar un instrumento,
-            aprender algún idioma. Etc…
+            Selecciona tres actividades (o más) de la rutina diaria y hazlo de
+            una manera diferente (lavarte los dientes con la mano contraria,
+            tomar otra ruta para ir a casa o al trabajo, arreglar tu cuarto de
+            manera distinta, etc…) así como también piensa en algo que siempre
+            hayas querido hacer o aprender y lo haz estado aplazando durante
+            mucho tiempo. {"\n"} {"\n"}El momento es ahora. Ejemplo: Bailar,
+            cocinar, tocar un instrumento, aprender algún idioma. Etc… Despúes,
+            compartenos en el siguiente recuadro cuales fueron esas nuevas
+            actividades y que han generado en ti
           </Text>
         </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.textInput}
             placeholder="Escribe tu experiencia aquí..."
-            value={userExperience}
-            onChangeText={setActivities}
+            value={activity}
+            onChangeText={handleAddActivity}
             multiline
           />
         </View>
