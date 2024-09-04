@@ -126,15 +126,15 @@ const tipSlice = createSlice({
       state.debilidades= [];
       state.cartaPerdon= [];
       state.recompensa_comportamiento= [];
-      state.description= "";
+      state.descripcion= "";
       state.tipFive= {
-      dia:"",
-      ejercicio:"",
+      dia:[],
+      ejercicio:[],
       };
       state.tipTen= {
-      situacion: "",
-      como_actuo: "",
-      cambio: "",
+      situacion: [],
+      como_actuo: [],
+      cambio: [],
       };
       state.nuevasActividades= [];
       state.redApoyo= [];
