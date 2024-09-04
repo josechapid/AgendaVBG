@@ -33,6 +33,8 @@ const HomeScreen = ({navigation}) => {
        };
      }, [])
    );
+
+   
   const handleWorkshopPress = async (workshop) => {
     const data = {
       user_id: user.data.id,
@@ -42,7 +44,6 @@ const HomeScreen = ({navigation}) => {
       user_id: user.data.id,
       number: 2
     }
-    console.log("esta es la dataTwo", dataTwo);
     
     const queryString = `?user_id=${data.user_id}&workshop_id=${data.workshop_id}`;
     const queryStringTwo = `?user_id=${dataTwo.user_id}&number=${dataTwo.number}`;

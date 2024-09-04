@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert } from "react-native";
 import styles from "./styles";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +21,11 @@ function HowDoIFeel (){
     }
 
     async function enviarDatos() {
+
+      if (howDoIFeel.length === 0 || howDoIFeel.every((item)=>item.trim()=== "")){
+        Alert.alert("Campo vacío", "Por favor, describe cómo te sientes antes de continuar")
+        return
+      }
       try {
         
         const data = {

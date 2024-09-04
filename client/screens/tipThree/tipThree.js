@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -10,7 +10,7 @@ import axios from "axios"
 function TipThree() {
   const navigation = useNavigation();
   const dispatch=useDispatch()
-  const forgiveness= useSelector((state)=>state.tip.forgivenessLetter)
+  const {cartaPerdon} = useSelector((state) => state.tip);
   
   const userIdR = useSelector((state) => state.tip.user);
   
@@ -22,6 +22,13 @@ function TipThree() {
   }
 
   async function enviarDatos (){
+     if (userExperience.trim() === "") {
+       Alert.alert(
+         "Campo vacío",
+         "Por favor, asegúrate de escribir tu carta de perdón antes de enviarla."
+       );
+       return;
+     }
     try {
       
       const data = {
@@ -29,7 +36,7 @@ function TipThree() {
         workshop_id: 3,
         filled: true,
         response: {
-          forgiveness,
+          cartaPerdon,
         },
       };
       const response = await axios.post(

@@ -8,9 +8,6 @@ const tipSlice = createSlice({
     cartaPerdon: [],
     recompensa_comportamiento: [],
     description: "",
-    forgivenessLetter: [],
-    rewards_behavior: [],
-    descripcion: "",
     tipFive: {
       dia: [],
       ejercicio: [],
@@ -21,7 +18,7 @@ const tipSlice = createSlice({
       como_actuo: [],
       cambio: [],
     },
-    nuevasActividades: [],
+    nuevasActividades: "",
     redApoyo: [],
     mis_Metas: [],
     user: null,
@@ -45,8 +42,8 @@ const tipSlice = createSlice({
     },
     setRewards_behavior: (state, action) => {
       const newReward = {
-        behavior: action.payload.behavior,
-        rewards: action.payload.rewards,
+        comportamiento: action.payload.comportamiento,
+        recompensa: action.payload.recompensa,
       };
       state.recompensa_comportamiento.push(newReward);
     },
@@ -125,6 +122,25 @@ const tipSlice = createSlice({
     },
     clearUser: (state) => {
       state.user = null;
+      state.fortalezas=[];
+      state.debilidades= [];
+      state.cartaPerdon= [];
+      state.recompensa_comportamiento= [];
+      state.description= "";
+      state.tipFive= {
+      dia:"",
+      ejercicio:"",
+      };
+      state.tipTen= {
+      situacion: "",
+      como_actuo: "",
+      cambio: "",
+      };
+      state.nuevasActividades= [];
+      state.redApoyo= [];
+      state.mis_Metas= [];
+      state.howDoIFeel= [];
+
     },
     setHowDoIFeel: (state, action) => {
       state.howDoIFeel=[action.payload];
