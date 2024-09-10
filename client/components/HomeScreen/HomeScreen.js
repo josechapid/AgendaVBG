@@ -49,10 +49,10 @@ const HomeScreen = ({navigation}) => {
     const queryStringTwo = `?user_id=${dataTwo.user_id}&number=${dataTwo.number}`;
     
     try {      
-      const consult = await axios.get(`https://agendavbg.onrender.com/response${queryString}`);  
+      const consult = await axios.get(`https://agendavbg-frp4.onrender.com/response${queryString}`);  
 
       if(workshop.id===11){
-        const consultTipEleven = await axios.get(`https://agendavbg.onrender.com/howDoIFeel${queryStringTwo}`);
+        const consultTipEleven = await axios.get(`https://agendavbg-frp4.onrender.com/howDoIFeel${queryStringTwo}`);
         if (consultTipEleven.data.success === true) {
           navigation.navigate("Feedback", { tipId: workshop.id });
         } else {

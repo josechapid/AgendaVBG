@@ -46,7 +46,7 @@ function TipTwo() {
           recompensa_comportamiento: recompensa_comportamiento,
         },
       };
-      const response = await axios.post("https://agendavbg.onrender.com/response", data);
+      const response = await axios.post("https://agendavbg-frp4.onrender.com/response", data);
       navigation.navigate("FinalTip", { tipId: 2 });
     } catch (error) {
       console.error("Error al enviar los datos: ", error);

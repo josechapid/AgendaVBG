@@ -35,7 +35,7 @@ const Dates = () => {
             setSnackbarVisible(true);
         } else {
             try {
-                const response = await fetch('https://agendavbg.onrender.com/mydates', {
+                const response = await fetch('https://agendavbg-frp4.onrender.com/mydates', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const Dates = () => {
 
     const updateAppointment = async () => {
         try {
-            const response = await fetch(`https://agendavbg.onrender.com/mydates/${appointmentId}`, {
+            const response = await fetch(`https://agendavbg-frp4.onrender.com/mydates/${appointmentId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

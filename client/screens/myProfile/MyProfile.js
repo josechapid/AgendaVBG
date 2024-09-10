@@ -24,7 +24,7 @@ const MyProfile = () => {
 
       setLoading(true);  
       try {
-        const response = await axios.get(`https://agendavbg.onrender.com/user/${userId}`);
+        const response = await axios.get(`https://agendavbg-frp4.onrender.com/user/${userId}`);
         const { name, user, email } = response.data;
 
         setNombre(name || '');   
@@ -49,7 +49,7 @@ const MyProfile = () => {
       return;
     }
     try {
-      const response = await axios.patch(`https://agendavbg.onrender.com/user/${userId}`, {
+      const response = await axios.patch(`https://agendavbg-frp4.onrender.com/user/${userId}`, {
         name: nombre,
         user: usuario,
         email: correo

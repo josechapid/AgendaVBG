@@ -50,7 +50,7 @@ function TipFive () {
                     ejercicio,
                 },
             }
-            const response = await axios.post("https://agendavbg.onrender.com/response", data);
+            const response = await axios.post("https://agendavbg-frp4.onrender.com/response", data);
             dispatch(clearTipFive());
             navigation.navigate("FinalTip", { tipId: 5 });
         }catch(error){
