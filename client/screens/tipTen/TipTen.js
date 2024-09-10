@@ -3,7 +3,7 @@ import { Text, View, Image, TextInput, TouchableOpacity, FlatList } from 'react-
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
-import { setTipTenSituation, setTipTenHowAct, setTipTenChange, clearTipTen } from "../../redux_toolkit/features/counter/Slice";
+import { setTipTenSituation, setTipTenHowAct, setTipTenChange, clearTipTen, removeSituation, removeHowAct,removeChange  } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
 
 
