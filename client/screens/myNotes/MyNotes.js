@@ -14,7 +14,7 @@ const MyNotes = () => {
 
     const fetchNotes = async () => {
     try {
-      const response = await fetch('https://agendavbg.onrender.com/mynotes');
+      const response = await fetch('https://agendavbg-frp4.onrender.com/mynotes');
       const data = await response.json();
       console.log("Notes fetched:", data);
       setNotes(data);
@@ -25,7 +25,7 @@ const MyNotes = () => {
     
       const handleSave = async () => {
     try {
-      const response = await fetch('https://agendavbg.onrender.com/mynotes', {
+      const response = await fetch('https://agendavbg-frp4.onrender.com/mynotes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ const MyNotes = () => {
 
     const handleDelete = async (id) => {
     try {
-      const response = await fetch(`https://agendavbg.onrender.com/mynotes/${id}`, {
+      const response = await fetch(`https://agendavbg-frp4.onrender.com/mynotes/${id}`, {
         method: 'DELETE',
       });
 

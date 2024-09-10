@@ -22,7 +22,7 @@ function TipSix () {
           descripcion: descripcion
         },
       };
-      const response = await axios.post("https://agendavbg.onrender.com/response", data);
+      const response = await axios.post("https://agendavbg-frp4.onrender.com/response", data);
       dispatch(clearDescriptionSeis());
       navigation.navigate("FinalTip", { tipId: 6 });
     } catch (error) {

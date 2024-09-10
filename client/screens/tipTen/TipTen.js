@@ -53,7 +53,7 @@ const TipTen = () => {
                     cambio
                 },
             };
-            const response = await axios.post("https://agendavbg.onrender.com/response", data);
+            const response = await axios.post("https://agendavbg-frp4.onrender.com/response", data);
             dispatch(clearTipTen());
             navigation.navigate("FinalTip", { tipId: 10 });
         } catch (error) {

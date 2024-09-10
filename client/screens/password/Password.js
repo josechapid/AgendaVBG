@@ -26,7 +26,7 @@ const Password =  () => {
         password: newPassword
     }
     
-    const response = await axios.patch(`https://agendavbg.onrender.com/user/${userId}`, data)
+    const response = await axios.patch(`https://agendavbg-frp4.onrender.com/user/${userId}`, data)
     if(response){
         navigation.navigate("MyProfile");
     }else{

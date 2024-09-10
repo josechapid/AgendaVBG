@@ -40,7 +40,7 @@ function TipThree() {
         },
       };
       const response = await axios.post(
-        "https://agendavbg.onrender.com/response",
+        "https://agendavbg-frp4.onrender.com/response",
         data
       );
       

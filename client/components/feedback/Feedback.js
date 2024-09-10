@@ -18,7 +18,7 @@ const Feedback = ({route }) => {
      useEffect(() => {
         async function fetchResponse() {
             try {
-                const {data}  = await axios.get("https://agendavbg.onrender.com/response", {
+                const {data}  = await axios.get("https://agendavbg-frp4.onrender.com/response", {
                     params: {
                         user_id: userIdR.data.id,
                         workshop_id: tipId, 
@@ -30,7 +30,7 @@ const Feedback = ({route }) => {
                 };
                 const queryStringTwo = `?user_id=${dataTwo.user_id}&number=${dataTwo.number}`;
                  const consultTipEleven = await axios.get(
-                   `https://agendavbg.onrender.com/howDoIFeel${queryStringTwo}`
+                   `https://agendavbg-frp4.onrender.com/howDoIFeel${queryStringTwo}`
                  );
                 setResponse(data.data);
                 setEleven(consultTipEleven.data.data)
