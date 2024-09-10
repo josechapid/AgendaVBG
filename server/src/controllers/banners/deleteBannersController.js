@@ -9,7 +9,7 @@ const deleteBannersController = async (id) => {
     }
 
     await bannerPk.destroy();
-    return { success: true, message: "Banner eliminado exitosamente" };
+    return { success: true, message: "Banner eliminado exitosamente"};
   } catch (error) {
     throw new Error(error.message);
   }
