@@ -36,8 +36,9 @@ textSection: {
         margin: 15,
     },
     responseContainer: {
+    
         backgroundColor: '#d9d9d9', 
-        margin: 15,
+        margin: 12,
         padding: 5,
         borderRadius: 10,
         marginBottom: 10,
@@ -51,7 +52,9 @@ textSection: {
     },
     responseText: {
         fontSize: 16,
-        color: 'black',  
+        color: 'black', 
+        marginRight: 10, // otras dos cambiadas
+        marginBottom: 5, 
     },
     keyText: {
         fontWeight: 'bold',
@@ -59,5 +62,11 @@ textSection: {
         color: 'blue', 
         margin: 0,
         padding: 0 
+    },
+    horizontalResponseContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        margin: 0,
+        padding: 0,
     },
 });

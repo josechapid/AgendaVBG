@@ -109,7 +109,7 @@ const renderResponse = (response, eleven) => {
                     <Text>Mis respuestas:</Text>
                 </View>
             </View>
-            <ScrollView>
+            <ScrollView contentContainerStyle={styles.scrollContainer}>
                 {renderResponse(response, eleven)}
             </ScrollView>
             
