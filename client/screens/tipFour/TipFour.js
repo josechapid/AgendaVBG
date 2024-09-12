@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TextInput,TouchableOpacity, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 // import { AntDesign } from '@expo/vector-icons';
@@ -14,9 +14,28 @@ function TipFour () {
     const dispatch = useDispatch();
     const descripcion = useSelector((state) => state.tip.descripcion);
     const userIdR = useSelector((state) => state.tip.user)
+
+    const [experience, setExperience] = useState("");
+
+    function handleAddExperience(text) {
+      setExperience(text)
+      console.log("esto es lo que hay en expirience", experience);
+      
+      dispatch(setDescription(experience.trim()))
+      console.log("esto es lo que hay en descripcion", descripcion);
+      
+    }
+    
+    console.log("esto es el redux", descripcion);
     
 
       const handleEnviarDatos = async () => {
+        if(descripcion === ""){
+          Alert.alert("Campo Vacio", 
+            "Por favor agrega tu experiencia con el video"
+          );
+          return
+        }
     try {
       const data = {
         user_id: userIdR.data.id,
@@ -62,7 +81,7 @@ function TipFour () {
           volume={1.0}
           isMuted={false}
           resizeMode="contain"
-          shouldPlay
+          // shouldPlay
           useNativeControls
           style={{ width: '100%', height: 150 }} 
         />
@@ -75,11 +94,10 @@ function TipFour () {
                 <View style={styles.description}>
                 
                 <TextInput
-                    
                     placeholder="Escribe aquí tu descripción"
+                    value={experience} 
+                    onChangeText={handleAddExperience} 
                     multiline
-                    onChangeText={(text) => dispatch(setDescription(text))} 
-                    value={descripcion} 
                 />
                 </View>
             </View>

@@ -14,11 +14,12 @@ function TipEight() {
     const userIdR = useSelector((state) => state.tip.user);
     const [activity, setActivity] = useState("");
 
-    function handleAddActivity() {
-      setActivity(activity.trim())
+    function handleAddActivity(text) {
+      setActivity(text)
       dispatch(setNewActivities(activity.trim()))
     }
-      
+   
+    
     async function sendDates (){
      if (nuevasActividades === "") {
        Alert.alert(
