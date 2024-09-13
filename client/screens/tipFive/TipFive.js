@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TextInput,TouchableOpacity, ScrollView, Alert } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
@@ -12,18 +12,26 @@ function TipFive () {
      const { dia, ejercicio} = useSelector((state) => state.tip.tipFive);
      const userIdR = useSelector((state) => state.tip.user)
 
+
     const [currentDay, setCurrentDay] = useState("");
     const [currentExercise, setCurrentExercise] = useState("");
 
     const handleAddDay = () => {
-    if (currentDay.trim() !== "") {
+    if (currentDay.trim() === "") {
+       Alert.alert("Campo vacío", "Por favor, ingrese un día antes de generar.");
+      
+    }else{
       dispatch(setTipFiveDay(currentDay));
       setCurrentDay("");
     }
+
   };
 
   const handleAddExercise = () => {
-    if (currentExercise.trim() !== "") {
+    if (currentExercise.trim() === "") {
+      Alert.alert("Campo vacío", "Por favor, ingrese un ejercicio antes de generar.");
+      
+    }else{
       dispatch(setTipFiveExercise(currentExercise));
       setCurrentExercise("");
     }
@@ -40,6 +48,10 @@ function TipFive () {
      
 
     const handleEnviarDatos = async () => {
+      if (dia.length === 0 || ejercicio.length === 0) {
+      Alert.alert("Campos vacíos", "Por favor, complete todos los campos antes de enviar.");
+      return;
+    }
         try{
             const data = {
                 user_id: userIdR.data.id,

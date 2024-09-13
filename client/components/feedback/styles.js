@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container:{
         flex:0.8,
+        
     },
      scrollContainer: {
         flexGrow: 1,
@@ -58,15 +59,25 @@ textSection: {
     },
     keyText: {
         fontWeight: 'bold',
-        marginBottom: 2,
+        marginBottom: 5, //cambiado y estba en 2
         color: 'blue', 
         margin: 0,
         padding: 0 
     },
-    horizontalResponseContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        margin: 0,
-        padding: 0,
-    },
+    responseContainerHorizontal: {
+    flexDirection: 'row',   
+    flexWrap: 'wrap',   
+    
+    }, 
+   responseItem: {
+    flexDirection: 'row',
+    margin: 5, 
+          
+  },
+    // horizontalResponseContainer: {
+    //     flexDirection: 'row',
+    //     flexWrap: 'wrap',
+    //     margin: 0,
+    //     padding: 0,
+    // },
 });

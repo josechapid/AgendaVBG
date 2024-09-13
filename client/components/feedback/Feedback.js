@@ -44,7 +44,6 @@ const Feedback = ({route }) => {
         fetchResponse();
     }, [userIdR.data.id, tipId]);
     
-
 const renderResponse = (response, eleven) => {
       if (typeof response === 'string') {
         return (
