@@ -64,14 +64,30 @@ textSection: {
         margin: 0,
         padding: 0 
     },
+     responseTitles: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',  // Para separar Día y Ejercicio
+    marginBottom: 5,
+  },
     responseContainerHorizontal: {
     flexDirection: 'row',   
-    flexWrap: 'wrap',   
+    flexWrap: 'wrap', 
+    justifyContent: 'space-between',  // Distribuir uniformemente
+    marginBottom: 10,  
     
     }, 
-   responseItem: {
+    responseRow: {
     flexDirection: 'row',
-    margin: 5, 
+    justifyContent: 'space-between',  // Distribuir uniformemente los elementos
+    marginTop: 5,                    // Margen superior para separación de los títulos
+  },
+   responseItem: {
+    // flexDirection: 'row',
+    // margin: 5,
+    flex:1, 
+    alignItems: 'center',   // Alinea los elementos en el centro
+    // marginRight: 20,
+    // marginBottom: 5, 
           
   },
     // horizontalResponseContainer: {
