@@ -2,13 +2,15 @@
 import "react-native-gesture-handler";
 import "react-native-reanimated";
 import React, { useState, useEffect } from "react";
+import { ActivityIndicator, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as Font from "expo-font";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Provider } from "react-redux";
-import store from "./redux_toolkit/store/store.js"
+import { PersistGate } from "redux-persist/integration/react";
+import {store, persistor }from "./redux_toolkit/store/store.js"
 
 //Componentes
 import Bienvenida from "./screens/bienvenida/Bienvenida";
@@ -109,6 +111,14 @@ export default function App() {
   }
   return (
     <Provider store={store}>
+     <PersistGate 
+        loading={
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ActivityIndicator size="large" color="#0000ff" /> 
+          </View>
+        } 
+        persistor={persistor}
+      >
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Bienvenida">
           <Stack.Screen
@@ -157,6 +167,7 @@ export default function App() {
           
         </Stack.Navigator>
       </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }

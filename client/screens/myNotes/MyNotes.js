@@ -8,9 +8,15 @@ const MyNotes = () => {
      const [description, setDescription] = useState("");
     const [title, setTitle] = useState("");
     const [notes, setNotes] = useState([]);
-    const userId = useSelector((state) => state.tip.user.data.id);
+    const userId = useSelector((state) => state.tip.user?.data?.id);
     
-    
+    if (!userId) {
+    return (
+        <View>
+            <Text>Cargando usuario...</Text>
+        </View>
+    );
+}
 
     const fetchNotes = async () => {
     try {

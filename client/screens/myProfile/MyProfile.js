@@ -15,7 +15,7 @@ const MyProfile = () => {
   const [correo, setCorreo] = useState('');
   const [loading, setLoading] = useState(true); // Estado de carga
 
-  const userData = useSelector((state) => state.tip.user.data);  
+  const userData = useSelector((state) => state.tip.user?.data);  
   const userId = userData?.id;
 
   useEffect(() => {
@@ -64,6 +64,14 @@ const MyProfile = () => {
       console.error('Error al guardar los cambios:', error);
     }
   };
+
+   if (!userId) {
+    return (
+      <View style={styles.container}>
+        <Text>Cargando usuario...</Text>
+      </View>
+    );
+  }
 
   if (loading) {
     
