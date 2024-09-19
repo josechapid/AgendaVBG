@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, Image, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
@@ -19,28 +19,40 @@ const TipTen = () => {
     const [tempChange, setTempChange] = useState("");
 
     const handleAddSituation = () => {
-        if (tempSituation.trim()) {
+        if (tempSituation.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese tu situacion.");
+            
+        }else{
             dispatch(setTipTenSituation(tempSituation));
             setTempSituation("");
         }
     };
 
     const handleAddHowAct = () => {
-        if (tempHowAct.trim()) {
+        if (tempHowAct.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese como actua.");
+            
+        }else{
             dispatch(setTipTenHowAct(tempHowAct));
             setTempHowAct("");
         }
     };
 
     const handleAddChange = () => {
-        if (tempChange.trim()) {
+        if (tempChange.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese su cambio.");
+            
+        }else{
             dispatch(setTipTenChange(tempChange));
             setTempChange("");
         }
     };
 
     const handleEnviarDatos = async () => {
-
+         if (situacion.length === 0 || como_actuo.length === 0 || cambio.length === 0) {
+      Alert.alert("Campos vacíos", "Por favor, complete todos los campos antes de enviar.");
+      return;
+    }
         try {
 
             const data = {

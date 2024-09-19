@@ -14,6 +14,7 @@ import {
   validatePassword
 } from "./validations"
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from "./styles";
 
 function Login() {
@@ -118,51 +119,51 @@ function Login() {
      }));
    };
 
-
-  async function sendDates() {
-    if (Object.values(errors).some((error) => error !== "")) {
-      Alert.alert("Error", "Por favor corrige los errores antes de continuar.");
-      return;
-    }
-
-    try {
-      const dates = {
-        name,
-        user,
-        dateOfBirth,
-        address,
-        phone,
-        email,
-        password,
-      };
-      const response = await axios.post(
-        "https://agendavbg-frp4.onrender.com/user",
-        dates
-      );
-      if (response.data) {
-        dispatch(setNewUser(response.data));
-        navigation.navigate("Main");
-      }
-    } catch (error) {
-      if (error.response) {
-        const serverMessage = error.response.data.error;
-
-        if (
-          serverMessage.includes("ya existe un usuario con ese nombre o correo")
-        ) {
-          Alert.alert(
-            "Error",
-            "El nombre de usuario o el correo ya están en uso."
-          );
-        } else {
-          Alert.alert("Error", serverMessage);
-        }
-      } else {
-        Alert.alert("Error", "No se pueden enviar los datos: " + error.message);
-      }
-    }
+async function sendDates() {
+  if (Object.values(errors).some((error) => error !== "")) {
+    Alert.alert("Error", "Por favor corrige los errores antes de continuar.");
+    return;
   }
 
+  try {
+    const dates = {
+      name,
+      user,
+      dateOfBirth,
+      address,
+      phone,
+      email,
+      password,
+    };
+    const response = await axios.post(
+      "https://agendavbg-frp4.onrender.com/user",
+      dates
+    );
+    
+    if (response.data) {
+      // Guardar los datos del usuario en AsyncStorage
+      await AsyncStorage.setItem('userData', JSON.stringify(dates));
+
+      // Actualizar Redux (opcional si ya usas Redux)
+      dispatch(setNewUser(response.data));
+
+      // Navegar a otra pantalla
+      navigation.navigate("Main");
+    }
+  } catch (error) {
+    if (error.response) {
+      const serverMessage = error.response.data.error;
+      if (serverMessage.includes("ya existe un usuario con ese nombre o correo")) {
+        Alert.alert("Error", "El nombre de usuario o el correo ya están en uso.");
+      } else {
+        Alert.alert("Error", serverMessage);
+      }
+    } else {
+      Alert.alert("Error", "No se pueden enviar los datos: " + error.message);
+    }
+  }
+}
+ 
   return (
     <ScrollView style={styles.scrollViewContainer}>
       <View style={styles.login}>
