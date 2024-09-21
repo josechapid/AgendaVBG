@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, TextInput, TouchableOpacity, Alert,FlatList } from 'react-native';
+import {  Text, View, Image, TextInput, Pressable, Alert,FlatList } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import {useSelector} from "react-redux";
 import styles from "./styles";
@@ -75,11 +75,11 @@ const MyNotes = () => {
     <View style={styles.note}>
       <Text style={styles.noteTitle}>{item.title}</Text>
       <Text style={styles.noteDescription}>{item.description}</Text>
-      <TouchableOpacity 
+      <Pressable 
         style={styles.deleteButton}
         onPress={() => handleDelete(item.id)}>
         <Text style={styles.deleteButtonText}>Eliminar</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 
@@ -118,9 +118,9 @@ const MyNotes = () => {
               />
             </View>
           </View>
-          <TouchableOpacity style={styles.button} onPress={handleSave}>
+          <Pressable style={styles.button} onPress={handleSave}>
             <Text style={styles.buttonText}>Guardar nota</Text>
-          </TouchableOpacity>
+          </Pressable>
           <FlatList
             data={notes}
             renderItem={renderItem}

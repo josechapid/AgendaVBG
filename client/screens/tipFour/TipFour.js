@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, ScrollView, Alert } from "react-native";
+import { View, Text, Image, TextInput,Pressable, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 // import { AntDesign } from '@expo/vector-icons';
@@ -19,15 +19,14 @@ function TipFour () {
 
     function handleAddExperience(text) {
       setExperience(text)
-      console.log("esto es lo que hay en expirience", experience);
+      
       
       dispatch(setDescription(experience.trim()))
-      console.log("esto es lo que hay en descripcion", descripcion);
+      
       
     }
     
-    console.log("esto es el redux", descripcion);
-    
+  
 
       const handleEnviarDatos = async () => {
         if(descripcion === ""){
@@ -101,11 +100,11 @@ function TipFour () {
                 />
                 </View>
             </View>
-            <TouchableOpacity 
+            <Pressable
             style={styles.button}
             onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity>
+          </Pressable>
             
         </ScrollView>
     )
