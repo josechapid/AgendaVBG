@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   imageTipEight: {
-    resizeMode: "contain",
+    /* resizeMode: "contain", */
     height: 200,
     width: 200,
     borderRadius: 20,

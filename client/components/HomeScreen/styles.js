@@ -21,7 +21,7 @@ export default StyleSheet.create({
     marginRight:15
   },
   logo: {
-    resizeMode: "contain",
+    /* resizeMode: "contain", */
     height: 100,
     width: 100,
   },

@@ -17,7 +17,7 @@ export default StyleSheet.create({
   imagetitleUno: {
     width: 150,
     height: 150,
-    resizeMode: "cover",
+    /* resizeMode: "cover", */
   },
   textTitle: {
     flex: 1,
@@ -88,7 +88,7 @@ export default StyleSheet.create({
   imageTypesUno: {
     height: 170,
     width: 170,
-    resizeMode: "contain",
+    /* resizeMode: "contain", */
   },
   typesInfo: {
     flex: 1,
@@ -133,7 +133,7 @@ export default StyleSheet.create({
   imageViolentometro: {
     height: 800,
     width: 370,
-    resizeMode: "contain",
+    /* resizeMode: "contain", */
     
   },
 });

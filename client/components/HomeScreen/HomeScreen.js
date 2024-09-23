@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity, BackHandler } from "react-native";
+import { Text, View, Image, TouchableOpacity, BackHandler, Pressable } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
@@ -81,15 +81,19 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.userGreetingContainer}>
           {user && <Text style={styles.greeting}>Hola, {user.data.user}</Text>}
           
-          <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+          {/* <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
             <Ionicons name="log-out-outline" size={30} color="black" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Pressable onPress={handleLogout} style={styles.logoutButton}>
+            <Ionicons name="log-out-outline" size={30} color="black" />
+          </Pressable>
         </View>
         <View style={styles.headerContainer}>
           <View style={styles.logoHeader}>
             <Image
               source={require("../../assets/img/Logo 1.png")}
               style={styles.logo}
+              resizeMode='contain'
             />
           </View>
           <Text style={styles.titleInitial}>Renacer Juntas</Text>
@@ -108,12 +112,18 @@ const HomeScreen = ({navigation}) => {
               {workshop.description}
             </Text>
             <View style={styles.buttonIcon}>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.workshopButton}
                 onPress={() => handleWorkshopPress(workshop)}
               >
                 <Text style={styles.buttonText}>Continuar</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+              <Pressable
+                style={styles.workshopButton}
+                onPress={() => handleWorkshopPress(workshop)}
+              >
+                <Text style={styles.buttonText}>Continuar</Text>
+              </Pressable>
               <Image source={icon} style={styles.icon} />
             </View>
           </View>

@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Alert
+  Alert,
+  Pressable
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
@@ -80,6 +81,7 @@ async function enviarDatos() {
           <Image
             source={require("../../assets/img/tip9/mujerRed.jpg")}
             style={styles.imageTipNine}
+            resizeMode="contain"
           />
         </View>
         {/* --------------------------------------------section reto y description  */}
@@ -107,9 +109,12 @@ async function enviarDatos() {
             onChangeText={setRol}
           />
           <View style={styles.buttonAddPerson}>
-            <TouchableOpacity style={styles.button} onPress={handlerAddPerson}>
+            {/* <TouchableOpacity style={styles.button} onPress={handlerAddPerson}>
               <Text> Agregar Persona</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <Pressable style={styles.button} onPress={handlerAddPerson}>
+              <Text> Agregar Persona</Text>
+            </Pressable>
           </View>
 
           <ScrollView style={styles.peopleContainer}>
@@ -122,12 +127,18 @@ async function enviarDatos() {
             ))}
 
             <View>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.enviarButton}
                 onPress={enviarDatos}
               >
                 <Text style={styles.enviarButtonText}>Enviar</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+              <Pressable
+                style={styles.enviarButton}
+                onPress={enviarDatos}
+              >
+                <Text style={styles.enviarButtonText}>Enviar</Text>
+              </Pressable>
             </View>
           </ScrollView>
         </View>

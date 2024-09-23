@@ -12,6 +12,7 @@ function Rutes(){
           <Image
             source={require("../../assets/img/rutes/rutes.jpg")}
             style={styles.imageRutes}
+            resizeMode="contain"
           />
         </View>
         {/* --------------------------------------------section title y description  */}

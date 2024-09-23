@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Alert
+  Alert,
+  Pressable
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from './styles'
@@ -76,6 +77,7 @@ function TipOne (){
             <Image
               source={require("../../assets/img/tip1/mujercorazon.jpg")}
               style={styles.imageTipUno}
+              resizeMode='contain'
             />
           </View>
           {/* --------------------------------------------section reto y description  */}
@@ -96,9 +98,12 @@ function TipOne (){
             {fortalezas.map((fortaleza, index) => (
               <View key={index} style={styles.fortalezaItem}>
                 <Text>{fortaleza}</Text>
-                <TouchableOpacity onPress={() => deleteFortaleza(index)}>
+                {/* <TouchableOpacity onPress={() => deleteFortaleza(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <Pressable onPress={() => deleteFortaleza(index)}>
+                  <Text style={styles.eliminarTexto}>X</Text>
+                </Pressable>
               </View>
             ))}
           </View>
@@ -109,9 +114,12 @@ function TipOne (){
             onChangeText={setFortalezaActual}
             onSubmitEditing={addFortaleza}
           />
-          <TouchableOpacity style={styles.enviarButtonn} onPress={addFortaleza}>
+          {/* <TouchableOpacity style={styles.enviarButtonn} onPress={addFortaleza}>
             <Text style={styles.enviarButtonText}>Generar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Pressable style={styles.enviarButtonn} onPress={addFortaleza}>
+            <Text style={styles.enviarButtonText}>Generar</Text>
+          </Pressable>
 
           {/* ----------------------------------------------------section debilidades  */}
           <View style={styles.subTitleContainer}>
@@ -121,9 +129,12 @@ function TipOne (){
             {debilidades.map((debilidad, index) => (
               <View key={index} style={styles.debilidadItem}>
                 <Text>{debilidad}</Text>
-                <TouchableOpacity onPress={() => deleteDebilidad(index)}>
+                {/* <TouchableOpacity onPress={() => deleteDebilidad(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <Pressable onPress={() => deleteDebilidad(index)}>
+                  <Text style={styles.eliminarTexto}>X</Text>
+                </Pressable>
               </View>
             ))}
           </View>
@@ -134,15 +145,21 @@ function TipOne (){
             onChangeText={setDebilidadActual}
             onSubmitEditing={addDebilidad}
           />
-          <TouchableOpacity style={styles.enviarButtonn} onPress={addDebilidad}>
+         {/*  <TouchableOpacity style={styles.enviarButtonn} onPress={addDebilidad}>
             <Text style={styles.enviarButtonText}>Generar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Pressable style={styles.enviarButtonn} onPress={addDebilidad}>
+            <Text style={styles.enviarButtonText}>Generar</Text>
+          </Pressable>
 
           {/* ----------------------------------------------------boton de envio   */}
 
-          <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
+          {/* <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
             <Text style={styles.enviarButtonText}>Enviar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Pressable style={styles.enviarButton} onPress={enviarDatos}>
+            <Text style={styles.enviarButtonText}>Enviar</Text>
+          </Pressable>
         </ScrollView>
       </View>
     );

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, TouchableOpacity, TextInput, Alert } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert, Pressable } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -62,6 +62,7 @@ function TipTwo() {
           <Image
             source={require("../../assets/img/tip2/mujerespejo.jpg")}
             style={styles.imageTipTwo}
+            resizeMode="contain"
           />
         </View>
         {/* --------------------------------------------section reto y description  */}
@@ -96,12 +97,18 @@ function TipTwo() {
             onChangeText={setRecompensa}
           />
           <View style={styles.buttonGenerate}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={styles.button}
               onPress={handleAddRecompensa}
             >
               <Text style={styles.textGenerate}>Generar</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <Pressable
+              style={styles.button}
+              onPress={handleAddRecompensa}
+            >
+              <Text style={styles.textGenerate}>Generar</Text>
+            </Pressable>
           </View>
 
           <ScrollView style={styles.recompensasContainer}>
@@ -115,12 +122,18 @@ function TipTwo() {
               </View>
             ))}
             <View>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.enviarButton}
                 onPress={enviarDatos}
               >
                 <Text style={styles.enviarButtonText}>Enviar</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+              <Pressable
+                style={styles.enviarButton}
+                onPress={enviarDatos}
+              >
+                <Text style={styles.enviarButtonText}>Enviar</Text>
+              </Pressable>
             </View>
           </ScrollView>
         </View>
