@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { Text, View, Image, TextInput, Pressable, FlatList, Alert } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
@@ -76,9 +76,9 @@ const TipTen = () => {
     const renderItem = ({ item, index }, removeAction) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item}</Text>
-            <TouchableOpacity onPress={() => removeAction(index)}>
+            <Pressable onPress={() => removeAction(index)}>
                 <Text style={styles.removeButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 
@@ -136,13 +136,13 @@ const TipTen = () => {
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
-                <TouchableOpacity onPress={() => { handleAddSituation(); handleAddHowAct(); handleAddChange(); }}>
+                <Pressable onPress={() => { handleAddSituation(); handleAddHowAct(); handleAddChange(); }}>
                     <Text style={styles.button}>Generar</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
-            <TouchableOpacity style={styles.button} onPress={handleEnviarDatos}>
+            <Pressable style={styles.button} onPress={handleEnviarDatos}>
                 <Text style={styles.buttonText}>Enviar</Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 }

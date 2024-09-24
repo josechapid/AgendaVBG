@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Text, View, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
@@ -22,6 +23,7 @@ const MyProfile = () => {
   // Cargar datos del AsyncStorage cuando el componente se monta
   useEffect(() => {
     const loadUserDataFromStorage = async () => {
+      
       try {
         const storedUserData = await AsyncStorage.getItem('userData');
         if (storedUserData) {
@@ -40,7 +42,7 @@ const MyProfile = () => {
     loadUserDataFromStorage();
   }, [dispatch]);
 
-  // Cargar datos desde el servidor al montar el componente o cuando el userId cambie
+  
   useEffect(() => {
     const loadUserData = async () => {
       if (!userId) return;
@@ -48,14 +50,22 @@ const MyProfile = () => {
       setLoading(true);
       try {
         const response = await axios.get(`https://agendavbg-frp4.onrender.com/user/${userId}`);
-        const { name, user, email } = response.data;
+        const { name, user, email } = response.data.data;
         console.log("Datos recibidos del servidor:", { name, user, email });
 
         setNombre(name || '');
         setUsuario(user || '');
         setCorreo(email || '');
-  await AsyncStorage.setItem('userData', JSON.stringify({ name, user, email, id: userId }));
-  console.log("Datos guardados en AsyncStorage:", { name: nombre, user: usuario, email: correo, id: userId });
+       
+        const userDataToStore = { name: name || '', user: user || '', email: email || '', id: userId };
+      console.log("Datos que se guardarán en AsyncStorage:", userDataToStore);
+        try{
+           await AsyncStorage.setItem('userData', JSON.stringify(userDataToStore));
+  console.log("Datos guardados en AsyncStorage:", userDataToStore);
+        }catch(error){
+           console.error("Error guardando en AsyncStorage:", error);
+        }
+ 
 
         // Actualizar el estado de Redux con los datos más recientes
         dispatch(updateUserData({ name, user, email, id: userId }));
@@ -69,7 +79,7 @@ const MyProfile = () => {
     loadUserData();
   }, [userId, dispatch]);
 
-  // Manejar guardar los cambios y también actualizar AsyncStorage
+  
   const handleSaveChanges = async () => {
     console.log("Valores a guardar:", { nombre, usuario, correo });
     if (!userId) {

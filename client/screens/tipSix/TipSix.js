@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, Alert } from "react-native";
+import { View, Text, Image, TextInput,Pressable, Alert } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
@@ -70,11 +70,11 @@ function TipSix () {
                 />
             </View>
             </View>
-            <TouchableOpacity 
+            <Pressable 
             style={styles.button}
             onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
     )
 }

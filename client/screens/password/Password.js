@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, TextInput, Pressable, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
@@ -63,9 +63,9 @@ const Password =  () => {
                             setError('');
                         }}
                     />
-                    <TouchableOpacity onPress={toggleShowPassword} style={styles.passwordVisibilityButton}>
+                    <Pressable onPress={toggleShowPassword} style={styles.passwordVisibilityButton}>
                         <Ionicons name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={24} color="gray" />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 <View style={styles.input}>
@@ -79,18 +79,18 @@ const Password =  () => {
                             setError('');
                         }}
                     />
-                    <TouchableOpacity onPress={toggleShowPassword} style={styles.passwordVisibilityButton}>
+                    <Pressable onPress={toggleShowPassword} style={styles.passwordVisibilityButton}>
                         <Ionicons name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={24} color="gray" />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-                <TouchableOpacity 
+                <Pressable 
                     style={styles.button}
                     onPress={handleEnviarDatos}>
                     <Text style={styles.buttonText}>Guardar cambios</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
         </View>
     );

@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, ScrollView, Alert } from "react-native";
+import { View, Text, Image, TextInput,Pressable, ScrollView, Alert } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
@@ -91,40 +91,40 @@ function TipFive () {
           onChangeText={setCurrentDay}
           style={styles.input}
         />
-        <TouchableOpacity style={styles.button} onPress={handleAddDay}>
+        <Pressable style={styles.button} onPress={handleAddDay}>
           <Text style={styles.generateButtonText}>Generar</Text>
-        </TouchableOpacity>
+        </Pressable>
         <TextInput
           placeholder="Ejercicio"
           value={currentExercise}
           onChangeText={setCurrentExercise}
           style={styles.input}
         />
-        <TouchableOpacity style={styles.button} onPress={handleAddExercise}>
+        <Pressable style={styles.button} onPress={handleAddExercise}>
           <Text style={styles.generateButtonText}>Generar</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
       <View style={styles.generatedContainer}>
         {dia.map((d, index) => (
           <View key={index} style={styles.listItem}>
             <Text>{d}</Text>
-            <TouchableOpacity onPress={() => handleDeleteDay(index)}>
+            <Pressable onPress={() => handleDeleteDay(index)}>
               <Text style={styles.deleteButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
         {ejercicio.map((e, index) => (
           <View key={index} style={styles.listItem}>
             <Text>{e}</Text>
-            <TouchableOpacity onPress={() => handleDeleteExercise(index)}>
+            <Pressable onPress={() => handleDeleteExercise(index)}>
               <Text style={styles.deleteButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
       </View>
-      <TouchableOpacity style={styles.button} onPress={handleEnviarDatos}>
+      <Pressable style={styles.button} onPress={handleEnviarDatos}>
         <Text style={styles.buttonText}>Enviar</Text>
-      </TouchableOpacity>
+      </Pressable>
     </ScrollView>
     )
 }

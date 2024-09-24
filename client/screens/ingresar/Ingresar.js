@@ -1,5 +1,5 @@
 import React, { useRef }  from 'react';
-import { View, Text, Dimensions, Image,TouchableOpacity } from 'react-native';
+import { View, Text, Dimensions, Image,Pressable } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import styles from "./styles";
 import { ScrollView } from 'react-native-gesture-handler';
@@ -43,7 +43,7 @@ const Ingresar = () => {
         scrollAnimationDuration={3000}
         renderItem={({ item }) => (
           <View style={styles.slide}>
-            <Image source={item.image} style={styles.image} />
+            <Image source={item.image} style={styles.image} resizeMode = 'cover'  />
             <Text style={styles.title}>{item.title}</Text>
             <ScrollView style={styles.descriptionContainer}>
               <Text style={styles.text}>{item.description}</Text>
@@ -53,19 +53,19 @@ const Ingresar = () => {
       />
       <View style={styles.sectionLogin}>
         <View style={styles.buttonSec}>
-          <TouchableOpacity
+          <Pressable
             style={styles.button}
             onPress={() => navigation.navigate("SingIn")}
           >
             <Text style={styles.buttonText}>Ingresar</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <View style={styles.buttonSec}>
-          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Pressable onPress={() => navigation.navigate("Login")}>
             <Text style={styles.loginText}>
               No tienes cuenta? Registrate aqui
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>
