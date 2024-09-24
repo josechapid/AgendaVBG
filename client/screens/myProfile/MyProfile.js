@@ -1,13 +1,13 @@
 
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, TextInput, TouchableOpacity, ActivityIndicator, Modal, FlatList, Platform } from 'react-native';
+import { Text, View, Image, TextInput, Pressable, ActivityIndicator, Modal, FlatList, Platform, Alert } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { updateUserData } from '../../redux_toolkit/features/counter/Slice'; // Importa la acción de Redux para actualizar los datos del usuario
+import { updateUserData } from '../../redux_toolkit/features/counter/Slice'; 
 import { Avatar } from 'react-native-elements';
 
 
@@ -116,7 +116,7 @@ const MyProfile = () => {
       // Guardar en AsyncStorage
       await AsyncStorage.setItem('userData', JSON.stringify({ name: nombre, user: usuario, email: correo,avatar, id: userId }));
 
-      navigation.navigate("Main"); // Navegar a otra pantalla después de guardar
+      Alert.alert("Éxito", "Cambios realizados con éxito.", [{ text: "OK", onPress: () => navigation.navigate("Main") }]);
     } catch (error) {
       console.error('Error al guardar los cambios:', error);
     }
@@ -126,7 +126,7 @@ const MyProfile = () => {
   let imageUri;
   
   if (Platform.OS === 'web') {
-    // Usa el nombre de archivo directamente para imágenes locales en la web
+
     imageUri = image.uri || require("../../assets/img/myProfile/avatar1.jpg");
   } else {
     imageUri = Image.resolveAssetSource(image).uri;
@@ -159,15 +159,15 @@ const MyProfile = () => {
         <View style={styles.topSection}>
           <Text style={styles.title}>Mi Perfil</Text>
         </View>
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <Pressable onPress={() => setModalVisible(true)}>
           <Avatar
             rounded
             size="large"
             source={avatar ? { uri: avatar } : require("../../assets/img/myProfile/avatar1.jpg")}
             containerStyle={styles.img}
           />
-          <Text>Seleccionar Avatar</Text>
-        </TouchableOpacity>
+          <Text style={styles.button}>Seleccionar Avatar</Text>
+        </Pressable>
 
         <View style={styles.section}>
           <TextInput
@@ -188,14 +188,14 @@ const MyProfile = () => {
             value={correo}
             onChangeText={(text) => setCorreo(text)}
           />
-          <TouchableOpacity onPress={() => navigation.navigate("Password")}>
+          <Pressable onPress={() => navigation.navigate("Password")}>
             <Text style={styles.changePasswordText}>Cambiar Contraseña</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleSaveChanges}>
+        <Pressable style={styles.button} onPress={handleSaveChanges}>
           <Text style={styles.buttonText}>Guardar cambios</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
 
        {/* Modal para seleccionar avatar */}
@@ -209,14 +209,14 @@ const MyProfile = () => {
           <FlatList
             data={avatarImages}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => handleAvatarSelect(item)}>
+              <Pressable onPress={() => handleAvatarSelect(item)}>
                 <Avatar
                   rounded
                   size="large"
                   source={item}
                   containerStyle={styles.avatarItem}
                 />
-              </TouchableOpacity>
+              </Pressable>
             )}
             keyExtractor={(item, index) => index.toString()}
             horizontal
