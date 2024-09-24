@@ -8,6 +8,7 @@ const postUserController = async ({
   phone,
   password,
   dateOfBirth,
+  avatar
 }) => {
   try {
     if (!name || !user || !email || !password) {
@@ -31,6 +32,7 @@ const postUserController = async ({
       phone,
       password,
       dateOfBirth,
+      avatar
     });
 
     if (newUser) {
