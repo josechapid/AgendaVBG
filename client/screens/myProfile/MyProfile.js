@@ -42,7 +42,7 @@ const MyProfile = () => {
     loadUserDataFromStorage();
   }, [dispatch]);
 
-  // Cargar datos desde el servidor al montar el componente o cuando el userId cambie
+  
   useEffect(() => {
     const loadUserData = async () => {
       if (!userId) return;
@@ -79,7 +79,7 @@ const MyProfile = () => {
     loadUserData();
   }, [userId, dispatch]);
 
-  // Manejar guardar los cambios y también actualizar AsyncStorage
+  
   const handleSaveChanges = async () => {
     console.log("Valores a guardar:", { nombre, usuario, correo });
     if (!userId) {
