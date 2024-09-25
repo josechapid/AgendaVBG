@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, TouchableOpacity, TextInput, Alert } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert, Pressable } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -58,6 +58,7 @@ function TipThree() {
         <Image
           source={require("../../assets/img/tip3/mujerPerdon.jpg")}
           style={styles.imageTipThree}
+          resizeMode="contain"
         />
       </View>
       {/* --------------------------------------------section reto y description  */}
@@ -103,10 +104,10 @@ function TipThree() {
             multiline
           />
         </View>
-      </View>
-      <TouchableOpacity style={styles.button} onPress={enviarDatos}>
+      </View>     
+      <Pressable style={styles.button} onPress={enviarDatos}>
         <Text style={styles.buttonText}>Enviar</Text>
-      </TouchableOpacity>
+      </Pressable>
     </ScrollView>
   );
 }

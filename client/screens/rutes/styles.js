@@ -11,7 +11,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   imageRutes: {
-    resizeMode: "contain",
+    /* resizeMode: "contain", */
     height: 180,
     width: 250,
     borderRadius: 20,

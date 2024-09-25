@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image,TouchableOpacity } from 'react-native';
+import { View, Text, Image,TouchableOpacity, Pressable } from 'react-native';
 import styles from './styles';
 import tipFinal from "../../assets/json/tipFinal.json";
 import images from '../../assets/json/imageMapFinal';
@@ -20,12 +20,13 @@ const FinalTip = ({route,  navigation }) => {
            <Text style={styles.textTips}>{tip.textTip}</Text>
          </View>
          {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
-         <TouchableOpacity
+         
+         <Pressable
            onPress={() => navigation.navigate("Main")}
            style={styles.button}
          >
            <Text style={styles.buttonText}>Finalizar</Text>
-         </TouchableOpacity>
+         </Pressable>
        </View>
      );
     

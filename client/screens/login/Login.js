@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert, Pressable } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
@@ -249,9 +249,10 @@ async function sendDates() {
           {errors.confirmPassword ? (
             <Text style={styles.errorText}>{errors.confirmPassword}</Text>
           ) : null}
-          <TouchableOpacity style={styles.button} onPress={sendDates}>
+          
+          <Pressable style={styles.button} onPress={sendDates}>
             <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </ScrollView>

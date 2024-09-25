@@ -13,6 +13,7 @@ function InfoViolence() {
             <Image
               source={require("../../assets/img/infoViolence/mujer_preguntas.png")}
               style={styles.imagetitleUno}
+              resizeMode="cover"
             />
           </View>
           <View style={styles.textTitle}>
@@ -42,6 +43,7 @@ function InfoViolence() {
             <Image
               source={require("../../assets/img/infoViolence/vilencia fisica.png")}
               style={styles.imageTypesUno}
+              resizeMode="contain"
             />
           </View>
           <View style={styles.typesInfo}>
@@ -66,6 +68,7 @@ function InfoViolence() {
             <Image
               source={require("../../assets/img/infoViolence/violencia psicológica.png")}
               style={styles.imageTypesUno}
+              resizeMode="contain"
             />
           </View>
         </View>
@@ -76,6 +79,7 @@ function InfoViolence() {
             <Image
               source={require("../../assets/img/infoViolence/violencia sexual.png")}
               style={styles.imageTypesUno}
+              resizeMode="contain"
             />
           </View>
           <View style={styles.typesInfo}>
@@ -102,6 +106,7 @@ function InfoViolence() {
             <Image
               source={require("../../assets/img/infoViolence/violencia economica.png")}
               style={styles.imageTypesUno}
+              resizeMode="contain"
             />
           </View>
         </View>
@@ -125,6 +130,7 @@ function InfoViolence() {
           <Image
             source={require("../../assets/img/infoViolence/q.webp")}
             style={styles.imageViolentometro}
+            resizeMode="contain"
           />
         </View>
 

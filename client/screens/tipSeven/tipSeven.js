@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Alert
+  Alert, 
+  Pressable
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
@@ -70,6 +71,7 @@ function TipSevent (){
           <Image
             source={require("../../assets/img/tip7/mujerMetas.jpg")}
             style={styles.imageTipSeven}
+            resizeMode="contain"
           />
         </View>
         {/* --------------------------------------------section reto y description  */}
@@ -90,9 +92,10 @@ function TipSevent (){
           {mis_Metas.map((goal, index) => (
             <View key={index} style={styles.goalItem}>
               <Text>{goal}</Text>
-              <TouchableOpacity onPress={() => deleteGoal(index)}>
+              
+              <Pressable onPress={() => deleteGoal(index)}>
                 <Text style={styles.eliminarTexto}>X</Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           ))}
         </View>
@@ -103,14 +106,16 @@ function TipSevent (){
           onChangeText={setGoal}
           onSubmitEditing={addGoal}
         />
-        <TouchableOpacity style={styles.enviarButtonn} onPress={addGoal}>
+       
+        <Pressable style={styles.enviarButtonn} onPress={addGoal}>
           <Text style={styles.enviarButtonText}>Generar</Text>
-        </TouchableOpacity>
+        </Pressable>
 
         <View>
-          <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
+          
+          <Pressable style={styles.enviarButton} onPress={enviarDatos}>
             <Text style={styles.enviarButtonText}>Enviar</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </ScrollView>
     </View>
