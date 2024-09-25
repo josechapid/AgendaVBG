@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {  Text, View, Button, Image, TouchableOpacity, ScrollView} from 'react-native';
+import {  Text, View, Image, Pressable, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from "./styles";
 
@@ -46,12 +46,12 @@ const Bienvenida = () => {
           </Text>
         </View>
 
-        <TouchableOpacity
+        <Pressable
           style={styles.button}
           onPress={() => navigation.navigate("Ingresar")}
         >
           <Text style={styles.buttonText}>Siguiente</Text>
-        </TouchableOpacity>
+        </Pressable>
       </ScrollView>
     );
 };

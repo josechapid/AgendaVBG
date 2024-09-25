@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, TextInput,Pressable, ScrollView, Alert } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
@@ -12,18 +12,26 @@ function TipFive () {
      const { dia, ejercicio} = useSelector((state) => state.tip.tipFive);
      const userIdR = useSelector((state) => state.tip.user)
 
+
     const [currentDay, setCurrentDay] = useState("");
     const [currentExercise, setCurrentExercise] = useState("");
 
     const handleAddDay = () => {
-    if (currentDay.trim() !== "") {
+    if (currentDay.trim() === "") {
+       Alert.alert("Campo vacío", "Por favor, ingrese un día antes de generar.");
+      
+    }else{
       dispatch(setTipFiveDay(currentDay));
       setCurrentDay("");
     }
+
   };
 
   const handleAddExercise = () => {
-    if (currentExercise.trim() !== "") {
+    if (currentExercise.trim() === "") {
+      Alert.alert("Campo vacío", "Por favor, ingrese un ejercicio antes de generar.");
+      
+    }else{
       dispatch(setTipFiveExercise(currentExercise));
       setCurrentExercise("");
     }
@@ -40,6 +48,10 @@ function TipFive () {
      
 
     const handleEnviarDatos = async () => {
+      if (dia.length === 0 || ejercicio.length === 0) {
+      Alert.alert("Campos vacíos", "Por favor, complete todos los campos antes de enviar.");
+      return;
+    }
         try{
             const data = {
                 user_id: userIdR.data.id,
@@ -79,40 +91,40 @@ function TipFive () {
           onChangeText={setCurrentDay}
           style={styles.input}
         />
-        <TouchableOpacity style={styles.button} onPress={handleAddDay}>
+        <Pressable style={styles.button} onPress={handleAddDay}>
           <Text style={styles.generateButtonText}>Generar</Text>
-        </TouchableOpacity>
+        </Pressable>
         <TextInput
           placeholder="Ejercicio"
           value={currentExercise}
           onChangeText={setCurrentExercise}
           style={styles.input}
         />
-        <TouchableOpacity style={styles.button} onPress={handleAddExercise}>
+        <Pressable style={styles.button} onPress={handleAddExercise}>
           <Text style={styles.generateButtonText}>Generar</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
       <View style={styles.generatedContainer}>
         {dia.map((d, index) => (
           <View key={index} style={styles.listItem}>
             <Text>{d}</Text>
-            <TouchableOpacity onPress={() => handleDeleteDay(index)}>
+            <Pressable onPress={() => handleDeleteDay(index)}>
               <Text style={styles.deleteButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
         {ejercicio.map((e, index) => (
           <View key={index} style={styles.listItem}>
             <Text>{e}</Text>
-            <TouchableOpacity onPress={() => handleDeleteExercise(index)}>
+            <Pressable onPress={() => handleDeleteExercise(index)}>
               <Text style={styles.deleteButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         ))}
       </View>
-      <TouchableOpacity style={styles.button} onPress={handleEnviarDatos}>
+      <Pressable style={styles.button} onPress={handleEnviarDatos}>
         <Text style={styles.buttonText}>Enviar</Text>
-      </TouchableOpacity>
+      </Pressable>
     </ScrollView>
     )
 }

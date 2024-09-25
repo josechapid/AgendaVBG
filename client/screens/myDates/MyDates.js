@@ -14,8 +14,16 @@ const Dates = () => {
     const [confirmed, setConfirmed] = React.useState(false);
     const [isSnackbarVisible, setSnackbarVisible] = React.useState(false);
     const [isEditing, setIsEditing] = React.useState(false); // Nuevo estado para editar
-    const userId = useSelector((state) => state.tip.user.data.id);
+    const userId = useSelector((state) => state.tip.user?.data?.id);
     const [appointmentId, setAppointmentId] = React.useState(null); 
+
+    if (!userId) {
+    return (
+        <View>
+            <Text>Cargando usuario...</Text>
+        </View>
+    );
+}
 
     const showDatePicker = () => {
         setDatePickerVisibility(true);

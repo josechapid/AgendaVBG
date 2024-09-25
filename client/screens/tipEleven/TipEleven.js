@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import {  Text, View, Image, TextInput, Pressable, ScrollView } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { setHowDoIFeel } from "../../redux_toolkit/features/counter/Slice";
@@ -70,11 +70,11 @@ const TipEleven = () => {
                 </View>
             </View>
             </View>
-            <TouchableOpacity 
+            <Pressable
                 style={styles.button}
                 onPress={enviarDatos}>
                 <Text style={styles.buttonText}>Enviar</Text>
-            </TouchableOpacity>
+            </Pressable>
             </ScrollView>
         </View>
     )

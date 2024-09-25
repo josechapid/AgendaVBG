@@ -44,50 +44,76 @@ const Feedback = ({route }) => {
         fetchResponse();
     }, [userIdR.data.id, tipId]);
     
-
 const renderResponse = (response, eleven) => {
-      if (typeof response === 'string') {
-        return (
-            <View style={styles.responseContainer}>
-                <Text style={styles.responseText}>{response}</Text>
+  if (tipId === 5 && typeof response === 'object' && response !== null) {
+    // Aseguramos que response.dia y response.ejercicio sean arrays
+    const dias = Array.isArray(response.dia) ? response.dia : [response.dia];
+    const ejercicios = Array.isArray(response.ejercicio) ? response.ejercicio : [response.ejercicio];
+
+    return (
+      <View style={styles.responseContainer}>
+        {/* Fila de títulos */}
+        <View style={styles.responseTitles}>
+          <Text style={styles.keyText}>Día:</Text>
+          <Text style={styles.keyText}>Ejercicio:</Text>
+        </View>
+        {/* Fila de valores (multiples días y ejercicios) */}
+        {dias.map((dia, index) => (
+          <View key={index} style={styles.responseRow}>
+            {/* Mostrar el día */}
+            <View style={styles.responseItem}>
+              <Text style={styles.responseText}>{dia}</Text>
             </View>
-        );
-    } else if (Array.isArray(response)) {
-        return response.map((item, index) => (
-            <View style={styles.responseContainer} key={index}>
-                {renderResponse(item)}  
+            {/* Mostrar el ejercicio correspondiente */}
+            <View style={styles.responseItem}>
+              <Text style={styles.responseText}>{ejercicios[index] || ''}</Text>
             </View>
-        ));
-    } else if (typeof response === 'object' && response !== null) {
-        return (
-          <View style={styles.responseContainer}>
-            {Object.entries(response).map(([key, value]) => (
-              <View key={key} style={styles.responseContainerObject}>
-                <Text style={styles.keyText}>{key}:</Text>
-                {renderResponse(value)}
-              </View>
-            ))}
           </View>
-        );
-    } else if (typeof eleven === 'object' && eleven !== null) {
-        return (
-          <View style={styles.responseContainer}>
-            {Object.entries(eleven).map(([key, value]) => (
-              <View key={key} style={styles.responseContainerObject}>
-                <Text style={styles.keyText}>{key}:</Text>
-                {renderResponse(value)}
-              </View>
-            ))}
+        ))}
+      </View>
+    );
+  } else if (typeof response === 'string') {
+    return (
+      <View style={styles.responseContainer}>
+        <Text style={styles.responseText}>{response}</Text>
+      </View>
+    );
+  } else if (Array.isArray(response)) {
+    return response.map((item, index) => (
+      <View style={styles.responseContainer} key={index}>
+        {renderResponse(item)}
+      </View>
+    ));
+  } else if (typeof response === 'object' && response !== null) {
+    return (
+      <View style={styles.responseContainer}>
+        {Object.entries(response).map(([key, value]) => (
+          <View key={key} style={styles.responseContainerObject}>
+            <Text style={styles.keyText}>{key}:</Text>
+            {renderResponse(value)}
           </View>
-        );
-    } else {
-        return (
-            <View style={styles.responseContainer}>
-                <Text style={styles.responseText}>Tipo de dato no soportado</Text>
-            </View>
-        );
-    }
-    };
+        ))}
+      </View>
+    );
+  } else if (typeof eleven === 'object' && eleven !== null) {
+    return (
+      <View style={styles.responseContainer}>
+        {Object.entries(eleven).map(([key, value]) => (
+          <View key={key} style={styles.responseContainerObject}>
+            <Text style={styles.keyText}>{key}:</Text>
+            {renderResponse(value)}
+          </View>
+        ))}
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.responseContainer}>
+        <Text style={styles.responseText}>Tipo de dato no soportado</Text>
+      </View>
+    );
+  }
+};
 
     if (loading) {
         return <ActivityIndicator size="large" color="#0000ff" />;

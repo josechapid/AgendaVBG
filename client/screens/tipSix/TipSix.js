@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput,TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput,Pressable, Alert } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
@@ -11,8 +11,22 @@ function TipSix () {
     const dispatch = useDispatch();
     const descripcion = useSelector((state) => state.tip.descripcion);
     const userIdR = useSelector((state) => state.tip.user)
+
+    const [think, setThink] = useState("");
+
+    function handleAddThink(text) {
+      setThink(text)
+      dispatch(setDescriptionSeis(think.trim()))
+      
+    }
     
     const handleEnviarDatos = async () => {
+      if(descripcion === ""){
+          Alert.alert("Campo Vacio", 
+            "Por favor agrega como te sentiste"
+          );
+          return
+        }
     try {
       const data = {
         user_id: userIdR.data.id,
@@ -51,16 +65,16 @@ function TipSix () {
                     
                     placeholder="Escribe aquí tu descripción"
                     multiline
-                    onChangeText={text => dispatch(setDescriptionSeis(text))} 
-                    value={descripcion} 
+                    onChangeText={handleAddThink} 
+                    value={think} 
                 />
             </View>
             </View>
-            <TouchableOpacity 
+            <Pressable 
             style={styles.button}
             onPress={handleEnviarDatos}>
             <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
     )
 }

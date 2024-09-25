@@ -2,7 +2,7 @@ const {User}= require("../../db")
 
 const patchUserController = async (
   { id },
-  { name, user, password, address, phone, email, dateOfBirth }
+  { name, user, password, address, phone, email, dateOfBirth, avatar }
 ) => {
   try {
     // Verificar que el ID esté presente
@@ -16,7 +16,7 @@ const patchUserController = async (
       throw new Error("Usuario no encontrado");
     }
 
-    const upDateData = { name, user, password, address, phone, email, dateOfBirth };
+    const upDateData = { name, user, password, address, phone, email, dateOfBirth, avatar };
 
     const [updated] = await User.update(upDateData, {
       where: { id: parseInt(id, 10) }

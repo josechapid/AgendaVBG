@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container:{
         flex:0.8,
+        
     },
      scrollContainer: {
         flexGrow: 1,
@@ -58,15 +59,41 @@ textSection: {
     },
     keyText: {
         fontWeight: 'bold',
-        marginBottom: 2,
+        marginBottom: 5, //cambiado y estba en 2
         color: 'blue', 
         margin: 0,
         padding: 0 
     },
-    horizontalResponseContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        margin: 0,
-        padding: 0,
-    },
+     responseTitles: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',  // Para separar Día y Ejercicio
+    marginBottom: 5,
+  },
+    responseContainerHorizontal: {
+    flexDirection: 'row',   
+    flexWrap: 'wrap', 
+    justifyContent: 'space-between',  // Distribuir uniformemente
+    marginBottom: 10,  
+    
+    }, 
+    responseRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',  // Distribuir uniformemente los elementos
+    marginTop: 5,                    // Margen superior para separación de los títulos
+  },
+   responseItem: {
+    // flexDirection: 'row',
+    // margin: 5,
+    flex:1, 
+    alignItems: 'center',   // Alinea los elementos en el centro
+    // marginRight: 20,
+    // marginBottom: 5, 
+          
+  },
+    // horizontalResponseContainer: {
+    //     flexDirection: 'row',
+    //     flexWrap: 'wrap',
+    //     margin: 0,
+    //     padding: 0,
+    // },
 });

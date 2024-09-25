@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, Image, TextInput, Pressable, FlatList, Alert } from 'react-native';
 import styles from "./styles";
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
@@ -19,28 +19,40 @@ const TipTen = () => {
     const [tempChange, setTempChange] = useState("");
 
     const handleAddSituation = () => {
-        if (tempSituation.trim()) {
+        if (tempSituation.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese tu situacion.");
+            
+        }else{
             dispatch(setTipTenSituation(tempSituation));
             setTempSituation("");
         }
     };
 
     const handleAddHowAct = () => {
-        if (tempHowAct.trim()) {
+        if (tempHowAct.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese como actua.");
+            
+        }else{
             dispatch(setTipTenHowAct(tempHowAct));
             setTempHowAct("");
         }
     };
 
     const handleAddChange = () => {
-        if (tempChange.trim()) {
+        if (tempChange.trim() === "") {
+            Alert.alert("Campo vacío", "Por favor, ingrese su cambio.");
+            
+        }else{
             dispatch(setTipTenChange(tempChange));
             setTempChange("");
         }
     };
 
     const handleEnviarDatos = async () => {
-
+         if (situacion.length === 0 || como_actuo.length === 0 || cambio.length === 0) {
+      Alert.alert("Campos vacíos", "Por favor, complete todos los campos antes de enviar.");
+      return;
+    }
         try {
 
             const data = {
@@ -64,9 +76,9 @@ const TipTen = () => {
     const renderItem = ({ item, index }, removeAction) => (
         <View style={styles.itemContainer}>
             <Text style={styles.itemText}>{item}</Text>
-            <TouchableOpacity onPress={() => removeAction(index)}>
+            <Pressable onPress={() => removeAction(index)}>
                 <Text style={styles.removeButton}>X</Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 
@@ -124,13 +136,13 @@ const TipTen = () => {
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
-                <TouchableOpacity onPress={() => { handleAddSituation(); handleAddHowAct(); handleAddChange(); }}>
+                <Pressable onPress={() => { handleAddSituation(); handleAddHowAct(); handleAddChange(); }}>
                     <Text style={styles.button}>Generar</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
-            <TouchableOpacity style={styles.button} onPress={handleEnviarDatos}>
+            <Pressable style={styles.button} onPress={handleEnviarDatos}>
                 <Text style={styles.buttonText}>Enviar</Text>
-            </TouchableOpacity>
+            </Pressable>
         </View>
     );
 }
