@@ -80,11 +80,7 @@ function TipEight() {
             onChangeText={handleAddActivity}
             multiline
           />
-        </View>
-
-        {/* <TouchableOpacity style={styles.button} onPress={sendDates}>
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableOpacity> */}
+        </View>        
         <Pressable style={styles.button} onPress={sendDates}>
           <Text style={styles.buttonText}>Enviar</Text>
         </Pressable>

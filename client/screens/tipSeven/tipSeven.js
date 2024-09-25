@@ -92,9 +92,7 @@ function TipSevent (){
           {mis_Metas.map((goal, index) => (
             <View key={index} style={styles.goalItem}>
               <Text>{goal}</Text>
-              {/* <TouchableOpacity onPress={() => deleteGoal(index)}>
-                <Text style={styles.eliminarTexto}>X</Text>
-              </TouchableOpacity> */}
+              
               <Pressable onPress={() => deleteGoal(index)}>
                 <Text style={styles.eliminarTexto}>X</Text>
               </Pressable>
@@ -108,17 +106,13 @@ function TipSevent (){
           onChangeText={setGoal}
           onSubmitEditing={addGoal}
         />
-        {/* <TouchableOpacity style={styles.enviarButtonn} onPress={addGoal}>
-          <Text style={styles.enviarButtonText}>Generar</Text>
-        </TouchableOpacity> */}
+       
         <Pressable style={styles.enviarButtonn} onPress={addGoal}>
           <Text style={styles.enviarButtonText}>Generar</Text>
         </Pressable>
 
         <View>
-          {/* <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
-            <Text style={styles.enviarButtonText}>Enviar</Text>
-          </TouchableOpacity> */}
+          
           <Pressable style={styles.enviarButton} onPress={enviarDatos}>
             <Text style={styles.enviarButtonText}>Enviar</Text>
           </Pressable>

@@ -21,12 +21,6 @@ function TipsScreen({route,  navigation }) {
           <Text style={styles.tipText}>{tip.text}</Text>
         </View>
         <View style={styles.tipButtonContainer}>
-          {/* <TouchableOpacity
-            onPress={() => navigation.navigate(tip.navigateTo)}
-            style={styles.tipButton}
-          >
-            <Text style={styles.buttonText}>Continuar</Text>
-          </TouchableOpacity> */}
           <Pressable
             onPress={() => navigation.navigate(tip.navigateTo)}
             style={styles.tipButton}

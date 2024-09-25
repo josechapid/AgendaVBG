@@ -89,9 +89,6 @@ function HowDoIFeel (){
             />
           </View>
         </View>
-        {/* <TouchableOpacity style={styles.button} onPress={enviarDatos}>
-          <Text style={styles.buttonText}>Continuar</Text>
-        </TouchableOpacity> */}
         <Pressable style={styles.button} onPress={enviarDatos}>
           <Text style={styles.buttonText}>Continuar</Text>
         </Pressable>

@@ -104,10 +104,7 @@ function TipThree() {
             multiline
           />
         </View>
-      </View>
-      {/* <TouchableOpacity style={styles.button} onPress={enviarDatos}>
-        <Text style={styles.buttonText}>Enviar</Text>
-      </TouchableOpacity> */}
+      </View>     
       <Pressable style={styles.button} onPress={enviarDatos}>
         <Text style={styles.buttonText}>Enviar</Text>
       </Pressable>

@@ -20,12 +20,7 @@ const FinalTip = ({route,  navigation }) => {
            <Text style={styles.textTips}>{tip.textTip}</Text>
          </View>
          {/* <Text style={styles.phrase}>{textPhrase}</Text> */}
-         {/* <TouchableOpacity
-           onPress={() => navigation.navigate("Main")}
-           style={styles.button}
-         >
-           <Text style={styles.buttonText}>Finalizar</Text>
-         </TouchableOpacity> */}
+         
          <Pressable
            onPress={() => navigation.navigate("Main")}
            style={styles.button}

@@ -80,10 +80,6 @@ const HomeScreen = ({navigation}) => {
         {/* ------------------------------------section logo y title */}
         <View style={styles.userGreetingContainer}>
           {user && <Text style={styles.greeting}>Hola, {user.data.user}</Text>}
-          
-          {/* <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
-            <Ionicons name="log-out-outline" size={30} color="black" />
-          </TouchableOpacity> */}
           <Pressable onPress={handleLogout} style={styles.logoutButton}>
             <Ionicons name="log-out-outline" size={30} color="black" />
           </Pressable>
@@ -112,12 +108,6 @@ const HomeScreen = ({navigation}) => {
               {workshop.description}
             </Text>
             <View style={styles.buttonIcon}>
-              {/* <TouchableOpacity
-                style={styles.workshopButton}
-                onPress={() => handleWorkshopPress(workshop)}
-              >
-                <Text style={styles.buttonText}>Continuar</Text>
-              </TouchableOpacity> */}
               <Pressable
                 style={styles.workshopButton}
                 onPress={() => handleWorkshopPress(workshop)}

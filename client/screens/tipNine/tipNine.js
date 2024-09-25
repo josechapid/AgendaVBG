@@ -109,9 +109,7 @@ async function enviarDatos() {
             onChangeText={setRol}
           />
           <View style={styles.buttonAddPerson}>
-            {/* <TouchableOpacity style={styles.button} onPress={handlerAddPerson}>
-              <Text> Agregar Persona</Text>
-            </TouchableOpacity> */}
+            
             <Pressable style={styles.button} onPress={handlerAddPerson}>
               <Text> Agregar Persona</Text>
             </Pressable>
@@ -127,12 +125,7 @@ async function enviarDatos() {
             ))}
 
             <View>
-              {/* <TouchableOpacity
-                style={styles.enviarButton}
-                onPress={enviarDatos}
-              >
-                <Text style={styles.enviarButtonText}>Enviar</Text>
-              </TouchableOpacity> */}
+              
               <Pressable
                 style={styles.enviarButton}
                 onPress={enviarDatos}

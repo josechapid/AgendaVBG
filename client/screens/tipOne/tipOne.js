@@ -98,9 +98,7 @@ function TipOne (){
             {fortalezas.map((fortaleza, index) => (
               <View key={index} style={styles.fortalezaItem}>
                 <Text>{fortaleza}</Text>
-                {/* <TouchableOpacity onPress={() => deleteFortaleza(index)}>
-                  <Text style={styles.eliminarTexto}>X</Text>
-                </TouchableOpacity> */}
+                
                 <Pressable onPress={() => deleteFortaleza(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
                 </Pressable>
@@ -114,9 +112,7 @@ function TipOne (){
             onChangeText={setFortalezaActual}
             onSubmitEditing={addFortaleza}
           />
-          {/* <TouchableOpacity style={styles.enviarButtonn} onPress={addFortaleza}>
-            <Text style={styles.enviarButtonText}>Generar</Text>
-          </TouchableOpacity> */}
+          
           <Pressable style={styles.enviarButtonn} onPress={addFortaleza}>
             <Text style={styles.enviarButtonText}>Generar</Text>
           </Pressable>
@@ -129,9 +125,7 @@ function TipOne (){
             {debilidades.map((debilidad, index) => (
               <View key={index} style={styles.debilidadItem}>
                 <Text>{debilidad}</Text>
-                {/* <TouchableOpacity onPress={() => deleteDebilidad(index)}>
-                  <Text style={styles.eliminarTexto}>X</Text>
-                </TouchableOpacity> */}
+                
                 <Pressable onPress={() => deleteDebilidad(index)}>
                   <Text style={styles.eliminarTexto}>X</Text>
                 </Pressable>
@@ -145,18 +139,14 @@ function TipOne (){
             onChangeText={setDebilidadActual}
             onSubmitEditing={addDebilidad}
           />
-         {/*  <TouchableOpacity style={styles.enviarButtonn} onPress={addDebilidad}>
-            <Text style={styles.enviarButtonText}>Generar</Text>
-          </TouchableOpacity> */}
+         
           <Pressable style={styles.enviarButtonn} onPress={addDebilidad}>
             <Text style={styles.enviarButtonText}>Generar</Text>
           </Pressable>
 
           {/* ----------------------------------------------------boton de envio   */}
 
-          {/* <TouchableOpacity style={styles.enviarButton} onPress={enviarDatos}>
-            <Text style={styles.enviarButtonText}>Enviar</Text>
-          </TouchableOpacity> */}
+          
           <Pressable style={styles.enviarButton} onPress={enviarDatos}>
             <Text style={styles.enviarButtonText}>Enviar</Text>
           </Pressable>

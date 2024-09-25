@@ -248,9 +248,7 @@ function Login() {
           {errors.confirmPassword ? (
             <Text style={styles.errorText}>{errors.confirmPassword}</Text>
           ) : null}
-          {/* <TouchableOpacity style={styles.button} onPress={sendDates}>
-            <Text style={styles.buttonText}>Enviar</Text>
-          </TouchableOpacity> */}
+          
           <Pressable style={styles.button} onPress={sendDates}>
             <Text style={styles.buttonText}>Enviar</Text>
           </Pressable>

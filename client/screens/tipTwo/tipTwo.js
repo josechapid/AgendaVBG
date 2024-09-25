@@ -97,12 +97,7 @@ function TipTwo() {
             onChangeText={setRecompensa}
           />
           <View style={styles.buttonGenerate}>
-            {/* <TouchableOpacity
-              style={styles.button}
-              onPress={handleAddRecompensa}
-            >
-              <Text style={styles.textGenerate}>Generar</Text>
-            </TouchableOpacity> */}
+            
             <Pressable
               style={styles.button}
               onPress={handleAddRecompensa}
@@ -122,12 +117,7 @@ function TipTwo() {
               </View>
             ))}
             <View>
-              {/* <TouchableOpacity
-                style={styles.enviarButton}
-                onPress={enviarDatos}
-              >
-                <Text style={styles.enviarButtonText}>Enviar</Text>
-              </TouchableOpacity> */}
+             
               <Pressable
                 style={styles.enviarButton}
                 onPress={enviarDatos}
