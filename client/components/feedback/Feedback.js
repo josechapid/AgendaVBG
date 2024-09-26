@@ -45,29 +45,35 @@ const Feedback = ({route }) => {
     }, [userIdR.data.id, tipId]);
     
 const renderResponse = (response, eleven) => {
-  if (tipId === 5 && typeof response === 'object' && response !== null) {
-    // Aseguramos que response.dia y response.ejercicio sean arrays
-    const dias = Array.isArray(response.dia) ? response.dia : [response.dia];
-    const ejercicios = Array.isArray(response.ejercicio) ? response.ejercicio : [response.ejercicio];
+  if ((tipId === 5 || tipId === 10) && typeof response === 'object' && response !== null) {
+    const isTipFive = tipId === 5;
+    //Se asegura que los arrays están bien formateados
+    const firstArray = isTipFive ? Array.isArray(response.dia) ? response.dia : [response.dia] : Array.isArray(response.situacion) ? response.situacion : [response.situacion];
+    const secondArray = isTipFive ? Array.isArray(response.ejercicio) ? response.ejercicio : [response.ejercicio] : Array.isArray(response.como_actuo) ? response.como_actuo : [response.como_actuo];
+    const thirdArray = !isTipFive ? Array.isArray(response.cambio) ? response.cambio : [response.cambio] : [];
 
     return (
       <View style={styles.responseContainer}>
-        {/* Fila de títulos */}
+        
         <View style={styles.responseTitles}>
-          <Text style={styles.keyText}>Día:</Text>
-          <Text style={styles.keyText}>Ejercicio:</Text>
+          <Text style={styles.keyText}>{isTipFive ? 'Día:' : 'Situación:'}</Text>
+          <Text style={styles.keyText}>{isTipFive ? 'Ejercicio:' : 'Cómo actúo:'}</Text>
+          {!isTipFive && <Text style={styles.keyText}>Cambio:</Text>}
         </View>
-        {/* Fila de valores (multiples días y ejercicios) */}
-        {dias.map((dia, index) => (
+        
+        {firstArray.map((item, index) => (
           <View key={index} style={styles.responseRow}>
-            {/* Mostrar el día */}
             <View style={styles.responseItem}>
-              <Text style={styles.responseText}>{dia}</Text>
+              <Text style={styles.responseText}>{item}</Text>
             </View>
-            {/* Mostrar el ejercicio correspondiente */}
             <View style={styles.responseItem}>
-              <Text style={styles.responseText}>{ejercicios[index] || ''}</Text>
+              <Text style={styles.responseText}>{secondArray[index] || ''}</Text>
             </View>
+            {!isTipFive && (
+              <View style={styles.responseItem}>
+                <Text style={styles.responseText}>{thirdArray[index] || ''}</Text>
+              </View>
+            )}
           </View>
         ))}
       </View>

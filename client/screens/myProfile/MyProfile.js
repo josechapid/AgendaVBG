@@ -38,7 +38,7 @@ const MyProfile = () => {
       try {
         const storedUserData = await AsyncStorage.getItem('userData');
         if (storedUserData) {
-           console.log("Datos cargados de AsyncStorage:", JSON.parse(storedUserData));
+          //  console.log("Datos cargados de AsyncStorage:", JSON.parse(storedUserData));
           const { name, user, email, avatar, id } = JSON.parse(storedUserData);
           setNombre(name);
           setUsuario(user);
@@ -63,7 +63,7 @@ const MyProfile = () => {
       try {
         const response = await axios.get(`https://agendavbg-frp4.onrender.com/user/${userId}`);
         const { name, user, email, avatar } = response.data.data;
-        console.log("Datos recibidos del servidor:", { name, user, email, avatar });
+        // console.log("Datos recibidos del servidor:", { name, user, email, avatar });
 
         setNombre(name || '');
         setUsuario(user || '');
@@ -71,10 +71,10 @@ const MyProfile = () => {
         setAvatar(avatar || ''); //del servidor
        
         const userDataToStore = { name: name || '', user: user || '', email: email || '',avatar: avatar || '', id: userId };
-      console.log("Datos que se guardarán en AsyncStorage:", userDataToStore);
+      // console.log("Datos que se guardarán en AsyncStorage:", userDataToStore);
         try{
            await AsyncStorage.setItem('userData', JSON.stringify(userDataToStore));
-  console.log("Datos guardados en AsyncStorage:", userDataToStore);
+  // console.log("Datos guardados en AsyncStorage:", userDataToStore);
         }catch(error){
            console.error("Error guardando en AsyncStorage:", error);
         }
@@ -94,7 +94,7 @@ const MyProfile = () => {
 
   
   const handleSaveChanges = async () => {
-    console.log("Valores a guardar:", { nombre, usuario, correo, avatar });
+    // console.log("Valores a guardar:", { nombre, usuario, correo, avatar });
     if (!userId) {
       console.error('ID de usuario no definido');
       return;
@@ -199,14 +199,14 @@ const MyProfile = () => {
       </View>
 
        {/* Modal para seleccionar avatar */}
-      <View style={styles.modal}>
+      
       <Modal
         animationType="slide"
-        transparent={false}
+        transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        
+        <View style={styles.modal}>
         <View style={styles.modalContainer}>
           <FlatList
             data={avatarImages}
@@ -216,16 +216,18 @@ const MyProfile = () => {
                   rounded
                   size="large"
                   source={item}
-                  containerStyle={styles.avatarItem}
+                  containerStyle={{margin:10}}
                 />
               </Pressable>
             )}
             keyExtractor={(item, index) => index.toString()}
             horizontal
+            contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
           />
         </View>
+        </View>
       </Modal>
-      </View>
+      
     </ScrollView>
   );
 };

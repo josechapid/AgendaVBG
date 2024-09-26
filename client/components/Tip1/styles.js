@@ -18,7 +18,7 @@ export default StyleSheet.create({
     height: 200,
   },
   tipImage: {
-    /* resizeMode: "contain", */
+    
     height: 200,
     width: 300,
   },

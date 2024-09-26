@@ -53,14 +53,22 @@ export default StyleSheet.create({
     flex: 1, 
     alignItems: 'center',
     justifyContent: 'center',
-    
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  //   position: 'absolute',
+  // top: 0,
+  // left: 0,
+  // right: 0,
+  // bottom: 0,
    
   },
   modalContainer: {
     backgroundColor: '#d9d9d9',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
+    width: '80%', 
+    height: '50%', 
+    borderRadius: 10,
+    padding: 10, 
     
   },
   
