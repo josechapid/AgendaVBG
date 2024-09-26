@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView, Pressable } from "react-native";
+import { View, Text, Image, ScrollView, Pressable } from "react-native";
 import styles from "./styles"
 import tips from '../../assets/json/tips.json'
 import images from "../../assets/json/imageMap";

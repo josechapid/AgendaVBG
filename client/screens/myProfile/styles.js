@@ -49,4 +49,19 @@ export default StyleSheet.create({
     alignSelf: "center",
     marginTop: 50,
   },
+  modal:{
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+   
+  },
+  modalContainer: {
+    backgroundColor: '#d9d9d9',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    
+  },
+  
 });

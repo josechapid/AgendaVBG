@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, Text, TouchableOpacity, TextInput, Alert} from "react-native";
+import {View, Text, Pressable, TextInput, Alert} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setNewUser } from "../../redux_toolkit/features/counter/Slice";
@@ -58,7 +58,7 @@ function SignIn () {
                     placeholder="Correo electrónico"
                     value={email}
                     onChangeText={setEmail}
-                    keyboardType="email-address"
+                    inputMode="email-address"
                     autoCapitalize="none"
                 />
                 <TextInput
@@ -68,9 +68,9 @@ function SignIn () {
                     onChangeText={setPassword}
                     secureTextEntry={true}
                 />
-                <TouchableOpacity style={styles.button} onPress={handleLogin}>
+                <Pressable style={styles.button} onPress={handleLogin}>
                     <Text style={styles.buttonText}>Enviar</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
         </View>
     );
