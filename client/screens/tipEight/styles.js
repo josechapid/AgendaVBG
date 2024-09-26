@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   imageTipEight: {
-    /* resizeMode: "contain", */
+    
     height: 200,
     width: 200,
     borderRadius: 20,
@@ -66,6 +66,6 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     height: 300,
-    textAlignVertical: "top", // Para asegurar que el texto empieza desde la parte superior
+    verticalAlign: "top", 
   },
 });

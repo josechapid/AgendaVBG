@@ -199,12 +199,14 @@ const MyProfile = () => {
       </View>
 
        {/* Modal para seleccionar avatar */}
+      <View style={styles.modal}>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent={false}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
+        
         <View style={styles.modalContainer}>
           <FlatList
             data={avatarImages}
@@ -223,6 +225,7 @@ const MyProfile = () => {
           />
         </View>
       </Modal>
+      </View>
     </ScrollView>
   );
 };

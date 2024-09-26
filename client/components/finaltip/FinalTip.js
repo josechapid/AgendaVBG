@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image,TouchableOpacity, Pressable } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import styles from './styles';
 import tipFinal from "../../assets/json/tipFinal.json";
 import images from '../../assets/json/imageMapFinal';

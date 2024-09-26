@@ -63,7 +63,7 @@ img:{
         paddingHorizontal: 10, 
         paddingVertical: 10, 
         borderRadius: 8, 
-        textAlignVertical: 'top', 
+        verticalAlign: 'top', 
         fontSize: 16, 
         marginTop:20,
         marginBottom:10

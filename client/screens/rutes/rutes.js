@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
 function Rutes(){

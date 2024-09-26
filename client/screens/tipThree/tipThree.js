@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, TouchableOpacity, TextInput, Alert, Pressable } from "react-native";
+import { View, Text, Image, TextInput, Alert, Pressable } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
