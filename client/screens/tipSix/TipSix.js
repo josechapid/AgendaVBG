@@ -1,7 +1,7 @@
-import { View, Text, Image, TextInput,Pressable, Alert } from "react-native";
+import { View, Text, Image, TextInput,Pressable, Alert, BackHandler } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
 import { setDescriptionSeis, clearDescriptionSeis } from '../../redux_toolkit/features/counter/Slice';
 import axios from "axios";
@@ -14,6 +14,19 @@ function TipSix () {
 
     const [think, setThink] = useState("");
 
+    useFocusEffect(
+      React.useCallback(() => {
+        const onBackPress = () => {
+          return true; // Esto bloquea la acción de regresar
+        };
+
+        BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+        return () => {
+          BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+        };
+      }, [])
+    );
     function handleAddThink(text) {
       setThink(text)
       dispatch(setDescriptionSeis(think.trim()))

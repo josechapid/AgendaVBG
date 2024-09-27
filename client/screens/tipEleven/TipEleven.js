@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {  Text, View, Image, TextInput, Pressable, ScrollView } from 'react-native';
+import {  Text, View, Image, TextInput, Pressable, ScrollView, BackHandler } from 'react-native';
 import styles from "./styles";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { setHowDoIFeel } from "../../redux_toolkit/features/counter/Slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -12,7 +12,19 @@ const TipEleven = () => {
     const userIdR = useSelector((state) => state.tip.user);
     const {howDoIFeel}= useSelector((state)=>state.tip)
     const [feeling, setFeeling] = useState(''); 
+useFocusEffect(
+  React.useCallback(() => {
+    const onBackPress = () => {
+      return true; // Esto bloquea la acción de regresar
+    };
 
+    BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+    };
+  }, [])
+);
     function handleSend(text){        
         setFeeling(text)
         dispatch(setHowDoIFeel(text.trim()));
@@ -56,7 +68,7 @@ const TipEleven = () => {
                 />
                <View style={styles.section}>
                 <View style={styles.textSection}>
-                    <Text style={styles.textCenter}>Como me senti</Text>
+                    <Text style={styles.textCenter}>Como me sentí</Text>
                 </View>
                 <View style={styles.description}>
                 

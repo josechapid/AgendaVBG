@@ -68,19 +68,19 @@ const MyProfile = () => {
         setNombre(name || '');
         setUsuario(user || '');
         setCorreo(email || '');
-        setAvatar(avatar || ''); //del servidor
+        setAvatar(avatar || '');
        
         const userDataToStore = { name: name || '', user: user || '', email: email || '',avatar: avatar || '', id: userId };
-      // console.log("Datos que se guardarán en AsyncStorage:", userDataToStore);
+   
         try{
            await AsyncStorage.setItem('userData', JSON.stringify(userDataToStore));
-  // console.log("Datos guardados en AsyncStorage:", userDataToStore);
+  
         }catch(error){
            console.error("Error guardando en AsyncStorage:", error);
         }
  
 
-        // Actualizar el estado de Redux con los datos más recientes
+       
         dispatch(updateUserData({ name, user, email, avatar, id: userId }));
       } catch (error) {
         console.error('Error al cargar los datos del usuario:', error);
@@ -94,7 +94,7 @@ const MyProfile = () => {
 
   
   const handleSaveChanges = async () => {
-    // console.log("Valores a guardar:", { nombre, usuario, correo, avatar });
+    
     if (!userId) {
       console.error('ID de usuario no definido');
       return;
@@ -163,7 +163,11 @@ const MyProfile = () => {
           <Avatar
             rounded
             size="large"
-            source={avatar ? { uri: avatar } : require("../../assets/img/myProfile/avatar1.jpg")}
+            source={
+              avatar
+                ? { uri: avatar }
+                : require("../../assets/img/myProfile/avatar1.jpg")
+            }
             containerStyle={styles.img}
           />
           <Text style={styles.button}>Seleccionar Avatar</Text>
@@ -198,8 +202,8 @@ const MyProfile = () => {
         </Pressable>
       </View>
 
-       {/* Modal para seleccionar avatar */}
-      
+      {/* Modal para seleccionar avatar */}
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -207,27 +211,33 @@ const MyProfile = () => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modal}>
-        <View style={styles.modalContainer}>
-          <FlatList
-            data={avatarImages}
-            renderItem={({ item }) => (
-              <Pressable onPress={() => handleAvatarSelect(item)}>
-                <Avatar
-                  rounded
-                  size="large"
-                  source={item}
-                  containerStyle={{margin:10}}
-                />
-              </Pressable>
-            )}
-            keyExtractor={(item, index) => index.toString()}
-            horizontal
-            contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
-          />
-        </View>
+          <View style={styles.modalContainer}>
+            <FlatList
+              data={avatarImages}
+              renderItem={({ item }) => (
+                <Pressable onPress={() => handleAvatarSelect(item)}>
+                  <Avatar
+                    rounded
+                    size={120}
+                    source={item}
+                    containerStyle={{
+                      margin: 20,
+                      width: 180,
+                      height: 180,
+                    }}
+                  />
+                </Pressable>
+              )}
+              keyExtractor={(item, index) => index.toString()}
+              horizontal
+              contentContainerStyle={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            />
+          </View>
         </View>
       </Modal>
-      
     </ScrollView>
   );
 };

@@ -54,11 +54,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  //   position: 'absolute',
-  // top: 0,
-  // left: 0,
-  // right: 0,
-  // bottom: 0,
    
   },
   modalContainer: {
@@ -66,7 +61,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '80%', 
-    height: '50%', 
+    height: '40%', 
     borderRadius: 10,
     padding: 10, 
     

@@ -111,62 +111,111 @@ export default function App() {
   }
   return (
     <Provider store={store}>
-     <PersistGate 
+      <PersistGate
         loading={
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <ActivityIndicator size="large" color="#0000ff" /> 
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <ActivityIndicator size="large" color="#0000ff" />
           </View>
-        } 
+        }
         persistor={persistor}
       >
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Bienvenida">
-          <Stack.Screen
-            name="Bienvenida"
-            component={Bienvenida}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Ingresar"
-            component={Ingresar}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SingIn"
-            component={SingIn}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Main"
-            component={MyTabs}
-            options={{ headerShown: false }}
-          />
-                   
-          <Stack.Screen name="TipsScreen" component={TipsScreen} />
-          <Stack.Screen name="FinalTip" component={FinalTip} />
-          <Stack.Screen name="TipOne" component={TipOne} />
-          <Stack.Screen name="TipTwo" component={TipTwo} />
-          <Stack.Screen name="TipThree" component={TipThree} />
-          <Stack.Screen name="TipFour" component={TipFour} />
-          <Stack.Screen name="TipFive" component={TipFive} />
-          <Stack.Screen name="TipSix" component={TipSix} />
-          <Stack.Screen name="TipSeven" component={TipSeven} />
-          <Stack.Screen name="TipEight" component={TipEight} />
-          <Stack.Screen name="TipNine" component={TipNine} />
-          <Stack.Screen name="Avatar" component={Avatar} />
-          <Stack.Screen name="Password" component={Password} />
-          <Stack.Screen name="TipTen" component={TipTen} />
-          <Stack.Screen name="TipEleven" component={TipEleven} />
-          <Stack.Screen name="HowDoIFeel" component={HowDoIFeel} />
-          <Stack.Screen name="Feedback" component={Feedback} />
-          
-        </Stack.Navigator>
-      </NavigationContainer>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Bienvenida">
+            <Stack.Screen
+              name="Bienvenida"
+              component={Bienvenida}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Ingresar"
+              component={Ingresar}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="SingIn"
+              component={SingIn}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Main"
+              component={MyTabs}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen name="TipsScreen" component={TipsScreen} />
+            <Stack.Screen
+              name="FinalTip"
+              component={FinalTip}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipOne"
+              component={TipOne}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipTwo"
+              component={TipTwo}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipThree"
+              component={TipThree}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipFour"
+              component={TipFour}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipFive"
+              component={TipFive}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipSix"
+              component={TipSix}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipSeven"
+              component={TipSeven}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipEight"
+              component={TipEight}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipNine"
+              component={TipNine}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen name="Avatar" component={Avatar} />
+            <Stack.Screen name="Password" component={Password} />
+            <Stack.Screen
+              name="TipTen"
+              component={TipTen}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen
+              name="TipEleven"
+              component={TipEleven}
+              options={{ headerShown: true, headerLeft: null }}
+            />
+            <Stack.Screen name="HowDoIFeel" component={HowDoIFeel} />
+            <Stack.Screen name="Feedback" component={Feedback} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </PersistGate>
     </Provider>
   );
