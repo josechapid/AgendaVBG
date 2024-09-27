@@ -72,7 +72,15 @@ const renderResponse = (response, eleven) => {
         ))}
       </View>
     );
-  } else if (typeof response === 'string') {
+  } else if (tipId === 9 && Array.isArray(response)) {
+    // Caso específico para tip 9, solo mostrar name y rol, excluir id
+    return response.map((item, index) => (
+      <View key={index} style={styles.responseContainer}>
+        <Text style={styles.keyText}>Nombre: {item.name}</Text>
+        <Text style={styles.keyText}>Rol: {item.rol}</Text>
+      </View>
+    ))}
+  else if (typeof response === 'string') {
     return (
       <View style={styles.responseContainer}>
         <Text style={styles.responseText}>{response}</Text>

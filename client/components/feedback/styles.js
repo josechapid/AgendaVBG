@@ -60,7 +60,7 @@ textSection: {
     keyText: {
         fontWeight: 'bold',
         marginBottom: 5, //cambiado y estba en 2
-        color: 'blue', 
+        color: 'black', 
         margin: 0,
         padding: 0 
     },

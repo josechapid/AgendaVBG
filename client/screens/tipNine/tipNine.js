@@ -5,11 +5,12 @@ import {
   Image,
   TextInput,
   Alert,
-  Pressable
+  Pressable,
+  BackHandler
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { setSupportNet } from "../../redux_toolkit/features/counter/Slice";
 import { useSelector, useDispatch } from "react-redux"; 
 import axios from "axios";
@@ -23,7 +24,19 @@ function TipNine() {
     const [rol, setRol] = useState ("")
     const [people, setPeople]=useState([])
     const [idCounter, setIdCounter] = useState(1);
+useFocusEffect(
+  React.useCallback(() => {
+    const onBackPress = () => {
+      return true; // Esto bloquea la acción de regresar
+    };
 
+    BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+    };
+  }, [])
+);
 function handlerAddPerson(){
        if (name.trim() === "" || rol.trim() === "") {
          Alert.alert(

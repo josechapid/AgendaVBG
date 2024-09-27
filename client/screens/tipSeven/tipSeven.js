@@ -5,11 +5,12 @@ import {
   Image,
   TextInput,
   Alert, 
-  Pressable
+  Pressable,
+  BackHandler
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setMyGoals,
@@ -24,6 +25,19 @@ function TipSevent (){
   const userIdR = useSelector((state) => state.tip.user);
   const [goal, setGoal] = useState("");
 
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true; // Esto bloquea la acción de regresar
+      };
+
+      BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+      };
+    }, [])
+  );
   function addGoal() {
       if (goal.trim() === "") {
         Alert.alert(
