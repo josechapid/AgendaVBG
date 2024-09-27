@@ -6,8 +6,8 @@ export default StyleSheet.create({
         
     },
     scrollContainer: {
-    paddingHorizontal: 15, // Espaciado horizontal (izquierda y derecha)
-    paddingVertical: 20,   // Espaciado vertical (arriba y abajo)
+    paddingHorizontal: 15, 
+    paddingVertical: 20,   
 },
     topSection:{
         flex: 0.5,
