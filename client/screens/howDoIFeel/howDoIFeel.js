@@ -57,7 +57,7 @@ function HowDoIFeel (){
         </View>
         {/* --------------------------------------------section reto y description  */}
         <View style={styles.textSection}>
-          <Text style={styles.text}>¿Como me siento?</Text>
+          <Text style={styles.text}>¿Cómo me siento?</Text>
         </View>
         <View style={styles.textDescription}>
           <Text style={styles.description}>

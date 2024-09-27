@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Text, View, Image, TextInput, Pressable, FlatList, Alert } from 'react-native';
+import { Text, View, Image, TextInput, Pressable, FlatList, Alert, BackHandler } from 'react-native';
 import styles from "./styles";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
 import { setTipTenSituation, setTipTenHowAct, setTipTenChange, clearTipTen, removeSituation, removeHowAct,removeChange  } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
@@ -17,6 +17,19 @@ const TipTen = () => {
     const [tempSituation, setTempSituation] = useState("");
     const [tempHowAct, setTempHowAct] = useState("");
     const [tempChange, setTempChange] = useState("");
+    useFocusEffect(
+      React.useCallback(() => {
+        const onBackPress = () => {
+          return true; // Esto bloquea la acción de regresar
+        };
+
+        BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+        return () => {
+          BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+        };
+      }, [])
+    );
 
     const handleAddSituation = () => {
         if (tempSituation.trim() === "") {

@@ -66,6 +66,7 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     height: 300,
-    verticalAlign: "top", 
+        textAlignVertical: "top", // Para asegurar que el texto empieza desde la parte superior
+
   },
 });

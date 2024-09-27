@@ -121,7 +121,7 @@ function Login() {
 
 async function sendDates() {
   if (Object.values(errors).some((error) => error !== "")) {
-    Alert.alert("Error", "Por favor corrige los errores antes de continuar.");
+    Alert.alert("Para", "Por favor corrige los errores antes de continuar.");
     return;
   }
 

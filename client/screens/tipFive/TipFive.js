@@ -1,7 +1,7 @@
-import { View, Text, Image, TextInput,Pressable, ScrollView, Alert } from "react-native";
+import { View, Text, Image, TextInput,Pressable, ScrollView, Alert, BackHandler } from "react-native";
 import styles from "./styles";
 import React, { useState } from "react";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect  } from '@react-navigation/native';
 import { useDispatch, useSelector } from "react-redux";
 import { setTipFiveDay, deleteTipFiveDay, setTipFiveExercise, deleteTipFiveExercise, clearTipFive } from "../../redux_toolkit/features/counter/Slice";
 import axios from "axios";
@@ -15,6 +15,20 @@ function TipFive () {
 
     const [currentDay, setCurrentDay] = useState("");
     const [currentExercise, setCurrentExercise] = useState("");
+
+    useFocusEffect(
+      React.useCallback(() => {
+        const onBackPress = () => {
+          return true; // Esto bloquea la acción de regresar
+        };
+
+        BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+        return () => {
+          BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+        };
+      }, [])
+    );
 
     const handleAddDay = () => {
     if (currentDay.trim() === "") {

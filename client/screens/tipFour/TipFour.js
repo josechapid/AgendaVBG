@@ -1,8 +1,17 @@
-import { View, Text, Image, TextInput,Pressable, ScrollView, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Pressable,
+  ScrollView,
+  Alert,
+  BackHandler,
+} from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 // import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setDescription, clearDescription } from '../../redux_toolkit/features/counter/Slice';
@@ -16,6 +25,20 @@ function TipFour () {
     const userIdR = useSelector((state) => state.tip.user)
 
     const [experience, setExperience] = useState("");
+
+    useFocusEffect(
+      React.useCallback(() => {
+        const onBackPress = () => {
+          return true; // Esto bloquea la acción de regresar
+        };
+
+        BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+        return () => {
+          BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+        };
+      }, [])
+    );
 
     function handleAddExperience(text) {
       setExperience(text)
@@ -56,6 +79,7 @@ function TipFour () {
     }
   };
 
+
    return(
         <ScrollView style={styles.container}>
             <View style={styles.topSection}>
@@ -80,7 +104,7 @@ function TipFour () {
           volume={1.0}
           isMuted={false}
           resizeMode="contain"
-          // shouldPlay
+          shouldPlay
           useNativeControls
           style={{ width: '100%', height: 150 }} 
         />

@@ -77,6 +77,7 @@ export default StyleSheet.create({
         borderRadius: 5,
         marginBottom: 5,
         height: 50,
+        margin:15
     },
     listItemText: {
         fontSize: 16,
