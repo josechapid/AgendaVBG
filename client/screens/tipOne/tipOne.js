@@ -5,11 +5,12 @@ import {
   Image,
   TextInput,
   Alert,
-  Pressable
+  Pressable,
+  BackHandler
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from './styles'
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { setFortalezas, setDebilidades, deleteFortalezas, deleteDebilidades } from '../../redux_toolkit/features/counter/Slice';
 import {useDispatch, useSelector} from "react-redux"
 import axios from 'axios'
@@ -22,7 +23,19 @@ function TipOne (){
     const [fortalezaActual, setFortalezaActual] = useState("");
     const [debilidadActual, setDebilidadActual] = useState("");
     
+useFocusEffect(
+  React.useCallback(() => {
+    const onBackPress = () => {
+      return true; // Esto bloquea la acción de regresar
+    };
 
+    BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+    };
+  }, [])
+);
     function addFortaleza() {
         if (fortalezaActual.trim() !== "") {
         dispatch(setFortalezas(fortalezaActual.trim()))

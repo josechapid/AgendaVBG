@@ -1,8 +1,16 @@
 import React, {useState} from "react";
-import { View, Text, Image, TextInput, Alert, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Alert,
+  Pressable,
+  BackHandler,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { setForgivenessLetter } from "../../redux_toolkit/features/counter/Slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios"
@@ -20,6 +28,19 @@ function TipThree() {
     setUserExperience(text);
     dispatch(setForgivenessLetter(text.trim()));
   }
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        return true; // Esto bloquea la acción de regresar
+      };
+
+      BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+      return () => {
+        BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+      };
+    }, [])
+  );
 
   async function enviarDatos (){
      if (userExperience.trim() === "") {
